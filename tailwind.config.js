@@ -162,8 +162,8 @@ module.exports = {
       pink: colors.pink,
       rose: colors.rose,
       'custom-teal': {
-        default:'#0E8992',
-        dark: '#0D4442',
+        'base':'#0E8992',
+        'dark': '#0D4442',
       },
       'custom-apricot': '#FFD3BE',
     }),

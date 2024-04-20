@@ -496,42 +496,28 @@ video {
 }
 
 .btn {
-  width: 8rem;
+  height: 2rem;
+  width: 10rem;
   border-radius: 9999px;
   font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
-  --tw-text-opacity: 1;
-  color: rgb(255 255 255 / var(--tw-text-opacity));
+  font-size: 1.125rem;
+  line-height: 1.75rem;
 }
 
 .btn-primary {
   --tw-bg-opacity: 1;
   background-color: rgb(14 137 146 / var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
 .btn-secondary {
+  border-width: 1px;
+  border-style: solid;
+  --tw-border-opacity: 1;
+  border-color: rgb(13 68 66 / var(--tw-border-opacity));
   --tw-bg-opacity: 1;
-  background-color: rgb(107 114 128 / var(--tw-bg-opacity));
-}
-
-.w-32 {
-  width: 8rem;
-}
-
-.rounded-full {
-  border-radius: 9999px;
-}
-
-.bg-gray-500 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(107 114 128 / var(--tw-bg-opacity));
-}
-
-.bg-teal-500 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(20 184 166 / var(--tw-bg-opacity));
-}
-
-.text-white {
+  background-color: rgb(255 211 190 / var(--tw-bg-opacity));
   --tw-text-opacity: 1;
-  color: rgb(255 255 255 / var(--tw-text-opacity));
+  color: rgb(13 68 66 / var(--tw-text-opacity));
 }

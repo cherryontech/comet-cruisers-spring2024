@@ -10,7 +10,7 @@
   }
 
   .btn-primary {
-    @apply bg-custom-teal text-white;
+    @apply bg-custom-teal-base text-white;
   }
 
   .btn-secondary {
