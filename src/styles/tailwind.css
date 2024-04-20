@@ -3,3 +3,17 @@
 @import "tailwindcss/components";
 
 @import "tailwindcss/utilities";
+
+@layer components {
+  .btn {
+    @apply font-serif text-lg rounded-full w-40 h-8;
+  }
+
+  .btn-primary {
+    @apply bg-custom-teal text-white;
+  }
+
+  .btn-secondary {
+    @apply bg-custom-apricot text-custom-teal-dark border border-solid border-custom-teal-dark;
+  }
+}

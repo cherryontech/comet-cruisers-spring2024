@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
+import './styles/tailwind.css';
 
 function App() {
   return (
@@ -16,6 +17,8 @@ function App() {
           rel="noopener noreferrer">
           Learn React
         </a>
+        <Button type="button" name="test" text="test" class="btn btn-primary" />
+        <Button type="button" name="test2" text="test2" class="btn btn-secondary" />
       </header>
     </div>
   );

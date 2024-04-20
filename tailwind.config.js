@@ -1,7 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    "./src/**/*.{js,jsx,ts,tsx}",
+    './src/**/*.{html,js,jsx,ts,tsx}',
   ],
   presets: [],
   darkMode: 'media', // or 'class'
@@ -161,6 +161,11 @@ module.exports = {
       fuchsia: colors.fuchsia,
       pink: colors.pink,
       rose: colors.rose,
+      'custom-teal': {
+        default:'#0E8992',
+        dark: '#0D4442',
+      },
+      'custom-apricot': '#FFD3BE',
     }),
     columns: {
       auto: 'auto',
@@ -191,9 +196,6 @@ module.exports = {
       '7xl': '80rem',
     },
     container: {},
-    content: {
-      none: 'none',
-    },
     contrast: {
       0: '0',
       50: '.5',
@@ -1063,4 +1065,3 @@ module.exports = {
   },
   plugins: [],
 }
-
