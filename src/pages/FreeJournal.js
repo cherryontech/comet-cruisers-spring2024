@@ -2,12 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const FreeJournal = () => {
-  return(
+  return (
     <div>
-        <header>
-            This is the temporary free journal page
-        </header>
-        
+      <header>This is the temporary free journal page</header>
+      <Link to="/">go back</Link>
     </div>
   );
 };

@@ -2,12 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const PromptJournal = () => {
-  return(
+  return (
     <div>
-        <header>
-            This is the temporary prompt journal page
-        </header>
-        
+      <header>This is the temporary free prompt page</header>
+      <Link to="/">go back</Link>
     </div>
   );
 };
