@@ -1,4 +1,5 @@
 import './App.css';
+import './styles/main.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import Home from './pages/Home';
@@ -15,6 +16,7 @@ function App() {
         <Route path="/free-journal" element={<FreeJournal />} />
         <Route path="/prompt-journal" element={<PromptJournal />} />
       </Routes>
+      <div className="text-3xl font-bold underline"> testing tailwind</div>
     </Router>
   );
 }
