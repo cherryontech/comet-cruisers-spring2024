@@ -4,9 +4,15 @@
 
 @import "tailwindcss/utilities";
 
+@layer base {
+  h1{
+    @apply font-sans text-5xl;
+  }
+}
+
 @layer components {
   .btn {
-    @apply font-serif text-lg rounded-full w-40 h-8;
+    @apply font-sans text-lg rounded-full w-40 h-8;
   }
 
   .btn-primary {
