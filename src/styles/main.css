@@ -495,6 +495,33 @@ video {
   --tw-contain-style:  ;
 }
 
+.btn {
+  height: 2rem;
+  width: 10rem;
+  border-radius: 9999px;
+  font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+
+.btn-primary {
+  --tw-bg-opacity: 1;
+  background-color: rgb(14 137 146 / var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.btn-secondary {
+  border-width: 1px;
+  border-style: solid;
+  --tw-border-opacity: 1;
+  border-color: rgb(13 68 66 / var(--tw-border-opacity));
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 211 190 / var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: rgb(13 68 66 / var(--tw-text-opacity));
+}
+
 .text-3xl {
   font-size: 1.875rem;
   line-height: 2.25rem;
