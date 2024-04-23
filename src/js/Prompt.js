@@ -44,6 +44,7 @@ const GeneratePrompt = () => {
   return (
     <div>
       <h1>{prompts[curPrompt]}</h1>
+      <h3>Let&apos;s respond to today&apos;s prompt.</h3>
       <button type="button" onClick={handleClick}>
         Randomize Prompt
       </button>
