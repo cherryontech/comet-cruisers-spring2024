@@ -1,18 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+
 @import "tailwindcss/base";
-
 @import "tailwindcss/components";
-
 @import "tailwindcss/utilities";
 
+body {
+  font-family: 'Josefin Sans', sans-serif;
+}
+
 @layer base {
-  h1{
-    @apply font-sans text-5xl;
+  body {
+    @apply text-custom-teal-dark;
   }
 }
 
 @layer components {
   .btn {
-    @apply font-sans text-lg rounded-full w-40 h-8;
+    @apply text-lg rounded-full w-40 h-8;
   }
 
   .btn-primary {
@@ -21,5 +25,17 @@
 
   .btn-secondary {
     @apply bg-custom-apricot text-custom-teal-dark border border-solid border-custom-teal-dark;
+  }
+
+  .shuffle-icon {
+    @apply text-custom-teal-base bg-transparent h-7 w-7;
+  }
+
+  .prompt {
+    @apply text-4xl;
+  }
+
+  .subheading {
+    @apply text-xl;
   }
 }
