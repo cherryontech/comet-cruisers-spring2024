@@ -7,6 +7,7 @@ import 'reactjs-popup/dist/index.css';
 const Home = () => {
   return (
     <main>
+      <h1 className="text-3xl font-bold underline">Title</h1>
       <header>This is the temporary home page</header>
       <br />
       <Popup trigger={<button>ChooseJournal</button>} modal nested>
