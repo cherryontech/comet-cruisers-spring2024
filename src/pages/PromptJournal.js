@@ -9,16 +9,10 @@ const PromptJournal = () => {
   };
 
   return (
-    <div>
+    <div className="journal-entry">
       <GeneratePrompt />
       <Link to="/">go back</Link>
-      <Button
-        type="button"
-        name="save"
-        text="Save"
-        class="btn btn-primary"
-        onclick={fillerFunc}
-      />
+      <Button type="button" name="save" text="Save" class="btn btn-primary" onclick={fillerFunc} />
     </div>
   );
 };

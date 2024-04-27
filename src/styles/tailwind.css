@@ -4,13 +4,21 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
+html {
+  min-height: 100%;
+}
+
 body {
   font-family: 'Josefin Sans', sans-serif;
+  background-image: url('../assets/Waves.svg');
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  background-position: bottom;
 }
 
 @layer base {
   body {
-    @apply text-custom-teal-dark;
+    @apply text-custom-teal-dark bg-custom-apricot;
   }
 }
 
@@ -24,11 +32,15 @@ body {
   }
 
   .btn-secondary {
-    @apply bg-custom-apricot text-custom-teal-dark border border-solid border-custom-teal-dark;
+    @apply bg-white text-custom-teal-dark border border-solid border-custom-teal-dark;
   }
 
   .shuffle-icon {
     @apply text-custom-teal-base bg-transparent h-7 w-7;
+  }
+
+  .journal-entry {
+    @apply bg-white bg-opacity-50 h-screen p-4;
   }
 
   .prompt {

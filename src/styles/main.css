@@ -395,8 +395,10 @@ video {
 }
 
 body{
+  --tw-bg-opacity: 1;
+  background-color: rgb(125 211 252 / var(--tw-bg-opacity));
   --tw-text-opacity: 1;
-  color: rgb(13 68 66 / var(--tw-text-opacity));
+  color: rgb(0 44 65 / var(--tw-text-opacity));
 }
 
 *, ::before, ::after{
@@ -526,6 +528,12 @@ body{
   --tw-text-opacity: 1;
   color: rgb(14 137 146 / var(--tw-text-opacity));
 }
+.journal-entry{
+  height: 100vh;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+  --tw-bg-opacity: 0.5;
+  padding: 1rem;
+}
 .prompt{
   font-size: 2.25rem;
   line-height: 2.5rem;
@@ -545,6 +553,14 @@ body{
   text-decoration-line: underline;
 }
 
+html {
+  min-height: 100%;
+}
+
 body {
   font-family: 'Josefin Sans', sans-serif;
+  background-image: url('../assets/Waves.svg');
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  background-position: bottom;
 }
