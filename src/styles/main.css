@@ -396,7 +396,7 @@ video {
 
 body{
   --tw-bg-opacity: 1;
-  background-color: rgb(125 211 252 / var(--tw-bg-opacity));
+  background-color: rgb(255 211 190 / var(--tw-bg-opacity));
   --tw-text-opacity: 1;
   color: rgb(0 44 65 / var(--tw-text-opacity));
 }
