@@ -35,8 +35,12 @@ body {
     @apply bg-white text-custom-teal-dark border border-solid border-custom-teal-dark;
   }
 
-  .shuffle-icon {
-    @apply text-custom-teal-base bg-transparent h-7 w-7;
+  .icon {
+    @apply text-custom-teal-base bg-transparent;
+  }
+
+  .shuffle {
+    @apply h-7 w-7;
   }
 
   .journal-entry {

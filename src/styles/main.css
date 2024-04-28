@@ -521,12 +521,14 @@ body{
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
-.shuffle-icon{
-  height: 1.75rem;
-  width: 1.75rem;
+.icon{
   background-color: transparent;
   --tw-text-opacity: 1;
   color: rgb(14 137 146 / var(--tw-text-opacity));
+}
+.shuffle{
+  height: 1.75rem;
+  width: 1.75rem;
 }
 .journal-entry{
   height: 100vh;
