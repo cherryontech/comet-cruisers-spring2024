@@ -2,12 +2,14 @@ import React from 'react';
 
 import { Link } from 'react-router-dom';
 import Popup from 'reactjs-popup';
+import Todo from '../js/Todo';
 import 'reactjs-popup/dist/index.css';
 
 const Home = () => {
   return (
     <main>
       <header>This is the temporary home page</header>
+      <Todo></Todo>
       <br />
       <Popup trigger={<button>ChooseJournal</button>} modal nested>
         {(close) => (
