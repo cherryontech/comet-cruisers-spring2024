@@ -7,11 +7,11 @@ const Todo = () => {
   //default json for empty storage
   let default_lists = [
     {
-      list_name: 'enter list name',
+      list_name: '',
       tasks: [
         {
           checked: false,
-          task_name: 'enter to_do'
+          task_name: ''
         }
       ]
     }
@@ -32,16 +32,16 @@ const Todo = () => {
       <p> This is the todo list area</p>
       <form className="todolists">
         {listsState.map((l, ind) => (
-          <div className="list-wrapper">
-            <input type='text' value={l.list_name}></input>
+          <div key={l.list_name} className="list-wrapper">
+            <input type="text" value={l.list_name} placeholder="enter list name"></input>
             {l.tasks.map((task) => (
-              <div className='task-wrapper'>
+              <div key={task.task_name} className="task-wrapper">
                 <input
                   className="task-input"
                   type="checkbox"
                   name="task_check"
                   checked={task.checked}></input>
-                <input type='text' value={task.task_name}></input>
+                <input type="text" value={task.task_name} placeholder="enter task name"></input>
               </div>
             ))}
           </div>
