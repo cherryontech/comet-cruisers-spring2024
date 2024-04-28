@@ -33,15 +33,15 @@ const Todo = () => {
       <form className="todolists">
         {listsState.map((l, ind) => (
           <div className="list-wrapper">
-            <div>{l.list_name}</div>
+            <input type='text' value={l.list_name}></input>
             {l.tasks.map((task) => (
-              <div>
+              <div className='task-wrapper'>
                 <input
                   className="task-input"
                   type="checkbox"
                   name="task_check"
                   checked={task.checked}></input>
-                <input value={task.task_name}></input>
+                <input type='text' value={task.task_name}></input>
               </div>
             ))}
           </div>
