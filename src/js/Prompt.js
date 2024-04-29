@@ -44,7 +44,7 @@ const GeneratePrompt = () => {
 
   return (
     <div>
-      <div>
+      <div className="prompt-container">
         <p className="prompt">{prompts[curPrompt]}</p>
         <button type="button" onClick={handleClick}>
           <FaShuffle className="shuffle-icon" />

@@ -8,12 +8,12 @@
   ],
   "plugins": ["react", "import", "jsx-a11y", "prettier"],
   "rules": {
-    "prettier/prettier": "error",
     "react/prop-types": 0,
-    "indent": ["error", 2],
+    "indent": "off",
     "linebreak-style": 1,
     "quotes": ["error", "single"],
-    "react/react-in-jsx-scope": "off"
+    "react/react-in-jsx-scope": "off",
+    "prettier/prettier": "error"
   },
   "parserOptions": {
     "ecmaVersion": 2021,
