@@ -9,7 +9,7 @@ function MyComponent() {
     toolbar: toolbarOptions,
   };
 
-  return <ReactQuill modules {module} theme="snow" value={value} onChange={setValue} />;
+  return <ReactQuill modules {...module} theme="snow" value={value} onChange={setValue} />;
 }
 
 export default MyComponent;
