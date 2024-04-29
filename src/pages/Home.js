@@ -3,6 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
+import DisplayJournal from '../js/displayEntries.js';
 
 const Home = () => {
   return (
@@ -29,6 +30,9 @@ const Home = () => {
       </Popup>
       <br />
       <br />
+      <div>
+        <DisplayJournal />
+      </div>
       <footer>This is a temp footer</footer>
     </main>
   );

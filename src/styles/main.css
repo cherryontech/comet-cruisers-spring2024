@@ -194,7 +194,6 @@ Remove the inheritance of text transform in Edge and Firefox.
 button,
 select {
   text-transform: none;
-  margin: 5px;
 }
 
 /*
@@ -542,6 +541,12 @@ body{
 .subheading{
   font-size: 1.25rem;
   line-height: 1.75rem;
+}
+.block{
+  display: block;
+}
+.flex{
+  display: flex;
 }
 .text-3xl{
   font-size: 1.875rem;

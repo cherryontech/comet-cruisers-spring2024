@@ -1,33 +1,49 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import Button from '../js/Button.js';
+import SaveButton from '../js/saveButton.js';
+import ClearButton from '../js/clearButton.js';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 
 const FreeJournal = () => {
-  const fillerFunc = () => {
-    console.log('button test');
-  };
-
-  const clearFunc = () => {
-    console.log('Clearing the entry button');
-    setValue('');
-  };
-
   const [value, setValue] = useState('');
   const [title, setTitle] = useState('');
+
+  useEffect(() => {
+    // This registers the fonts only once when the component mounts
+    const Font = ReactQuill.Quill.import('formats/font');
+    Font.whitelist = ['mirza', 'roboto'];
+    ReactQuill.Quill.register(Font, true);
+  }, []);
 
   const handleTitleChange = (event) => {
     setTitle(event.target.value); // Updates the title as the user types
   };
-  const Font = ReactQuill.Quill.import('formats/font');
-  Font.whitelist = ['mirza', 'roboto'];
-  ReactQuill.Quill.register(Font, true);
+
+  const clearButton = () => {
+    console.log('Clearing the entry button');
+    setValue('');
+  };
+
+  const saveEntry = () => {
+    if (!value.trim()) {
+      // If `value` (text box) is empty or contains only whitespace, don't save and alert the user.
+      alert('Cannot save an empty entry.');
+      return; // Exit the function early to prevent saving an empty entry.
+    }
+    const journalEntry = {
+      title: title,
+      content: value
+    };
+    localStorage.setItem('journalEntry', JSON.stringify(journalEntry));
+    alert('Entry saved!');
+  };
 
   return (
     <div
-      className="journal-entry"
+      className="freeJournal-entry-title"
       style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+      <br></br>
       <h1 className="text-3xl font-bold underline" style={{ textAlign: 'center' }}>
         Free Flowing Journal
       </h1>
@@ -36,14 +52,16 @@ const FreeJournal = () => {
       </h2>
 
       <div
+        className="journal-entry"
         style={{
           backgroundColor: '#F6EFDE',
           boxShadow: '0 4px 6px rgba(0,0,0,0.1)',
           borderRadius: '10px',
           width: '100%',
           maxWidth: '1000px',
+          maxHeight: '300px',
           padding: '20px',
-          margin: '20px auto' // This will center the div and maintain 20px margin from top and bottom
+          margin: '20px auto'
         }}>
         <input
           type="text"
@@ -62,8 +80,9 @@ const FreeJournal = () => {
         />
         <ReactQuill theme="snow" value={value} onChange={setValue} />
       </div>
-      <Button type="button" name="clear" text="Clear" class="btn btn-primary" onclick={clearFunc} />
-      <Button type="button" name="save" text="Save" class="btn btn-primary" onclick={fillerFunc} />
+
+      <SaveButton saveEntry={saveEntry} />
+      <ClearButton clearButton={clearButton} />
       <Link to="/">Go Back</Link>
     </div>
   );
