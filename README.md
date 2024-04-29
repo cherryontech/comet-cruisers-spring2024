@@ -4,10 +4,10 @@
 The project repo for the Comet Cruisers! Our application will focus on user burnout from work or school.
 
 
-# **Welcome to [App Name]!**
+# **Welcome to SeaScribe!**
 
 
-[App Name] is a wellness app designed to provide a nurturing space for individuals grappling with burnout from the demands of school or work. Our mission is to prioritize mental well-being by offering a seamless and supportive platform that encourages users to unwind, reflect, and rejuvenate.
+SeaScribe is a wellness app designed to provide a nurturing space for individuals grappling with burnout from the demands of school or work. Our mission is to prioritize mental well-being by offering a seamless and supportive platform that encourages users to unwind, reflect, and rejuvenate.
 
 
 
