@@ -508,6 +508,39 @@ body{
   --tw-contain-paint:  ;
   --tw-contain-style:  ;
 }
+.container{
+  width: 100%;
+}
+@media (min-width: 640px){
+
+  .container{
+    max-width: 640px;
+  }
+}
+@media (min-width: 768px){
+
+  .container{
+    max-width: 768px;
+  }
+}
+@media (min-width: 1024px){
+
+  .container{
+    max-width: 1024px;
+  }
+}
+@media (min-width: 1280px){
+
+  .container{
+    max-width: 1280px;
+  }
+}
+@media (min-width: 1536px){
+
+  .container{
+    max-width: 1536px;
+  }
+}
 .btn{
   height: 2rem;
   width: 10rem;
@@ -520,6 +553,16 @@ body{
   background-color: rgb(14 137 146 / var(--tw-bg-opacity));
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+.btn-secondary{
+  border-width: 1px;
+  border-style: solid;
+  --tw-border-opacity: 1;
+  border-color: rgb(0 44 65 / var(--tw-border-opacity));
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: rgb(0 44 65 / var(--tw-text-opacity));
 }
 .shuffle-icon{
   height: 1.75rem;
@@ -547,6 +590,9 @@ body{
 }
 .flex{
   display: flex;
+}
+.border{
+  border-width: 1px;
 }
 .text-3xl{
   font-size: 1.875rem;

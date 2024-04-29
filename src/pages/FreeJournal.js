@@ -41,7 +41,7 @@ const FreeJournal = () => {
 
   return (
     <div
-      className="freeJournal-entry-title"
+      className="journal-entry"
       style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
       <br></br>
       <h1 className="text-3xl font-bold underline" style={{ textAlign: 'center' }}>
@@ -52,7 +52,7 @@ const FreeJournal = () => {
       </h2>
 
       <div
-        className="journal-entry"
+        className="text-entry"
         style={{
           backgroundColor: '#F6EFDE',
           boxShadow: '0 4px 6px rgba(0,0,0,0.1)',
