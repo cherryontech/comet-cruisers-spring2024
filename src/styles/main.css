@@ -194,6 +194,7 @@ Remove the inheritance of text transform in Edge and Firefox.
 button,
 select {
   text-transform: none;
+  margin: 5px;
 }
 
 /*
@@ -396,7 +397,7 @@ video {
 
 body{
   --tw-bg-opacity: 1;
-  background-color: rgb(125 211 252 / var(--tw-bg-opacity));
+  background-color: rgb(255 211 190 / var(--tw-bg-opacity));
   --tw-text-opacity: 1;
   color: rgb(0 44 65 / var(--tw-text-opacity));
 }
@@ -548,6 +549,9 @@ body{
 }
 .font-bold{
   font-weight: 700;
+}
+.italic{
+  font-style: italic;
 }
 .underline{
   text-decoration-line: underline;
