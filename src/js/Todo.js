@@ -26,22 +26,56 @@ const Todo = () => {
   // init lists state
   const [listsState, setListsState] = useState(lists);
 
+  const onTaskChange = (e) => {
+    const { name, value, checked } = e.target;
+    const indL = e.target.getAttribute('indexlist');
+    const indT = e.target.getAttribute('indextask');
+
+    const lists = [...listsState];
+    if (name == 'task_name') {
+      lists[indL].tasks[indT] = {
+        // keep info to the specific set
+        ...listsState[indL].tasks[indT],
+        //set new info
+        [name]: value
+      };
+    } else {
+      lists[indL].tasks[indT] = {
+        // keep info to the specific set
+        ...listsState[indL].tasks[indT],
+        //set new info
+        [name]: checked
+      };
+    }
+    setListsState(lists);
+  };
+
   //html
   return (
     <div>
       <p> This is the todo list area</p>
       <form className="todolists">
-        {listsState.map((l, ind) => (
-          <div key={l.list_name} className="list-wrapper">
-            <input type="text" value={l.list_name} placeholder="enter list name"></input>
-            {l.tasks.map((task) => (
+        {listsState.map((list, indL) => (
+          <div key={list.list_name} className="list-wrapper">
+            <input type="text" value={list.list_name} placeholder="enter list name"></input>
+            {list.tasks.map((task, indT) => (
               <div key={task.task_name} className="task-wrapper">
                 <input
                   className="task-input"
                   type="checkbox"
-                  name="task_check"
-                  checked={task.checked}></input>
-                <input type="text" value={task.task_name} placeholder="enter task name"></input>
+                  name="checked"
+                  checked={task.checked}
+                  indexlist={indL}
+                  indextask={indT}
+                  onChange={onTaskChange}></input>
+                <input
+                  type="text"
+                  name="task_name"
+                  value={task.task_name}
+                  placeholder="enter task name"
+                  indexlist={indL}
+                  indextask={indT}
+                  onChange={onTaskChange}></input>
               </div>
             ))}
           </div>
