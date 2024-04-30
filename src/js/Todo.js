@@ -15,19 +15,6 @@ const Todo = () => {
             task_name: ''
           }
         ]
-      },
-      {
-        list_name: 'test 2nd',
-        tasks: [
-          {
-            checked: true,
-            task_name: 'test task'
-          },
-          {
-            checked: false,
-            task_name: 'test task'
-          }
-        ]
       }
     ]
   };
@@ -143,11 +130,9 @@ const Todo = () => {
                   indexlist={indL}
                   indextask={indT}
                   onChange={onTaskChange}></input>
-                
               </div>
             ))}
             <br />
-
           </div>
         ))}
         <button type="submit">Save</button>
