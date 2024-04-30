@@ -5,17 +5,32 @@ const Todo = () => {
   let storedLists = localStorage.getItem('todo_lists');
   let lists = JSON.parse(storedLists);
   //default json for empty storage
-  let default_lists = [
-    {
-      list_name: '',
-      tasks: [
-        {
-          checked: false,
-          task_name: ''
-        }
-      ]
-    }
-  ];
+  let default_lists = {
+    lists: [
+      {
+        list_name: '',
+        tasks: [
+          {
+            checked: false,
+            task_name: ''
+          }
+        ]
+      },
+      {
+        list_name: 'test 2nd',
+        tasks: [
+          {
+            checked: true,
+            task_name: 'test task'
+          },
+          {
+            checked: false,
+            task_name: 'test task'
+          }
+        ]
+      }
+    ]
+  };
 
   if (!storedLists) {
     localStorage.setItem('todo_lists', JSON.stringify(default_lists));
@@ -29,68 +44,49 @@ const Todo = () => {
   const onListChange = (e) => {
     const { name, value } = e.target;
     const indL = e.target.getAttribute('indexlist');
-    const lists = [...listsState];
+    console.log(indL);
 
+    const lists = [...listsState.lists];
     lists[indL] = {
       // keep info to the specific list
-      ...listsState[indL],
+      ...listsState.lists[indL],
       //set new info
       [name]: value
     };
-    setListsState(lists);
+    setListsState({ lists });
   };
   const onTaskChange = (e) => {
     const { name, value, checked } = e.target;
     const indL = e.target.getAttribute('indexlist');
     const indT = e.target.getAttribute('indextask');
 
-    const lists = [...listsState];
+    const lists = [...listsState.lists];
     if (name == 'task_name') {
       lists[indL].tasks[indT] = {
         // keep info to the specific set
-        ...listsState[indL].tasks[indT],
+        ...listsState.lists[indL].tasks[indT],
         //set new info
         [name]: value
       };
     } else {
       lists[indL].tasks[indT] = {
         // keep info to the specific set
-        ...listsState[indL].tasks[indT],
+        ...listsState.lists[indL].tasks[indT],
         //set new info
         [name]: checked
       };
     }
-    setListsState(lists);
-  };
-
-  // init lists state
-  const [testState, setTestState] = useState({
-    test: 'test'
-  });
-  const onTestChange = (e) => {
-    const { name, value } = e.target;
-
-    let test = testState;
-
-    test = {
-      [name]: value
-    };
-    setTestState(test);
+    setListsState({ lists });
   };
 
   //html
   return (
     <div>
       <p> This is the todo list area</p>
-      <input
-        type="text"
-        name="test"
-        value={testState.test}
-        placeholder="placeholder"
-        onChange={onTestChange}></input>
+
       <form className="todolists">
-        {listsState.map((list, indL) => (
-          <div key={list.list_name} className="list-wrapper">
+        {listsState.lists.map((list, indL) => (
+          <div key={indL} className="list-wrapper">
             <input
               type="text"
               name="list_name"
@@ -99,7 +95,7 @@ const Todo = () => {
               indexlist={indL}
               onChange={onListChange}></input>
             {list.tasks.map((task, indT) => (
-              <div key={task.task_name} className="task-wrapper">
+              <div key={indT} className="task-wrapper">
                 <input
                   className="task-input"
                   type="checkbox"
