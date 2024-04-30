@@ -79,9 +79,24 @@ const Todo = () => {
     setListsState({ lists });
   };
 
+  const addList = () => {
+    const lists = [...listsState.lists];
+    lists.push({
+      list_name: '',
+      tasks: [{ task_name: '', checked: false }]
+    });
+    setListsState({ lists });
+  };
+  const addTask = (indL) => {
+    const lists = [...listsState.lists];
+    lists[indL].tasks.push({ task_name: '', checked: false });
+    setListsState({ lists });
+  };
+
   const handleFormSubmit = (e) => {
     // prevents form submitting to itself
     e.preventDefault();
+    // saves to local storage
     localStorage.setItem('todo_lists', JSON.stringify(listsState));
   };
 
@@ -91,6 +106,7 @@ const Todo = () => {
       <p> This is the todo list area</p>
 
       <form className="todolists" onSubmit={handleFormSubmit}>
+        <button onClick={addList}>Add List</button>
         {listsState.lists.map((list, indL) => (
           <div key={indL} className="list-wrapper">
             <input
@@ -100,6 +116,15 @@ const Todo = () => {
               placeholder="Enter list name"
               indexlist={indL}
               onChange={onListChange}></input>
+            <br />
+            <button
+              onClick={(event) => {
+                event.preventDefault();
+                addTask(indL);
+              }}>
+              Add Task
+            </button>
+            <br />
             {list.tasks.map((task, indT) => (
               <div key={indT} className="task-wrapper">
                 <input
@@ -118,13 +143,14 @@ const Todo = () => {
                   indexlist={indL}
                   indextask={indT}
                   onChange={onTaskChange}></input>
+                
               </div>
             ))}
+            <br />
+
           </div>
         ))}
-        <button type='submit' className="overwrite-btn">
-          Save
-        </button>
+        <button type="submit">Save</button>
       </form>
     </div>
   );
