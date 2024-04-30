@@ -25,6 +25,9 @@ const Home = () => {
             <button>
               <Link to="/prompt-journal">PromptJournal</Link>
             </button>
+            <button>
+              <Link to="/free-journal">FreeJournal</Link>
+            </button>
           </div>
         )}
       </Popup>

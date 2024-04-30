@@ -63,10 +63,31 @@ const Todo = () => {
     setListsState(lists);
   };
 
+  // init lists state
+  const [testState, setTestState] = useState({
+    test: 'test'
+  });
+  const onTestChange = (e) => {
+    const { name, value } = e.target;
+
+    let test = testState;
+
+    test = {
+      [name]: value
+    };
+    setTestState(test);
+  };
+
   //html
   return (
     <div>
       <p> This is the todo list area</p>
+      <input
+        type="text"
+        name="test"
+        value={testState.test}
+        placeholder="placeholder"
+        onChange={onTestChange}></input>
       <form className="todolists">
         {listsState.map((list, indL) => (
           <div key={list.list_name} className="list-wrapper">
