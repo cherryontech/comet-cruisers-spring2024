@@ -26,6 +26,19 @@ const Todo = () => {
   // init lists state
   const [listsState, setListsState] = useState(lists);
 
+  const onListChange = (e) => {
+    const { name, value } = e.target;
+    const indL = e.target.getAttribute('indexlist');
+    const lists = [...listsState];
+
+    lists[indL] = {
+      // keep info to the specific list
+      ...listsState[indL],
+      //set new info
+      [name]: value
+    };
+    setListsState(lists);
+  };
   const onTaskChange = (e) => {
     const { name, value, checked } = e.target;
     const indL = e.target.getAttribute('indexlist');
@@ -57,7 +70,13 @@ const Todo = () => {
       <form className="todolists">
         {listsState.map((list, indL) => (
           <div key={list.list_name} className="list-wrapper">
-            <input type="text" value={list.list_name} placeholder="enter list name"></input>
+            <input
+              type="text"
+              name="list_name"
+              value={list.list_name}
+              placeholder="Enter list name"
+              indexlist={indL}
+              onChange={onListChange}></input>
             {list.tasks.map((task, indT) => (
               <div key={task.task_name} className="task-wrapper">
                 <input
@@ -72,7 +91,7 @@ const Todo = () => {
                   type="text"
                   name="task_name"
                   value={task.task_name}
-                  placeholder="enter task name"
+                  placeholder="Enter task name"
                   indexlist={indL}
                   indextask={indT}
                   onChange={onTaskChange}></input>
