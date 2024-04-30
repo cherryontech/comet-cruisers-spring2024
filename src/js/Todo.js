@@ -22,9 +22,8 @@ const Todo = () => {
   if (!storedLists) {
     localStorage.setItem('todo_lists', JSON.stringify(default_lists));
     lists = default_lists;
-  } else {
-    console.log(lists);
   }
+
   // init lists state
   const [listsState, setListsState] = useState(lists);
 
@@ -42,6 +41,7 @@ const Todo = () => {
     };
     setListsState({ lists });
   };
+
   const onTaskChange = (e) => {
     const { name, value, checked } = e.target;
     const indL = e.target.getAttribute('indexlist');
@@ -57,9 +57,7 @@ const Todo = () => {
       };
     } else {
       lists[indL].tasks[indT] = {
-        // keep info to the specific set
         ...listsState.lists[indL].tasks[indT],
-        //set new info
         [name]: checked
       };
     }
@@ -74,6 +72,7 @@ const Todo = () => {
     });
     setListsState({ lists });
   };
+
   const addTask = (indL) => {
     const lists = [...listsState.lists];
     lists[indL].tasks.push({ task_name: '', checked: false });
@@ -94,6 +93,8 @@ const Todo = () => {
 
       <form className="todolists" onSubmit={handleFormSubmit}>
         <button onClick={addList}>Add List</button>
+        <br />
+        <br />
         {listsState.lists.map((list, indL) => (
           <div key={indL} className="list-wrapper">
             <input
@@ -103,14 +104,6 @@ const Todo = () => {
               placeholder="Enter list name"
               indexlist={indL}
               onChange={onListChange}></input>
-            <br />
-            <button
-              onClick={(event) => {
-                event.preventDefault();
-                addTask(indL);
-              }}>
-              Add Task
-            </button>
             <br />
             {list.tasks.map((task, indT) => (
               <div key={indT} className="task-wrapper">
@@ -132,11 +125,20 @@ const Todo = () => {
                   onChange={onTaskChange}></input>
               </div>
             ))}
+            <button
+              onClick={(event) => {
+                event.preventDefault();
+                addTask(indL);
+              }}>
+              Add Task
+            </button>
+            <br />
             <br />
           </div>
         ))}
         <button type="submit">Save</button>
       </form>
+      <p> This is the end of the todo list area</p>
     </div>
   );
 };

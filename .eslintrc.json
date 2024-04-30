@@ -14,7 +14,7 @@
     "linebreak-style": 1,
     "quotes": ["error", "single"],
     "react/react-in-jsx-scope": "off",
-    "react/no-unknown-property": ["error", { "ignore": ["css"] }]
+    "react/no-unknown-property": "off"
   },
   "parserOptions": {
     "ecmaVersion": 2021,
