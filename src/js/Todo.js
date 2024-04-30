@@ -79,12 +79,18 @@ const Todo = () => {
     setListsState({ lists });
   };
 
+  const handleFormSubmit = (e) => {
+    // prevents form submitting to itself
+    e.preventDefault();
+    localStorage.setItem('todo_lists', JSON.stringify(listsState));
+  };
+
   //html
   return (
     <div>
       <p> This is the todo list area</p>
 
-      <form className="todolists">
+      <form className="todolists" onSubmit={handleFormSubmit}>
         {listsState.lists.map((list, indL) => (
           <div key={indL} className="list-wrapper">
             <input
@@ -116,6 +122,9 @@ const Todo = () => {
             ))}
           </div>
         ))}
+        <button type='submit' className="overwrite-btn">
+          Save
+        </button>
       </form>
     </div>
   );
