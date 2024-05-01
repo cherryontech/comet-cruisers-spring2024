@@ -166,7 +166,7 @@ module.exports = {
         'dark': '#002C41',
       },
       'custom-apricot': '#FFD3BE',
-      'custom-off-white': '#F6EFDE'
+      'custom-cream': '#F6EFDE'
     }),
     columns: {
       auto: 'auto',
