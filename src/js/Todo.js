@@ -79,6 +79,18 @@ const Todo = () => {
     setListsState({ lists });
   };
 
+  const deleteList = (indL) => {
+    const lists = [...listsState.lists];
+    lists.splice(indL, 1);
+    setListsState({ lists });
+  };
+
+  const deleteTask = (indL, indT) => {
+    const lists = [...listsState.lists];
+    lists[indL].tasks.splice(indT, 1);
+    setListsState({ lists });
+  };
+
   const handleFormSubmit = (e) => {
     // prevents form submitting to itself
     e.preventDefault();
@@ -105,6 +117,13 @@ const Todo = () => {
               indexlist={indL}
               onChange={onListChange}></input>
             <br />
+            <button
+              onClick={(event) => {
+                event.preventDefault();
+                deleteList(indL);
+              }}>
+              Delete List
+            </button>
             {list.tasks.map((task, indT) => (
               <div key={indT} className="task-wrapper">
                 <input
@@ -123,6 +142,13 @@ const Todo = () => {
                   indexlist={indL}
                   indextask={indT}
                   onChange={onTaskChange}></input>
+                <button
+                  onClick={(event) => {
+                    event.preventDefault();
+                    deleteTask(indL, indT);
+                  }}>
+                  Delete Task
+                </button>
               </div>
             ))}
             <button
