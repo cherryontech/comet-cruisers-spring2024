@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 
 const Todo = () => {
   // get saved list from storage & convert to json
-  let storedLists = localStorage.getItem('todo_lists');
-  let lists = JSON.parse(storedLists);
+  let storedLists = JSON.parse(localStorage.getItem('todo_lists'));
+  let lists = storedLists;
   //default json for empty storage
   let default_lists = {
     lists: [
@@ -30,7 +30,6 @@ const Todo = () => {
   const onListChange = (e) => {
     const { name, value } = e.target;
     const indL = e.target.getAttribute('indexlist');
-    console.log(indL);
 
     const lists = [...listsState.lists];
     lists[indL] = {
@@ -98,11 +97,16 @@ const Todo = () => {
     localStorage.setItem('todo_lists', JSON.stringify(listsState));
   };
 
+  window.addEventListener('beforeunload', () => {
+    // auto save when going to other site (does nt work within site routes)
+    localStorage.setItem('todo_lists', JSON.stringify(listsState));
+  });
+
   //html
   return (
     <div>
       <p> This is the todo list area</p>
-
+      
       <form className="todolists" onSubmit={handleFormSubmit}>
         <button onClick={addList}>Add List</button>
         <br />
