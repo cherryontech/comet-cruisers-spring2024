@@ -1,6 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+
 /*
 ! tailwindcss v3.4.3 | MIT License | https://tailwindcss.com
-*//*
+*/
+
+/*
 1. Prevent padding and border from affecting element width. (https://github.com/mozdevs/cssremedy/issues/4)
 2. Allow adding a border to an element by just adding a border-width. (https://github.com/tailwindcss/tailwindcss/pull/116)
 */
@@ -315,6 +319,7 @@ menu {
 /*
 Reset default styling for dialogs.
 */
+
 dialog {
   padding: 0;
 }
@@ -350,6 +355,7 @@ button,
 /*
 Make sure disabled buttons don't get the pointer cursor.
 */
+
 :disabled {
   cursor: default;
 }
@@ -383,11 +389,19 @@ video {
 }
 
 /* Make elements with the HTML hidden attribute stay hidden by default */
+
 [hidden] {
   display: none;
 }
 
-*, ::before, ::after {
+body{
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 211 190 / var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: rgb(0 44 65 / var(--tw-text-opacity));
+}
+
+*, ::before, ::after{
   --tw-border-spacing-x: 0;
   --tw-border-spacing-y: 0;
   --tw-translate-x: 0;
@@ -441,7 +455,7 @@ video {
   --tw-contain-style:  ;
 }
 
-::backdrop {
+::backdrop{
   --tw-border-spacing-x: 0;
   --tw-border-spacing-y: 0;
   --tw-translate-x: 0;
@@ -494,43 +508,180 @@ video {
   --tw-contain-paint:  ;
   --tw-contain-style:  ;
 }
+.container{
+  width: 100%;
+}
+@media (min-width: 640px){
 
-.btn {
+  .container{
+    max-width: 640px;
+  }
+}
+@media (min-width: 768px){
+
+  .container{
+    max-width: 768px;
+  }
+}
+@media (min-width: 1024px){
+
+  .container{
+    max-width: 1024px;
+  }
+}
+@media (min-width: 1280px){
+
+  .container{
+    max-width: 1280px;
+  }
+}
+@media (min-width: 1536px){
+
+  .container{
+    max-width: 1536px;
+  }
+}
+.btn{
   height: 2rem;
   width: 10rem;
   border-radius: 9999px;
-  font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
   font-size: 1.125rem;
   line-height: 1.75rem;
 }
-
-.btn-primary {
+.btn-primary{
   --tw-bg-opacity: 1;
   background-color: rgb(14 137 146 / var(--tw-bg-opacity));
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
-
-.btn-secondary {
+.btn-secondary{
   border-width: 1px;
   border-style: solid;
   --tw-border-opacity: 1;
-  border-color: rgb(13 68 66 / var(--tw-border-opacity));
+  border-color: rgb(0 44 65 / var(--tw-border-opacity));
   --tw-bg-opacity: 1;
-  background-color: rgb(255 211 190 / var(--tw-bg-opacity));
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
   --tw-text-opacity: 1;
-  color: rgb(13 68 66 / var(--tw-text-opacity));
+  color: rgb(0 44 65 / var(--tw-text-opacity));
 }
-
-.text-3xl {
+.btn-container{
+  display: flex;
+  justify-content: flex-end;
+}
+.btn-container > :not([hidden]) ~ :not([hidden]){
+  --tw-space-x-reverse: 0;
+  margin-right: calc(0.625rem * var(--tw-space-x-reverse));
+  margin-left: calc(0.625rem * calc(1 - var(--tw-space-x-reverse)));
+}
+.shuffle-icon{
+  height: 1.75rem;
+  width: 1.75rem;
+  background-color: transparent;
+  --tw-text-opacity: 1;
+  color: rgb(14 137 146 / var(--tw-text-opacity));
+}
+.journal-container{
+  height: 100vh;
+  width: 100vw;
+}
+.journal-container > :not([hidden]) ~ :not([hidden]){
+  --tw-space-y-reverse: 0;
+  margin-top: calc(0.625rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(0.625rem * var(--tw-space-y-reverse));
+}
+.journal-container{
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+  --tw-bg-opacity: 0.25;
+}
+.journal-entry{
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+  padding: 4rem;
+}
+.text-entry > :not([hidden]) ~ :not([hidden]){
+  --tw-space-y-reverse: 0;
+  margin-top: calc(0.625rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(0.625rem * var(--tw-space-y-reverse));
+}
+.text-entry{
+  border-radius: 1.5rem;
+  border-width: 1px;
+  border-style: solid;
+  --tw-border-opacity: 1;
+  border-color: rgb(0 44 65 / var(--tw-border-opacity));
+  --tw-bg-opacity: 1;
+  background-color: rgb(246 239 222 / var(--tw-bg-opacity));
+  padding: 2.5rem;
+  --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+.prompt{
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+  font-weight: 600;
+}
+.prompt-container{
+  display: flex;
+  flex-direction: row;
+}
+.prompt-container > :not([hidden]) ~ :not([hidden]){
+  --tw-space-x-reverse: 0;
+  margin-right: calc(0.5rem * var(--tw-space-x-reverse));
+  margin-left: calc(0.5rem * calc(1 - var(--tw-space-x-reverse)));
+}
+.subheading{
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+.title-input{
+  display: block;
+  width: 100%;
+  --tw-bg-opacity: 1;
+  background-color: rgb(246 239 222 / var(--tw-bg-opacity));
+  padding: 0.25rem;
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+.flex{
+  display: flex;
+}
+.border{
+  border-width: 1px;
+}
+.text-3xl{
   font-size: 1.875rem;
   line-height: 2.25rem;
 }
-
-.font-bold {
+.font-bold{
   font-weight: 700;
 }
-
-.underline {
+.italic{
+  font-style: italic;
+}
+.underline{
   text-decoration-line: underline;
+}
+
+html {
+  min-height: 100%;
+}
+
+body {
+  font-family: 'Josefin Sans', sans-serif;
+  background-image: url('../assets/Waves.svg');
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  background-position: bottom;
+  background-attachment: fixed;
+}
+
+.ql-container.ql-snow {
+  height: 25vh;
+  max-height: 25vh;
+}
+
+.ql-editor {
+  overflow: auto;
 }

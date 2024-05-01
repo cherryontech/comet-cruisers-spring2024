@@ -3,10 +3,12 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
+import DisplayJournal from '../js/displayEntries.js';
 
 const Home = () => {
   return (
     <main>
+      <h1 className="text-3xl font-bold underline">Title</h1>
       <header>This is the temporary home page</header>
       <br />
       <Popup trigger={<button>ChooseJournal</button>} modal nested>
@@ -28,6 +30,9 @@ const Home = () => {
       </Popup>
       <br />
       <br />
+      <div>
+        <DisplayJournal />
+      </div>
       <footer>This is a temp footer</footer>
     </main>
   );
