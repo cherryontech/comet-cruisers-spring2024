@@ -53,6 +53,7 @@ const Todo = () => {
     const listIndex = lists.findIndex((x) => x.list_id === list_id);
     const taskIndex = lists[listIndex].tasks.findIndex((x) => x.task_id === task_id);
 
+    // if statement bc task_name and checked look at diffreent attributes
     if (name == 'task_name') {
       lists[listIndex].tasks[taskIndex] = {
         ...listsState.lists[listIndex].tasks[taskIndex],
@@ -105,10 +106,10 @@ const Todo = () => {
     localStorage.setItem('todo_lists', JSON.stringify(listsState));
   };
 
-  // window.addEventListener('beforeunload', () => {
-  //   // auto save when going to other site (does nt work within site routes)
-  //   localStorage.setItem('todo_lists', JSON.stringify(listsState));
-  // });
+  window.addEventListener('beforeunload', () => {
+    // auto save when going to other site (does nt work within site routes)
+    localStorage.setItem('todo_lists', JSON.stringify(listsState));
+  });
 
   //html
   return (
