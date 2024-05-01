@@ -44,7 +44,6 @@ body {
   .btn-secondary {
     @apply bg-white text-custom-teal-dark border border-solid border-custom-teal-dark;
   }
-
   .btn-container {
     @apply flex justify-end space-x-2.5;
   }

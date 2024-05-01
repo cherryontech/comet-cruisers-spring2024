@@ -554,6 +554,8 @@ body{
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
+
+=======
 .btn-secondary{
   border-width: 1px;
   border-style: solid;
@@ -568,11 +570,13 @@ body{
   display: flex;
   justify-content: flex-end;
 }
+
 .btn-container > :not([hidden]) ~ :not([hidden]){
   --tw-space-x-reverse: 0;
   margin-right: calc(0.625rem * var(--tw-space-x-reverse));
   margin-left: calc(0.625rem * calc(1 - var(--tw-space-x-reverse)));
 }
+
 .shuffle-icon{
   height: 1.75rem;
   width: 1.75rem;
@@ -580,10 +584,7 @@ body{
   --tw-text-opacity: 1;
   color: rgb(14 137 146 / var(--tw-text-opacity));
 }
-.journal-container{
-  height: 100vh;
-  width: 100vw;
-}
+
 .journal-container > :not([hidden]) ~ :not([hidden]){
   --tw-space-y-reverse: 0;
   margin-top: calc(0.625rem * calc(1 - var(--tw-space-y-reverse)));
@@ -592,6 +593,8 @@ body{
 .journal-container{
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
   --tw-bg-opacity: 0.25;
+  height: 100vh;
+  width: 100vw;
 }
 .journal-entry{
   margin-left: auto;
