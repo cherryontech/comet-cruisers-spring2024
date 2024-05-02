@@ -73,7 +73,7 @@ const Todo = () => {
     lists.push({
       list_name: '',
       list_id: uuidv4(),
-      tasks: [{ task_name: '', checked: false }]
+      tasks: [{ task_name: '', checked: false, task_id: uuidv4() }]
     });
     setListsState({ lists });
   };
