@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { GoLightBulb } from 'react-icons/go';
 import { TbWriting } from 'react-icons/tb';
 
-export const SwitchJournalType = () => {
+const SwitchJournalType = () => {
   let journalType = window.location.pathname;
   let switchTo = '';
   //types are '/free-journal' and '/prompt-journal
@@ -30,8 +30,10 @@ export const SwitchJournalType = () => {
   };
 
   return (
-    <button>
+    <button className="switch-btn">
       <Link to={switchTo}> {displayIcon()} </Link>
     </button>
   );
 };
+
+export default SwitchJournalType;

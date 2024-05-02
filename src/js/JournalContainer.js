@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import GeneratePrompt from './Prompt.js';
 import SaveButton from '../js/saveButton.js';
 import ClearButton from '../js/clearButton.js';
+import SwitchJournalType from './PromptButtons.js';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 
@@ -69,6 +70,7 @@ const JournalTextEntry = () => {
         />
         <ReactQuill theme="snow" value={value} onChange={setValue} />
         <div className="btn-container">
+          <SwitchJournalType />
           <ClearButton clearButton={clearButton} />
           <SaveButton saveEntry={saveEntry} />
         </div>

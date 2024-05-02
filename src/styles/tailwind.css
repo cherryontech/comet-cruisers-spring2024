@@ -52,6 +52,10 @@ body {
     @apply text-custom-teal-base bg-transparent h-7 w-7;
   }
 
+  .switch-btn {
+    @apply text-custom-teal-dark w-7 h-7;
+  }
+
   .journal-container {
     @apply bg-white bg-opacity-25 w-screen h-screen space-y-2.5;
   }
