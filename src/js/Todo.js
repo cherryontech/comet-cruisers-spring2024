@@ -81,7 +81,11 @@ const Todo = () => {
   const addTask = (list_id) => {
     const lists = [...listsState.lists];
     const listIndex = lists.findIndex((x) => x.list_id === list_id);
-    lists[listIndex].tasks.push({ task_name: '', checked: false, task_id: uuidv4() });
+    lists[listIndex].tasks.push({
+      task_name: '',
+      checked: false,
+      task_id: uuidv4()
+    });
     setListsState({ lists });
   };
 
@@ -106,10 +110,10 @@ const Todo = () => {
     localStorage.setItem('todo_lists', JSON.stringify(listsState));
   };
 
-  window.addEventListener('beforeunload', () => {
-    // auto save when going to other site (does nt work within site routes)
-    localStorage.setItem('todo_lists', JSON.stringify(listsState));
-  });
+  // window.addEventListener('beforeunload', () => {
+  //   // auto save when going to other site (does nt work within site routes)
+  //   localStorage.setItem('todo_lists', JSON.stringify(listsState));
+  // });
 
   //html
   return (
@@ -128,13 +132,11 @@ const Todo = () => {
               value={list.list_name}
               placeholder="Enter list name"
               onChange={(event) => {
-                event.preventDefault();
                 onListChange(event, list.list_id);
               }}></input>
             <br />
             <button
-              onClick={(event) => {
-                event.preventDefault();
+              onClick={() => {
                 deleteList(list.list_id);
               }}>
               Delete List
@@ -147,7 +149,6 @@ const Todo = () => {
                   name="checked"
                   checked={task.checked}
                   onChange={(event) => {
-                    event.preventDefault();
                     onTaskChange(event, list.list_id, task.task_id);
                   }}></input>
                 <input
@@ -156,12 +157,10 @@ const Todo = () => {
                   value={task.task_name}
                   placeholder="Enter task name"
                   onChange={(event) => {
-                    event.preventDefault();
                     onTaskChange(event, list.list_id, task.task_id);
                   }}></input>
                 <button
-                  onClick={(event) => {
-                    event.preventDefault();
+                  onClick={() => {
                     deleteTask(list.list_id, task.task_id);
                   }}>
                   Delete Task
@@ -169,8 +168,7 @@ const Todo = () => {
               </div>
             ))}
             <button
-              onClick={(event) => {
-                event.preventDefault();
+              onClick={() => {
                 addTask(list.list_id);
               }}>
               Add Task
