@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Popup from 'reactjs-popup';
+import Todo from '../js/Todo';
 import { IoMdClose } from 'react-icons/io';
 import 'reactjs-popup/dist/index.css';
 import DisplayJournal from '../js/displayEntries.js';
@@ -10,6 +11,7 @@ const Home = () => {
     <main>
       <h1 className="text-3xl font-bold underline">Title</h1>
       <header>This is the temporary home page</header>
+      <Todo></Todo>
       <br />
       <Popup trigger={<button>New Entry</button>} modal nested>
         {(close) => (

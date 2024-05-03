@@ -393,6 +393,11 @@ video {
 [hidden] {
   display: none;
 }
+  h1 {
+  font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: 3rem;
+  line-height: 1;
+}
 
 body{
   --tw-bg-opacity: 1;
@@ -525,6 +530,8 @@ body{
 }
 @media (min-width: 1024px){
 
+
+.text-3xl {
   .container{
     max-width: 1024px;
   }
