@@ -1,18 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+
 @import "tailwindcss/base";
-
 @import "tailwindcss/components";
-
 @import "tailwindcss/utilities";
 
+html {
+  min-height: 100%;
+}
+
+body {
+  font-family: 'Josefin Sans', sans-serif;
+  background-image: url('../assets/Waves.svg');
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  background-position: bottom;
+  background-attachment: fixed;
+}
+
+.quill {
+  background-color: white;
+}
+
+.ql-container.ql-snow {
+  height: 25vh;
+  max-height: 25vh;
+}
+
+.ql-editor {
+  overflow: auto;
+}
+
 @layer base {
-  h1{
-    @apply font-sans text-5xl;
+  body {
+    @apply text-custom-teal-dark bg-custom-apricot;
   }
 }
 
 @layer components {
   .btn {
-    @apply font-sans text-lg rounded-full w-40 h-8;
+    @apply text-lg rounded-full w-40 h-8;
   }
 
   .btn-primary {
@@ -20,6 +46,50 @@
   }
 
   .btn-secondary {
-    @apply bg-custom-apricot text-custom-teal-dark border border-solid border-custom-teal-dark;
+    @apply bg-white text-custom-teal-light border border-solid border-custom-teal-light;
+  }
+
+  .btn-tertiary {
+    @apply bg-white text-custom-burnt-orange border border-solid border-custom-burnt-orange;
+  }
+
+  .btn-container {
+    @apply flex justify-end space-x-2.5;
+  }
+
+  .shuffle-icon {
+    @apply text-custom-teal-base bg-transparent h-7 w-7;
+  }
+
+  .switch-btn {
+    @apply text-custom-teal-dark w-7 h-7;
+  }
+
+  .journal-container {
+    @apply bg-white bg-opacity-25 w-screen h-screen space-y-2.5;
+  }
+
+  .journal-entry {
+    @apply w-4/5 p-16 mx-auto;
+  }
+
+  .text-entry {
+    @apply bg-custom-cream rounded-3xl border border-solid border-custom-burnt-orange shadow-md p-10 space-y-2.5;
+  }
+
+  .prompt {
+    @apply text-3xl font-semibold;
+  }
+
+  .prompt-container {
+    @apply flex flex-row space-x-2;
+  }
+
+  .subheading {
+    @apply text-xl;
+  }
+
+  .title-input {
+    @apply bg-custom-cream block text-2xl w-full p-1;
   }
 }

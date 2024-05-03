@@ -10,7 +10,6 @@ import PromptJournal from './pages/PromptJournal';
 function App() {
   return (
     <Router>
-      <h1 className="text-3xl font-bold underline">Title</h1>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/free-journal" element={<FreeJournal />} />

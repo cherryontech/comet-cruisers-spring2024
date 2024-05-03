@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { FaShuffle } from 'react-icons/fa6';
 
 const prompts = [
   'What made you feel special today?',
@@ -43,11 +44,13 @@ const GeneratePrompt = () => {
 
   return (
     <div>
-      <h1>{prompts[curPrompt]}</h1>
-      <h3>Let&apos;s respond to today&apos;s prompt.</h3>
-      <button type="button" onClick={handleClick}>
-        Randomize Prompt
-      </button>
+      <div className="prompt-container">
+        <p className="prompt">{prompts[curPrompt]}</p>
+        <button type="button" onClick={handleClick}>
+          <FaShuffle className="shuffle-icon" />
+        </button>
+      </div>
+      <p className="subheading">Let&apos;s respond to today&apos;s prompt.</p>
     </div>
   );
 };
