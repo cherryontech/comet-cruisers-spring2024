@@ -17,6 +17,10 @@ body {
   background-attachment: fixed;
 }
 
+.quill {
+  background-color: white;
+}
+
 .ql-container.ql-snow {
   height: 25vh;
   max-height: 25vh;
@@ -42,14 +46,23 @@ body {
   }
 
   .btn-secondary {
-    @apply bg-white text-custom-teal-dark border border-solid border-custom-teal-dark;
+    @apply bg-white text-custom-teal-light border border-solid border-custom-teal-light;
   }
+
+  .btn-tertiary {
+    @apply bg-white text-custom-burnt-orange border border-solid border-custom-burnt-orange;
+  }
+
   .btn-container {
     @apply flex justify-end space-x-2.5;
   }
 
   .shuffle-icon {
     @apply text-custom-teal-base bg-transparent h-7 w-7;
+  }
+
+  .switch-btn {
+    @apply text-custom-teal-dark w-7 h-7;
   }
 
   .journal-container {
@@ -61,7 +74,7 @@ body {
   }
 
   .text-entry {
-    @apply bg-custom-cream rounded-3xl border border-solid border-custom-teal-dark shadow-md p-10 space-y-2.5;
+    @apply bg-custom-cream rounded-3xl border border-solid border-custom-burnt-orange shadow-md p-10 space-y-2.5;
   }
 
   .prompt {

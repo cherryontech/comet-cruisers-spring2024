@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import Popup from 'reactjs-popup';
 import GeneratePrompt from './Prompt.js';
 import SaveButton from '../js/saveButton.js';
 import ClearButton from '../js/clearButton.js';
+import SwitchJournalType from './PromptButtons.js';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 
@@ -69,6 +71,7 @@ const JournalTextEntry = () => {
         />
         <ReactQuill theme="snow" value={value} onChange={setValue} />
         <div className="btn-container">
+          <SwitchJournalType />
           <ClearButton clearButton={clearButton} />
           <SaveButton saveEntry={saveEntry} />
         </div>
@@ -93,7 +96,21 @@ const JournalContainer = () => {
     <div className="journal-container">
       <div className="journal-entry">
         {displayPrompt()}
-        <Link to="/">Go back</Link>
+        <Popup trigger={<button>Go back</button>} modal nested>
+          <div className="modal">
+            <h1>Unsaved Changes</h1>
+            <p>Looks like you didn&apos;t save.</p>
+            <br />
+            <div className="btn-container">
+              <button className="btn btn-secondary" onClick={() => close()}>
+                Cancel
+              </button>
+              <button className="btn btn-tertiary">
+                <Link to="/">Discard</Link>
+              </button>
+            </div>
+          </div>
+        </Popup>
         <JournalTextEntry />
       </div>
     </div>
