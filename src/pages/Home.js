@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Popup from 'reactjs-popup';
-import { IoMdClose } from "react-icons/io";
+import { IoMdClose } from 'react-icons/io';
 import 'reactjs-popup/dist/index.css';
 import DisplayJournal from '../js/displayEntries.js';
 
