@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const SaveButton = ({ saveEntry }) => {
+const SaveButton = ({ saveEntry, disabled }) => {
   const navigate = useNavigate();
 
   const handleSave = () => {
@@ -11,7 +11,13 @@ const SaveButton = ({ saveEntry }) => {
   };
 
   return (
-    <button type="button" name="save" className="btn btn-primary" onClick={handleSave}>
+    <button
+      type="button"
+      name="save"
+      id="save"
+      className="btn btn-primary"
+      onClick={handleSave}
+      disabled={disabled}>
       Save
     </button>
   );

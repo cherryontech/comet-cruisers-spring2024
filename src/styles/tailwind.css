@@ -30,6 +30,10 @@ body {
   overflow: auto;
 }
 
+#save:disabled {
+  background-color: grey;
+}
+
 @layer base {
   body {
     @apply text-custom-teal-dark bg-custom-apricot;

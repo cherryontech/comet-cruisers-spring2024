@@ -393,11 +393,6 @@ video {
 [hidden] {
   display: none;
 }
-  h1 {
-  font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  font-size: 3rem;
-  line-height: 1;
-}
 
 body{
   --tw-bg-opacity: 1;
@@ -530,8 +525,6 @@ body{
 }
 @media (min-width: 1024px){
 
-
-.text-3xl {
   .container{
     max-width: 1024px;
   }
@@ -565,7 +558,7 @@ body{
   border-width: 1px;
   border-style: solid;
   --tw-border-opacity: 1;
-  border-color: rgb(0 44 65 / var(--tw-border-opacity));
+  border-color: rgb(64 163 194 / var(--tw-border-opacity));
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
   --tw-text-opacity: 1;
@@ -700,8 +693,11 @@ body {
   background-attachment: fixed;
 }
 
-.ql-container.ql-snow {
+.quill {
   background-color: white;
+}
+
+.ql-container.ql-snow {
   height: 25vh;
   max-height: 25vh;
 }

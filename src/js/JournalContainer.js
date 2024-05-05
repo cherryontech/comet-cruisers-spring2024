@@ -46,17 +46,15 @@ const JournalTextEntry = () => {
   };
 
   const saveEntry = () => {
-    if (!value.trim()) {
-      // If `value` (text box) is empty or contains only whitespace, don't save and alert the user.
-      alert('Cannot save an empty entry.');
-      return; // Exit the function early to prevent saving an empty entry.
-    }
+    let timestamp = Date.now();
+
     const journalEntry = {
       title: title,
-      content: value
+      content: value,
+      date: timestamp
     };
+
     localStorage.setItem('journalEntry', JSON.stringify(journalEntry));
-    alert('Entry saved!');
   };
 
   return (
@@ -73,7 +71,7 @@ const JournalTextEntry = () => {
         <div className="btn-container">
           <SwitchJournalType />
           <ClearButton clearButton={clearButton} />
-          <SaveButton saveEntry={saveEntry} />
+          <SaveButton saveEntry={saveEntry} disabled={!value || !title} />
         </div>
       </div>
     </>
