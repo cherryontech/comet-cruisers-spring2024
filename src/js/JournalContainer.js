@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Popup from 'reactjs-popup';
+import { v4 as uuidv4 } from 'uuid';
 import GeneratePrompt from './Prompt.js';
 import SaveButton from '../js/saveButton.js';
 import ClearButton from '../js/clearButton.js';
@@ -26,8 +27,19 @@ const GenerateSubHeader = () => {
 };
 
 const JournalTextEntry = () => {
-  const [value, setValue] = useState('');
-  const [title, setTitle] = useState('');
+  let storedJournalEntries = JSON.parse(localStorage.getItem('journalEntry'));
+  let journalEntries = storedJournalEntries;
+  let default_entries = [];
+
+  if (!storedJournalEntries) {
+    // if there is no stored info save default into local storage
+    localStorage.setItem('journalEntry', JSON.stringify(default_entries));
+    // set default to current journal entries
+    journalEntries = default_entries;
+  }
+
+  const [value, setValue] = useState(''); //content of journal entry
+  const [title, setTitle] = useState(''); //title of journal entry
 
   useEffect(() => {
     // This registers the fonts only once when the component mounts
@@ -46,15 +58,19 @@ const JournalTextEntry = () => {
   };
 
   const saveEntry = () => {
+    let entries = [...journalEntries];
     let timestamp = Date.now();
 
     const journalEntry = {
+      journal_id: uuidv4(),
       title: title,
       content: value,
       date: timestamp
     };
 
-    localStorage.setItem('journalEntry', JSON.stringify(journalEntry));
+    entries.push(journalEntry);
+
+    localStorage.setItem('journalEntry', JSON.stringify(entries));
   };
 
   return (

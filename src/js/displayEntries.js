@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 //since we are using local storage, the most recent journal entry is shown
 const DisplayJournal = () => {
-  const [journalEntry, setJournalEntry] = useState({ title: '', content: '' });
+  const [journalEntry, setJournalEntry] = useState(JSON.parse(localStorage.getItem('todo_lists')));
   const titleStyles = {
     fontWeight: 'bold',
     fontSize: '20px'
@@ -36,12 +36,19 @@ const DisplayJournal = () => {
     marginTop: '10px'
   };
 
+  console.log(journalEntry);
+
   return (
-    <div style={containerStyles}>
-      <h1> Journal Entry: </h1>
-      <h1 style={titleStyles}>{journalEntry.title}</h1>
-      <div style={contentStyles} dangerouslySetInnerHTML={{ __html: journalEntry.content }} />
-    </div>
+    <>
+      {journalEntry.map((entry) => (
+        <div key={entry.journal_id} style={containerStyles}>
+          <h1> Journal Entry: </h1>
+          <h1 style={titleStyles}>{entry.title}</h1>
+          <p>{entry.date}</p>
+          <div style={contentStyles} dangerouslySetInnerHTML={{ __html: entry.content }} />
+        </div>
+      ))}
+    </>
   );
 };
 
