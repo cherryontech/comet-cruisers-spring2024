@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
+import { DragDropContext, Draggable } from 'react-beautiful-dnd';
+import { StrictModeDroppable } from './StrictMode';
 
 const Todo = () => {
   // get saved list from storage & convert to json
@@ -113,7 +114,9 @@ const Todo = () => {
 
   const reorder = (list, startIndex, endIndex) => {
     const result = Array.from(list);
+    // removes item from array
     const [removed] = result.splice(startIndex, 1);
+    // moves item to designated index
     result.splice(endIndex, 0, removed);
 
     return result;
@@ -127,7 +130,7 @@ const Todo = () => {
     const lists = [...listsState.lists];
     const sorted = reorder(lists, e.source.index, e.destination.index);
     console.log(sorted);
-    this.setState({ lists });
+    setListsState({ lists: sorted });
   };
 
   // window.addEventListener('beforeunload', () => {
@@ -139,15 +142,12 @@ const Todo = () => {
   return (
     <div>
       <p> This is the todo list area</p>
-
-      <DragDropContext className="todolists" onSubmit={handleFormSubmit} onDragEnd={onDragEnd}>
+      <DragDropContext onDragEnd={onDragEnd}>
         <button onClick={addList}>Add List</button>
-        <br />
-        <br />
-        <Droppable droppableId="Table">
+        <StrictModeDroppable droppableId="Table">
           {(provided) => (
-            <table {...provided.droppableProps} ref={provided.innerRef}>
-              <tbody>
+            <div {...provided.droppableProps} ref={provided.innerRef}>
+              <div>
                 {listsState.lists.map((list, index) => (
                   <Draggable
                     key={list.list_id}
@@ -155,71 +155,72 @@ const Todo = () => {
                     index={index}
                     className="list-wrapper">
                     {(provided) => (
-                      <tr
+                      <div
                         ref={provided.innerRef}
                         {...provided.draggableProps}
                         {...provided.dragHandleProps}>
-                        <td>
-                          <input
-                            type="text"
-                            name="list_name"
-                            value={list.list_name}
-                            placeholder="Enter list name"
-                            onChange={(event) => {
-                              onListChange(event, list.list_id);
-                            }}></input>
-                          <br />
-                          <button
-                            onClick={() => {
-                              deleteList(list.list_id);
-                            }}>
-                            Delete List
-                          </button>
-                          {list.tasks.map((task) => (
-                            <div key={task.task_id} className="task-wrapper">
-                              <input
-                                className="task-input"
-                                type="checkbox"
-                                name="checked"
-                                checked={task.checked}
-                                onChange={(event) => {
-                                  onTaskChange(event, list.list_id, task.task_id);
-                                }}></input>
-                              <input
-                                type="text"
-                                name="task_name"
-                                value={task.task_name}
-                                placeholder="Enter task name"
-                                onChange={(event) => {
-                                  onTaskChange(event, list.list_id, task.task_id);
-                                }}></input>
-                              <button
-                                onClick={() => {
-                                  deleteTask(list.list_id, task.task_id);
-                                }}>
-                                Delete Task
-                              </button>
-                            </div>
-                          ))}
-                          <button
-                            onClick={() => {
-                              addTask(list.list_id);
-                            }}>
-                            Add Task
-                          </button>
-                          <br />
-                          <br />
-                        </td>
-                      </tr>
+                        <input
+                          type="text"
+                          name="list_name"
+                          value={list.list_name}
+                          placeholder="Enter list name"
+                          onChange={(event) => {
+                            onListChange(event, list.list_id);
+                          }}></input>
+
+                        <br />
+                        <button
+                          onClick={() => {
+                            deleteList(list.list_id);
+                          }}>
+                          Delete List
+                        </button>
+                        {list.tasks.map((task) => (
+                          <div key={task.task_id} className="task-wrapper">
+                            <input
+                              className="task-input"
+                              type="checkbox"
+                              name="checked"
+                              checked={task.checked}
+                              onChange={(event) => {
+                                onTaskChange(event, list.list_id, task.task_id);
+                              }}></input>
+                            <input
+                              type="text"
+                              name="task_name"
+                              value={task.task_name}
+                              placeholder="Enter task name"
+                              onChange={(event) => {
+                                onTaskChange(event, list.list_id, task.task_id);
+                              }}></input>
+                            <button
+                              onClick={() => {
+                                deleteTask(list.list_id, task.task_id);
+                              }}>
+                              Delete Task
+                            </button>
+                          </div>
+                        ))}
+                        <button
+                          onClick={() => {
+                            addTask(list.list_id);
+                          }}>
+                          Add Task
+                        </button>
+                        <br />
+                        <br />
+                      </div>
                     )}
                   </Draggable>
                 ))}
-              </tbody>
-            </table>
+                {provided.placeholder}
+              </div>
+            </div>
           )}
-        </Droppable>
-        <button type="submit">Save</button>
+        </StrictModeDroppable>
+        <button onClick={handleFormSubmit}>Save</button>
       </DragDropContext>
+
       <p> This is the end of the todo list area</p>
     </div>
   );
