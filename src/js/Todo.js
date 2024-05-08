@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
+import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 
 const Todo = () => {
   // get saved list from storage & convert to json
@@ -110,6 +111,25 @@ const Todo = () => {
     localStorage.setItem('todo_lists', JSON.stringify(listsState));
   };
 
+  const reorder = (list, startIndex, endIndex) => {
+    const result = Array.from(list);
+    const [removed] = result.splice(startIndex, 1);
+    result.splice(endIndex, 0, removed);
+
+    return result;
+  };
+
+  const onDragEnd = (e) => {
+    console.log(e);
+    if (!e.destination) {
+      return;
+    }
+    const lists = [...listsState.lists];
+    const sorted = reorder(lists, e.source.index, e.destination.index);
+    console.log(sorted);
+    this.setState({ lists });
+  };
+
   // window.addEventListener('beforeunload', () => {
   //   // auto save when going to other site (does nt work within site routes)
   //   localStorage.setItem('todo_lists', JSON.stringify(listsState));
@@ -120,65 +140,86 @@ const Todo = () => {
     <div>
       <p> This is the todo list area</p>
 
-      <form className="todolists" onSubmit={handleFormSubmit}>
+      <DragDropContext className="todolists" onSubmit={handleFormSubmit} onDragEnd={onDragEnd}>
         <button onClick={addList}>Add List</button>
         <br />
         <br />
-        {listsState.lists.map((list) => (
-          <div key={list.list_id} className="list-wrapper">
-            <input
-              type="text"
-              name="list_name"
-              value={list.list_name}
-              placeholder="Enter list name"
-              onChange={(event) => {
-                onListChange(event, list.list_id);
-              }}></input>
-            <br />
-            <button
-              onClick={() => {
-                deleteList(list.list_id);
-              }}>
-              Delete List
-            </button>
-            {list.tasks.map((task) => (
-              <div key={task.task_id} className="task-wrapper">
-                <input
-                  className="task-input"
-                  type="checkbox"
-                  name="checked"
-                  checked={task.checked}
-                  onChange={(event) => {
-                    onTaskChange(event, list.list_id, task.task_id);
-                  }}></input>
-                <input
-                  type="text"
-                  name="task_name"
-                  value={task.task_name}
-                  placeholder="Enter task name"
-                  onChange={(event) => {
-                    onTaskChange(event, list.list_id, task.task_id);
-                  }}></input>
-                <button
-                  onClick={() => {
-                    deleteTask(list.list_id, task.task_id);
-                  }}>
-                  Delete Task
-                </button>
-              </div>
-            ))}
-            <button
-              onClick={() => {
-                addTask(list.list_id);
-              }}>
-              Add Task
-            </button>
-            <br />
-            <br />
-          </div>
-        ))}
+        <Droppable droppableId="Table">
+          {(provided) => (
+            <table {...provided.droppableProps} ref={provided.innerRef}>
+              <tbody>
+                {listsState.lists.map((list, index) => (
+                  <Draggable
+                    key={list.list_id}
+                    draggableId={list.list_id}
+                    index={index}
+                    className="list-wrapper">
+                    {(provided) => (
+                      <tr
+                        ref={provided.innerRef}
+                        {...provided.draggableProps}
+                        {...provided.dragHandleProps}>
+                        <td>
+                          <input
+                            type="text"
+                            name="list_name"
+                            value={list.list_name}
+                            placeholder="Enter list name"
+                            onChange={(event) => {
+                              onListChange(event, list.list_id);
+                            }}></input>
+                          <br />
+                          <button
+                            onClick={() => {
+                              deleteList(list.list_id);
+                            }}>
+                            Delete List
+                          </button>
+                          {list.tasks.map((task) => (
+                            <div key={task.task_id} className="task-wrapper">
+                              <input
+                                className="task-input"
+                                type="checkbox"
+                                name="checked"
+                                checked={task.checked}
+                                onChange={(event) => {
+                                  onTaskChange(event, list.list_id, task.task_id);
+                                }}></input>
+                              <input
+                                type="text"
+                                name="task_name"
+                                value={task.task_name}
+                                placeholder="Enter task name"
+                                onChange={(event) => {
+                                  onTaskChange(event, list.list_id, task.task_id);
+                                }}></input>
+                              <button
+                                onClick={() => {
+                                  deleteTask(list.list_id, task.task_id);
+                                }}>
+                                Delete Task
+                              </button>
+                            </div>
+                          ))}
+                          <button
+                            onClick={() => {
+                              addTask(list.list_id);
+                            }}>
+                            Add Task
+                          </button>
+                          <br />
+                          <br />
+                        </td>
+                      </tr>
+                    )}
+                  </Draggable>
+                ))}
+              </tbody>
+            </table>
+          )}
+        </Droppable>
         <button type="submit">Save</button>
-      </form>
+      </DragDropContext>
       <p> This is the end of the todo list area</p>
     </div>
   );

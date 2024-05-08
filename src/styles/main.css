@@ -663,6 +663,9 @@ body{
 .flex{
   display: flex;
 }
+.table{
+  display: table;
+}
 .border{
   border-width: 1px;
 }
@@ -704,4 +707,8 @@ body {
 
 .ql-editor {
   overflow: auto;
+}
+
+#save:disabled {
+  background-color: grey;
 }
