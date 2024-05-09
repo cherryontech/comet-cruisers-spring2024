@@ -59,13 +59,16 @@ const JournalTextEntry = () => {
 
   const saveEntry = () => {
     let entries = [...journalEntries];
-    let timestamp = Date.now();
+    let timestamp = Date(Date.now());
+    let journalType = window.location.pathname;
 
     const journalEntry = {
       journal_id: uuidv4(),
+      prompt: document.getElementsByClassName('prompt')[0].innerHTML,
       title: title,
       content: value,
-      date: timestamp
+      date: timestamp,
+      type: journalType
     };
 
     entries.push(journalEntry);
