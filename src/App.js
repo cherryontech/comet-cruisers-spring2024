@@ -12,8 +12,8 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/free-journal" element={<FreeJournal />} />
-        <Route path="/prompt-journal" element={<PromptJournal />} />
+        <Route path="/free-journal/:id?" element={<FreeJournal />} />
+        <Route path="/prompt-journal/:id?" element={<PromptJournal />} />
       </Routes>
     </Router>
   );
