@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import Popup from 'reactjs-popup';
 import { v4 as uuidv4 } from 'uuid';
 import GeneratePrompt from './Prompt.js';
@@ -27,6 +27,7 @@ const GenerateSubHeader = () => {
 };
 
 const JournalTextEntry = () => {
+  let journalType = window.location.pathname;
   let storedJournalEntries = JSON.parse(localStorage.getItem('journalEntry'));
   let journalEntries = storedJournalEntries;
   let default_entries = [];
@@ -38,8 +39,22 @@ const JournalTextEntry = () => {
     journalEntries = default_entries;
   }
 
-  const [value, setValue] = useState(''); //content of journal entry
-  const [title, setTitle] = useState(''); //title of journal entry
+  const journalEntryId = () => {
+    const { id } = useParams(); // extract the id parameter from URL
+    return id; //returns undefined or the id of the journal
+  };
+
+  const findJournalEntry = (journal_id) => {
+    let journalIndex = journalEntries.findIndex((x) => x.journal_id === journal_id);
+    return journalEntries[journalIndex];
+  };
+
+  const [value, setValue] = useState(
+    journalEntryId() == undefined ? '' : findJournalEntry(journalEntryId()).content
+  ); //content of journal entry
+  const [title, setTitle] = useState(
+    journalEntryId() == undefined ? '' : findJournalEntry(journalEntryId()).title
+  ); //title of journal entry
 
   useEffect(() => {
     // This registers the fonts only once when the component mounts
@@ -60,15 +75,16 @@ const JournalTextEntry = () => {
   const saveEntry = () => {
     let entries = [...journalEntries];
     let timestamp = Date(Date.now());
-    let journalType = window.location.pathname;
+    //let journalType = window.location.pathname;
 
     const journalEntry = {
-      journal_id: uuidv4(),
+      journal_id:
+        journalEntryId() == undefined ? uuidv4() : findJournalEntry(journalEntryId()).journal_id,
       prompt: document.getElementsByClassName('prompt')[0].innerHTML,
       title: title,
       content: value,
       date: timestamp,
-      type: journalType
+      type: journalEntryId() == undefined ? journalType : findJournalEntry(journalEntryId()).type
     };
 
     entries.push(journalEntry);
@@ -76,8 +92,20 @@ const JournalTextEntry = () => {
     localStorage.setItem('journalEntry', JSON.stringify(entries));
   };
 
+  const displayPrompt = () => {
+    switch (journalType) {
+      case '/prompt-journal':
+        return <GeneratePrompt />;
+      case '/free-journal':
+        return <GenerateSubHeader />;
+      default:
+        return <p className="prompt">{findJournalEntry(journalEntryId()).prompt}</p>;
+    }
+  };
+
   return (
     <>
+      {displayPrompt()}
       <div className="text-entry">
         <input
           type="text"
@@ -98,35 +126,25 @@ const JournalTextEntry = () => {
 };
 
 const JournalContainer = () => {
-  let journalType = window.location.pathname;
-
-  const displayPrompt = () => {
-    switch (journalType) {
-      case '/prompt-journal':
-        return <GeneratePrompt />;
-      case '/free-journal':
-        return <GenerateSubHeader />;
-    }
-  };
-
   return (
     <div className="journal-container">
       <div className="journal-entry">
-        {displayPrompt()}
         <Popup trigger={<button>Go back</button>} modal nested>
-          <div className="modal">
-            <h1>Unsaved Changes</h1>
-            <p>Looks like you didn&apos;t save.</p>
-            <br />
-            <div className="btn-container">
-              <button className="btn btn-secondary" onClick={() => close()}>
-                Cancel
-              </button>
-              <button className="btn btn-tertiary">
-                <Link to="/">Discard</Link>
-              </button>
+          {(close) => (
+            <div className="modal">
+              <h1>Unsaved Changes</h1>
+              <p>Looks like you didn&apos;t save.</p>
+              <br />
+              <div className="btn-container">
+                <button className="btn btn-secondary" onClick={() => close()}>
+                  Cancel
+                </button>
+                <button className="btn btn-tertiary">
+                  <Link to="/">Discard</Link>
+                </button>
+              </div>
             </div>
-          </div>
+          )}
         </Popup>
         <JournalTextEntry />
       </div>
