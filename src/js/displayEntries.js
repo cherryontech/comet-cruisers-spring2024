@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 //since we are using local storage, the most recent journal entry is shown
 const DisplayJournal = () => {
-  const [journalEntry, setJournalEntry] = useState(JSON.parse(localStorage.getItem('todo_lists')));
+  const initialState = JSON.parse(localStorage.getItem('journalEntry'));
+  const [journalEntry, setJournalEntry] = useState(initialState);
   const titleStyles = {
     fontWeight: 'bold',
     fontSize: '20px'
@@ -36,9 +38,9 @@ const DisplayJournal = () => {
     marginTop: '10px'
   };
 
-  console.log(journalEntry);
-
-  return (
+  return journalEntry == null || journalEntry.length < 1 ? (
+    <div>No entries detected.</div>
+  ) : (
     <>
       {journalEntry.map((entry) => (
         <div key={entry.journal_id} style={containerStyles}>
@@ -46,6 +48,9 @@ const DisplayJournal = () => {
           <h1 style={titleStyles}>{entry.title}</h1>
           <p>{entry.date}</p>
           <div style={contentStyles} dangerouslySetInnerHTML={{ __html: entry.content }} />
+          <button>
+            <Link to={`${entry.type}/${entry.journal_id}`}>Edit</Link>
+          </button>
         </div>
       ))}
     </>
