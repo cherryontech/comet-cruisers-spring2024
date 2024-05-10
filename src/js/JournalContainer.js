@@ -39,22 +39,15 @@ const JournalTextEntry = () => {
     journalEntries = default_entries;
   }
 
-  const journalEntryId = () => {
-    const { id } = useParams(); // extract the id parameter from URL
-    return id; //returns undefined or the id of the journal
-  };
+  const { id } = useParams(); // extract the id parameter from URL
 
   const findJournalEntry = (journal_id) => {
     let journalIndex = journalEntries.findIndex((x) => x.journal_id === journal_id);
     return journalEntries[journalIndex];
   };
 
-  const [value, setValue] = useState(
-    journalEntryId() == undefined ? '' : findJournalEntry(journalEntryId()).content
-  ); //content of journal entry
-  const [title, setTitle] = useState(
-    journalEntryId() == undefined ? '' : findJournalEntry(journalEntryId()).title
-  ); //title of journal entry
+  const [value, setValue] = useState(id == undefined ? '' : findJournalEntry(id).content); //content of journal entry
+  const [title, setTitle] = useState(id == undefined ? '' : findJournalEntry(id).title); //title of journal entry
 
   useEffect(() => {
     // This registers the fonts only once when the component mounts
@@ -75,19 +68,22 @@ const JournalTextEntry = () => {
   const saveEntry = () => {
     let entries = [...journalEntries];
     let timestamp = Date(Date.now());
-    //let journalType = window.location.pathname;
 
     const journalEntry = {
-      journal_id:
-        journalEntryId() == undefined ? uuidv4() : findJournalEntry(journalEntryId()).journal_id,
+      journal_id: id == undefined ? uuidv4() : findJournalEntry(id).journal_id,
       prompt: document.getElementsByClassName('prompt')[0].innerHTML,
       title: title,
       content: value,
       date: timestamp,
-      type: journalEntryId() == undefined ? journalType : findJournalEntry(journalEntryId()).type
+      type: id == undefined ? journalType : findJournalEntry(id).type
     };
 
-    entries.push(journalEntry);
+    const spliceIndex = () => {
+      entries.splice(entries.indexOf(id), 1);
+      entries.push(journalEntry);
+    };
+
+    id == undefined ? entries.push(journalEntry) : spliceIndex();
 
     localStorage.setItem('journalEntry', JSON.stringify(entries));
   };
@@ -99,7 +95,7 @@ const JournalTextEntry = () => {
       case '/free-journal':
         return <GenerateSubHeader />;
       default:
-        return <p className="prompt">{findJournalEntry(journalEntryId()).prompt}</p>;
+        return <p className="prompt">{findJournalEntry(id).prompt}</p>;
     }
   };
 
