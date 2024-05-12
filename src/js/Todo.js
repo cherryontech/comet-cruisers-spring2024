@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { DragDropContext, Draggable } from 'react-beautiful-dnd';
 import { StrictModeDroppable } from './StrictMode';
+import Tasks from './Tasks';
 
 const Todo = () => {
   // get saved list from storage & convert to json
@@ -94,35 +95,25 @@ const Todo = () => {
   };
 
   const onDragEnd = (e) => {
-    console.log(e);
     if (!e.destination) {
       return;
     }
     if (e.type === 'droppableList') {
       const lists = [...listsState.lists];
-      const sorted = reorder(lists, e.source.index, e.destination.index);
-      console.log(sorted);
-      setListsState({ lists: sorted });
+      const sortedList = reorder(lists, e.source.index, e.destination.index);
+      setListsState({ lists: sortedList });
     } else if (e.type.includes('droppableTask')) {
       //get id throught type attribute
       let parent_id = e.type.split('_')[1];
-      const taskMap = listsState.lists.reduce((acc, list) => {
-        acc[list.list_id] = list.tasks;
-        return acc;
-      }, {});
-      const tasksForCorrespondingList = taskMap[parent_id];
-      const sortedTasks = reorder(tasksForCorrespondingList, e.source.index, e.destination.index);
-      let newLists = [...listsState.lists];
-      newLists = newLists.map((list) => {
-        if (list.list_id === parent_id) {
-          list.tasks = sortedTasks;
-        }
-        return list;
-      });
-      console.log('newLists ', newLists);
-      setListsState({
-        lists: newLists
-      });
+      const lists = [...listsState.lists];
+      const listIndex = lists.findIndex((x) => x.list_id === parent_id);
+      const tasks = lists[listIndex].tasks;
+      const sortedTasks = reorder(tasks, e.source.index, e.destination.index);
+      lists[listIndex] = {
+        ...listsState.lists[listIndex],
+        tasks: sortedTasks
+      };
+      setListsState({ lists });
     }
   };
 
@@ -168,10 +159,10 @@ const Todo = () => {
                           }}>
                           Delete List
                         </button>
-                        <Task
+                        <Tasks
                           listsState={listsState}
                           setListsState={setListsState}
-                          list={list}></Task>
+                          list={list}></Tasks>
                         <button
                           onClick={() => {
                             addTask(list.list_id);
@@ -194,84 +185,6 @@ const Todo = () => {
 
       <p> This is the end of the todo list area</p>
     </div>
-  );
-};
-
-const Task = ({ listsState, setListsState, list }) => {
-  const deleteTask = (list_id, task_id) => {
-    const lists = [...listsState.lists];
-    const listIndex = lists.findIndex((x) => x.list_id === list_id);
-    const taskIndex = lists[listIndex].tasks.findIndex((x) => x.task_id === task_id);
-    lists[listIndex].tasks.splice(taskIndex, 1);
-    setListsState({ lists });
-  };
-
-  const onTaskChange = (e, list_id, task_id) => {
-    const { name, value, checked } = e.target;
-    const lists = [...listsState.lists];
-    const listIndex = lists.findIndex((x) => x.list_id === list_id);
-    const taskIndex = lists[listIndex].tasks.findIndex((x) => x.task_id === task_id);
-
-    // if statement bc task_name and checked look at diffreent attributes
-    if (name == 'checked') {
-      lists[listIndex].tasks[taskIndex] = {
-        ...listsState.lists[listIndex].tasks[taskIndex],
-        [name]: checked
-      };
-    } else {
-      lists[listIndex].tasks[taskIndex] = {
-        ...listsState.lists[listIndex].tasks[taskIndex],
-        [name]: value
-      };
-    }
-    setListsState({ lists });
-  };
-  return (
-    <StrictModeDroppable
-      droppableId={`dropTaskId_${list.list_id}`}
-      type={`droppableTask_${list.list_id}`}>
-      {(provided) => (
-        <div ref={provided.innerRef}>
-          {list.tasks.map((task, index) => (
-            <Draggable
-              key={task.task_id}
-              draggableId={task.task_id}
-              index={index}
-              className="task-wrapper">
-              {(provided) => (
-                <div
-                  ref={provided.innerRef}
-                  {...provided.draggableProps}
-                  {...provided.dragHandleProps}>
-                  <input
-                    className="task-input"
-                    type="checkbox"
-                    name="checked"
-                    checked={task.checked}
-                    onChange={(event) => {
-                      onTaskChange(event, list.list_id, task.task_id);
-                    }}></input>
-                  <input
-                    type="text"
-                    name="task_name"
-                    value={task.task_name}
-                    placeholder="Enter task name"
-                    onChange={(event) => {
-                      onTaskChange(event, list.list_id, task.task_id);
-                    }}></input>
-                  <button
-                    onClick={() => {
-                      deleteTask(list.list_id, task.task_id);
-                    }}>
-                    Delete Task
-                  </button>
-                </div>
-              )}
-            </Draggable>
-          ))}
-        </div>
-      )}
-    </StrictModeDroppable>
   );
 };
 
