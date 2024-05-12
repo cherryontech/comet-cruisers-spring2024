@@ -38,6 +38,13 @@ const DisplayJournal = () => {
     marginTop: '10px'
   };
 
+  const deleteEntry = (id) => {
+    const index = journalEntry.findIndex((obj) => obj.journal_id == id);
+    journalEntry.splice(index, 1);
+    localStorage.setItem('journalEntry', JSON.stringify(journalEntry));
+    setJournalEntry(JSON.parse(localStorage.getItem('journalEntry')));
+  };
+
   return journalEntry == null || journalEntry.length < 1 ? (
     <div>No entries detected.</div>
   ) : (
@@ -51,6 +58,7 @@ const DisplayJournal = () => {
           <button>
             <Link to={`${entry.type}/${entry.journal_id}`}>Edit</Link>
           </button>
+          <button onClick={() => deleteEntry(entry.journal_id)}>Delete</button>
         </div>
       ))}
     </>
