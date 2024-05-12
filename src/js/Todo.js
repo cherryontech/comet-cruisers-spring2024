@@ -98,10 +98,15 @@ const Todo = () => {
     if (!e.destination) {
       return;
     }
-    const lists = [...listsState.lists];
-    const sorted = reorder(lists, e.source.index, e.destination.index);
-    console.log(sorted);
-    setListsState({ lists: sorted });
+    if (e.type === 'droppableList') {
+      const lists = [...listsState.lists];
+      const sorted = reorder(lists, e.source.index, e.destination.index);
+      console.log(sorted);
+      setListsState({ lists: sorted });
+    } else if (e.type === 'droppableTask') {
+      let temp = 0;
+      temp;
+    }
   };
 
   // window.addEventListener('beforeunload', () => {
@@ -115,7 +120,7 @@ const Todo = () => {
       <p> This is the todo list area</p>
       <DragDropContext onDragEnd={onDragEnd}>
         <button onClick={addList}>Add List</button>
-        <StrictModeDroppable droppableId="Table">
+        <StrictModeDroppable droppableId="Table" type="droppableList">
           {(provided) => (
             <div {...provided.droppableProps} ref={provided.innerRef}>
               <div>
@@ -191,15 +196,15 @@ const Task = ({ listsState, setListsState, list }) => {
     const taskIndex = lists[listIndex].tasks.findIndex((x) => x.task_id === task_id);
 
     // if statement bc task_name and checked look at diffreent attributes
-    if (name == 'task_name') {
+    if (name == 'checked') {
       lists[listIndex].tasks[taskIndex] = {
         ...listsState.lists[listIndex].tasks[taskIndex],
-        [name]: value
+        [name]: checked
       };
     } else {
       lists[listIndex].tasks[taskIndex] = {
         ...listsState.lists[listIndex].tasks[taskIndex],
-        [name]: checked
+        [name]: value
       };
     }
     setListsState({ lists });
