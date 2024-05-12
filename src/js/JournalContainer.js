@@ -79,7 +79,8 @@ const JournalTextEntry = () => {
     };
 
     const spliceIndex = () => {
-      entries.splice(entries.indexOf(id), 1);
+      const index = entries.findIndex((x) => x.journal_id === id);
+      entries.splice(index, 1);
       entries.push(journalEntry);
     };
 
