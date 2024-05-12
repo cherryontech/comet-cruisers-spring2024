@@ -49,27 +49,6 @@ const Todo = () => {
     setListsState({ lists });
   };
 
-  const onTaskChange = (e, list_id, task_id) => {
-    const { name, value, checked } = e.target;
-    const lists = [...listsState.lists];
-    const listIndex = lists.findIndex((x) => x.list_id === list_id);
-    const taskIndex = lists[listIndex].tasks.findIndex((x) => x.task_id === task_id);
-
-    // if statement bc task_name and checked look at diffreent attributes
-    if (name == 'task_name') {
-      lists[listIndex].tasks[taskIndex] = {
-        ...listsState.lists[listIndex].tasks[taskIndex],
-        [name]: value
-      };
-    } else {
-      lists[listIndex].tasks[taskIndex] = {
-        ...listsState.lists[listIndex].tasks[taskIndex],
-        [name]: checked
-      };
-    }
-    setListsState({ lists });
-  };
-
   const addList = () => {
     const lists = [...listsState.lists];
     lists.push({
@@ -95,14 +74,6 @@ const Todo = () => {
     const lists = [...listsState.lists];
     const index = lists.findIndex((x) => x.list_id === list_id);
     lists.splice(index, 1);
-    setListsState({ lists });
-  };
-
-  const deleteTask = (list_id, task_id) => {
-    const lists = [...listsState.lists];
-    const listIndex = lists.findIndex((x) => x.list_id === list_id);
-    const taskIndex = lists[listIndex].tasks.findIndex((x) => x.task_id === task_id);
-    lists[listIndex].tasks.splice(taskIndex, 1);
     setListsState({ lists });
   };
 
@@ -175,32 +146,10 @@ const Todo = () => {
                           }}>
                           Delete List
                         </button>
-                        {list.tasks.map((task) => (
-                          <div key={task.task_id} className="task-wrapper">
-                            <input
-                              className="task-input"
-                              type="checkbox"
-                              name="checked"
-                              checked={task.checked}
-                              onChange={(event) => {
-                                onTaskChange(event, list.list_id, task.task_id);
-                              }}></input>
-                            <input
-                              type="text"
-                              name="task_name"
-                              value={task.task_name}
-                              placeholder="Enter task name"
-                              onChange={(event) => {
-                                onTaskChange(event, list.list_id, task.task_id);
-                              }}></input>
-                            <button
-                              onClick={() => {
-                                deleteTask(list.list_id, task.task_id);
-                              }}>
-                              Delete Task
-                            </button>
-                          </div>
-                        ))}
+                        <Task
+                          listsState={listsState}
+                          setListsState={setListsState}
+                          list={list}></Task>
                         <button
                           onClick={() => {
                             addTask(list.list_id);
@@ -222,6 +171,69 @@ const Todo = () => {
       </DragDropContext>
 
       <p> This is the end of the todo list area</p>
+    </div>
+  );
+};
+
+const Task = ({ listsState, setListsState, list }) => {
+  const deleteTask = (list_id, task_id) => {
+    const lists = [...listsState.lists];
+    const listIndex = lists.findIndex((x) => x.list_id === list_id);
+    const taskIndex = lists[listIndex].tasks.findIndex((x) => x.task_id === task_id);
+    lists[listIndex].tasks.splice(taskIndex, 1);
+    setListsState({ lists });
+  };
+
+  const onTaskChange = (e, list_id, task_id) => {
+    const { name, value, checked } = e.target;
+    const lists = [...listsState.lists];
+    const listIndex = lists.findIndex((x) => x.list_id === list_id);
+    const taskIndex = lists[listIndex].tasks.findIndex((x) => x.task_id === task_id);
+
+    // if statement bc task_name and checked look at diffreent attributes
+    if (name == 'task_name') {
+      lists[listIndex].tasks[taskIndex] = {
+        ...listsState.lists[listIndex].tasks[taskIndex],
+        [name]: value
+      };
+    } else {
+      lists[listIndex].tasks[taskIndex] = {
+        ...listsState.lists[listIndex].tasks[taskIndex],
+        [name]: checked
+      };
+    }
+    setListsState({ lists });
+  };
+  return (
+    <div>
+      <div>
+        {list.tasks.map((task) => (
+          <div key={task.task_id} className="task-wrapper">
+            <input
+              className="task-input"
+              type="checkbox"
+              name="checked"
+              checked={task.checked}
+              onChange={(event) => {
+                onTaskChange(event, list.list_id, task.task_id);
+              }}></input>
+            <input
+              type="text"
+              name="task_name"
+              value={task.task_name}
+              placeholder="Enter task name"
+              onChange={(event) => {
+                onTaskChange(event, list.list_id, task.task_id);
+              }}></input>
+            <button
+              onClick={() => {
+                deleteTask(list.list_id, task.task_id);
+              }}>
+              Delete Task
+            </button>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
