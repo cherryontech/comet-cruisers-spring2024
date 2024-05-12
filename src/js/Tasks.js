@@ -17,7 +17,7 @@ const Tasks = ({ listsState, setListsState, list }) => {
     const listIndex = lists.findIndex((x) => x.list_id === list_id);
     const taskIndex = lists[listIndex].tasks.findIndex((x) => x.task_id === task_id);
 
-    // if statement bc task_name and checked look at diffreent attributes
+    // if statement bc task_name and checked look at different attributes
     if (name == 'checked') {
       lists[listIndex].tasks[taskIndex] = {
         ...listsState.lists[listIndex].tasks[taskIndex],

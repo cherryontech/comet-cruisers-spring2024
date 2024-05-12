@@ -6,10 +6,10 @@ import Tasks from './Tasks';
 
 const Todo = () => {
   // get saved list from storage & convert to json
-  let storedLists = JSON.parse(localStorage.getItem('todo_lists'));
+  const storedLists = JSON.parse(localStorage.getItem('todo_lists'));
   let lists = storedLists;
   // default json for empty storage
-  let default_lists = {
+  const default_lists = {
     lists: [
       {
         list_name: '',
@@ -40,7 +40,7 @@ const Todo = () => {
     const { name, value } = e.target;
     // make temp object of lists
     const lists = [...listsState.lists];
-    let listIndex = lists.findIndex((x) => x.list_id === list_id);
+    const listIndex = lists.findIndex((x) => x.list_id === list_id);
     // edit that specific event
     lists[listIndex] = {
       ...listsState.lists[listIndex],
@@ -85,6 +85,7 @@ const Todo = () => {
   };
 
   const reorder = (list, startIndex, endIndex) => {
+    // this is for the drag and drop
     const result = Array.from(list);
     // removes item from array
     const [removed] = result.splice(startIndex, 1);
@@ -99,16 +100,19 @@ const Todo = () => {
       return;
     }
     if (e.type === 'droppableList') {
+      // drag logic for lists
       const lists = [...listsState.lists];
       const sortedList = reorder(lists, e.source.index, e.destination.index);
       setListsState({ lists: sortedList });
     } else if (e.type.includes('droppableTask')) {
-      //get id throught type attribute
-      let parent_id = e.type.split('_')[1];
+      // drag logic for the nested tasks in the list
+      // get id of the list through type attribute
+      const parent_id = e.type.split('_')[1];
       const lists = [...listsState.lists];
       const listIndex = lists.findIndex((x) => x.list_id === parent_id);
       const tasks = lists[listIndex].tasks;
       const sortedTasks = reorder(tasks, e.source.index, e.destination.index);
+      // replace tasks at that list with new one
       lists[listIndex] = {
         ...listsState.lists[listIndex],
         tasks: sortedTasks
@@ -122,7 +126,6 @@ const Todo = () => {
   //   localStorage.setItem('todo_lists', JSON.stringify(listsState));
   // });
 
-  //html
   return (
     <div>
       <p> This is the todo list area</p>
