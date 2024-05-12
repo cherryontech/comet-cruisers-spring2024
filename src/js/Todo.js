@@ -103,9 +103,26 @@ const Todo = () => {
       const sorted = reorder(lists, e.source.index, e.destination.index);
       console.log(sorted);
       setListsState({ lists: sorted });
-    } else if (e.type === 'droppableTask') {
-      let temp = 0;
-      temp;
+    } else if (e.type.includes('droppableTask')) {
+      //get id throught type attribute
+      let parent_id = e.type.split('_')[1];
+      const taskMap = listsState.lists.reduce((acc, list) => {
+        acc[list.list_id] = list.tasks;
+        return acc;
+      }, {});
+      const tasksForCorrespondingList = taskMap[parent_id];
+      const sortedTasks = reorder(tasksForCorrespondingList, e.source.index, e.destination.index);
+      let newLists = [...listsState.lists];
+      newLists = newLists.map((list) => {
+        if (list.list_id === parent_id) {
+          list.tasks = sortedTasks;
+        }
+        return list;
+      });
+      console.log('newLists ', newLists);
+      setListsState({
+        lists: newLists
+      });
     }
   };
 
@@ -120,7 +137,7 @@ const Todo = () => {
       <p> This is the todo list area</p>
       <DragDropContext onDragEnd={onDragEnd}>
         <button onClick={addList}>Add List</button>
-        <StrictModeDroppable droppableId="Table" type="droppableList">
+        <StrictModeDroppable droppableId="dropListId" type="droppableList">
           {(provided) => (
             <div {...provided.droppableProps} ref={provided.innerRef}>
               <div>
@@ -210,36 +227,51 @@ const Task = ({ listsState, setListsState, list }) => {
     setListsState({ lists });
   };
   return (
-    <div>
-      <div>
-        {list.tasks.map((task) => (
-          <div key={task.task_id} className="task-wrapper">
-            <input
-              className="task-input"
-              type="checkbox"
-              name="checked"
-              checked={task.checked}
-              onChange={(event) => {
-                onTaskChange(event, list.list_id, task.task_id);
-              }}></input>
-            <input
-              type="text"
-              name="task_name"
-              value={task.task_name}
-              placeholder="Enter task name"
-              onChange={(event) => {
-                onTaskChange(event, list.list_id, task.task_id);
-              }}></input>
-            <button
-              onClick={() => {
-                deleteTask(list.list_id, task.task_id);
-              }}>
-              Delete Task
-            </button>
-          </div>
-        ))}
-      </div>
-    </div>
+    <StrictModeDroppable
+      droppableId={`dropTaskId_${list.list_id}`}
+      type={`droppableTask_${list.list_id}`}>
+      {(provided) => (
+        <div ref={provided.innerRef}>
+          {list.tasks.map((task, index) => (
+            <Draggable
+              key={task.task_id}
+              draggableId={task.task_id}
+              index={index}
+              className="task-wrapper">
+              {(provided) => (
+                <div
+                  ref={provided.innerRef}
+                  {...provided.draggableProps}
+                  {...provided.dragHandleProps}>
+                  <input
+                    className="task-input"
+                    type="checkbox"
+                    name="checked"
+                    checked={task.checked}
+                    onChange={(event) => {
+                      onTaskChange(event, list.list_id, task.task_id);
+                    }}></input>
+                  <input
+                    type="text"
+                    name="task_name"
+                    value={task.task_name}
+                    placeholder="Enter task name"
+                    onChange={(event) => {
+                      onTaskChange(event, list.list_id, task.task_id);
+                    }}></input>
+                  <button
+                    onClick={() => {
+                      deleteTask(list.list_id, task.task_id);
+                    }}>
+                    Delete Task
+                  </button>
+                </div>
+              )}
+            </Draggable>
+          ))}
+        </div>
+      )}
+    </StrictModeDroppable>
   );
 };
 
