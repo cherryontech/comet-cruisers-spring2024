@@ -705,3 +705,7 @@ body {
 .ql-editor {
   overflow: auto;
 }
+
+#save:disabled {
+  background-color: grey;
+}
