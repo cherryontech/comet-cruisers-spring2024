@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 //since we are using local storage, the most recent journal entry is shown
 const DisplayJournal = () => {
-  const [journalEntry, setJournalEntry] = useState({ title: '', content: '' });
+  const initialState = JSON.parse(localStorage.getItem('journalEntry'));
+  const [journalEntry, setJournalEntry] = useState(initialState);
   const titleStyles = {
     fontWeight: 'bold',
     fontSize: '20px'
@@ -36,12 +38,30 @@ const DisplayJournal = () => {
     marginTop: '10px'
   };
 
-  return (
-    <div style={containerStyles}>
-      <h1> Journal Entry: </h1>
-      <h1 style={titleStyles}>{journalEntry.title}</h1>
-      <div style={contentStyles} dangerouslySetInnerHTML={{ __html: journalEntry.content }} />
-    </div>
+  const deleteEntry = (id) => {
+    const index = journalEntry.findIndex((obj) => obj.journal_id == id);
+    journalEntry.splice(index, 1);
+    localStorage.setItem('journalEntry', JSON.stringify(journalEntry));
+    setJournalEntry(JSON.parse(localStorage.getItem('journalEntry')));
+  };
+
+  return journalEntry == null || journalEntry.length < 1 ? (
+    <div>No entries detected.</div>
+  ) : (
+    <>
+      {journalEntry.map((entry) => (
+        <div key={entry.journal_id} style={containerStyles}>
+          <h1> Journal Entry: </h1>
+          <h1 style={titleStyles}>{entry.title}</h1>
+          <p>{entry.date}</p>
+          <div style={contentStyles} dangerouslySetInnerHTML={{ __html: entry.content }} />
+          <button>
+            <Link to={`${entry.type}/${entry.journal_id}`}>Edit</Link>
+          </button>
+          <button onClick={() => deleteEntry(entry.journal_id)}>Delete</button>
+        </div>
+      ))}
+    </>
   );
 };
 
