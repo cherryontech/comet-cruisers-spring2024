@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { DragDropContext, Draggable } from 'react-beautiful-dnd';
+import { useCollapse } from 'react-collapsed';
 import { StrictModeDroppable } from './StrictMode';
 import Tasks from './Tasks';
 
@@ -13,6 +14,7 @@ const Todo = () => {
     lists: [
       {
         list_name: '',
+        isExpanded: true,
         list_id: uuidv4(),
         tasks: [
           {
@@ -34,6 +36,7 @@ const Todo = () => {
 
   // init lists state
   const [listsState, setListsState] = useState(lists);
+  const { getCollapseProps, getToggleProps } = useCollapse(true);
 
   const onListChange = (e, list_id) => {
     // get info on event target
@@ -54,6 +57,7 @@ const Todo = () => {
     const lists = [...listsState.lists];
     lists.push({
       list_name: '',
+      isExpanded: true,
       list_id: uuidv4(),
       tasks: [{ task_name: '', checked: false, task_id: uuidv4() }]
     });
@@ -154,7 +158,17 @@ const Todo = () => {
                           onChange={(event) => {
                             onListChange(event, list.list_id);
                           }}></input>
-
+                        <button
+                          {...getToggleProps({
+                            onClick: () =>
+                              setListsState((listsState) => ({
+                                ...listsState,
+                                isExpanded: !listsState[index]
+                              }))
+                          })}>
+                          {listsState.lists[index].isExpanded ? 'Collapse' : 'Expand'}
+                        </button>
+                        <section {...getCollapseProps()}>Collapsed content 🙈</section>
                         <br />
                         <button
                           onClick={() => {
