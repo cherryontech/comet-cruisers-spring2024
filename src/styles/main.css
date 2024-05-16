@@ -660,6 +660,9 @@ body{
   font-size: 1.5rem;
   line-height: 2rem;
 }
+.collapse{
+  visibility: collapse;
+}
 .flex{
   display: flex;
 }

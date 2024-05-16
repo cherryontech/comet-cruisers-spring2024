@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { DragDropContext, Draggable } from 'react-beautiful-dnd';
-import { useCollapse } from 'react-collapsed';
 import { StrictModeDroppable } from './StrictMode';
+import Collapsible from 'react-collapsible';
 import Tasks from './Tasks';
 
 const Todo = () => {
@@ -14,8 +14,8 @@ const Todo = () => {
     lists: [
       {
         list_name: '',
-        isExpanded: true,
         list_id: uuidv4(),
+        isExpanded: true,
         tasks: [
           {
             checked: false,
@@ -36,7 +36,6 @@ const Todo = () => {
 
   // init lists state
   const [listsState, setListsState] = useState(lists);
-  const { getCollapseProps, getToggleProps } = useCollapse(true);
 
   const onListChange = (e, list_id) => {
     // get info on event target
@@ -124,7 +123,15 @@ const Todo = () => {
       setListsState({ lists });
     }
   };
-
+  const onCollapseClick = (index) => {
+    const lists = [...listsState.lists];
+    const collapseBool = lists[index].isExpanded;
+    lists[index] = {
+      ...listsState.lists[index],
+      isExpanded: !collapseBool
+    };
+    setListsState({ lists });
+  };
   // window.addEventListener('beforeunload', () => {
   //   // auto save when going to other site (does nt work within site routes)
   //   localStorage.setItem('todo_lists', JSON.stringify(listsState));
@@ -150,6 +157,7 @@ const Todo = () => {
                         ref={provided.innerRef}
                         {...provided.draggableProps}
                         {...provided.dragHandleProps}>
+                        <br />
                         <input
                           type="text"
                           name="list_name"
@@ -158,36 +166,32 @@ const Todo = () => {
                           onChange={(event) => {
                             onListChange(event, list.list_id);
                           }}></input>
-                        <button
-                          {...getToggleProps({
-                            onClick: () =>
-                              setListsState((listsState) => ({
-                                ...listsState,
-                                isExpanded: !listsState[index]
-                              }))
-                          })}>
-                          {listsState.lists[index].isExpanded ? 'Collapse' : 'Expand'}
-                        </button>
-                        <section {...getCollapseProps()}>Collapsed content 🙈</section>
-                        <br />
-                        <button
-                          onClick={() => {
-                            deleteList(list.list_id);
+                        <Collapsible
+                          trigger="+"
+                          triggerWhenOpen="-"
+                          open={list.isExpanded}
+                          handleTriggerClick={() => {
+                            onCollapseClick(index);
                           }}>
-                          Delete List
-                        </button>
-                        <Tasks
-                          listsState={listsState}
-                          setListsState={setListsState}
-                          list={list}></Tasks>
-                        <button
-                          onClick={() => {
-                            addTask(list.list_id);
-                          }}>
-                          Add Task
-                        </button>
-                        <br />
-                        <br />
+                          <button
+                            onClick={() => {
+                              deleteList(list.list_id);
+                            }}>
+                            Delete List
+                          </button>
+                          <Tasks
+                            listsState={listsState}
+                            setListsState={setListsState}
+                            list={list}></Tasks>
+                          <button
+                            onClick={() => {
+                              addTask(list.list_id);
+                            }}>
+                            Add Task
+                          </button>
+                          <br />
+                          <br />
+                        </Collapsible>
                       </div>
                     )}
                   </Draggable>
