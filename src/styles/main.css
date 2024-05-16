@@ -660,9 +660,6 @@ body{
   font-size: 1.5rem;
   line-height: 2rem;
 }
-.collapse{
-  visibility: collapse;
-}
 .flex{
   display: flex;
 }
@@ -711,4 +708,12 @@ body {
 
 #save:disabled {
   background-color: grey;
+}
+
+.list-wrapper{
+  border-color: black;
+}
+
+.task-wrapper{
+  border-color: red;
 }

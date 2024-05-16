@@ -38,16 +38,13 @@ const Tasks = ({ listsState, setListsState, list }) => {
       {(provided) => (
         <div ref={provided.innerRef}>
           {list.tasks.map((task, index) => (
-            <Draggable
-              key={task.task_id}
-              draggableId={task.task_id}
-              index={index}
-              className="task-wrapper">
+            <Draggable key={task.task_id} draggableId={task.task_id} index={index}>
               {(provided) => (
                 <div
                   ref={provided.innerRef}
                   {...provided.draggableProps}
-                  {...provided.dragHandleProps}>
+                  {...provided.dragHandleProps}
+                  className="task-wrapper">
                   <input
                     className="task-input"
                     type="checkbox"

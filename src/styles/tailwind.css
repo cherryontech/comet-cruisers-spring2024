@@ -97,3 +97,15 @@ body {
     @apply bg-custom-cream block text-2xl w-full p-1;
   }
 }
+
+.list-wrapper{
+  border-color: black;
+  border-width: 3px;
+  margin: 5px;
+}
+
+.task-wrapper{
+  border-color: red;
+  border-width: 3px;
+  margin: 5px;
+}

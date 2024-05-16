@@ -145,59 +145,52 @@ const Todo = () => {
         <StrictModeDroppable droppableId="dropListId" type="droppableList">
           {(provided) => (
             <div {...provided.droppableProps} ref={provided.innerRef}>
-              <div>
-                {listsState.lists.map((list, index) => (
-                  <Draggable
-                    key={list.list_id}
-                    draggableId={list.list_id}
-                    index={index}
-                    className="list-wrapper">
-                    {(provided) => (
-                      <div
-                        ref={provided.innerRef}
-                        {...provided.draggableProps}
-                        {...provided.dragHandleProps}>
-                        <br />
-                        <input
-                          type="text"
-                          name="list_name"
-                          value={list.list_name}
-                          placeholder="Enter list name"
-                          onChange={(event) => {
-                            onListChange(event, list.list_id);
-                          }}></input>
-                        <Collapsible
-                          trigger="+"
-                          triggerWhenOpen="-"
-                          open={list.isExpanded}
-                          handleTriggerClick={() => {
-                            onCollapseClick(index);
+              {listsState.lists.map((list, index) => (
+                <Draggable key={list.list_id} draggableId={list.list_id} index={index}>
+                  {(provided) => (
+                    <div
+                      ref={provided.innerRef}
+                      {...provided.draggableProps}
+                      {...provided.dragHandleProps}
+                      className="list-wrapper">
+                      <br />
+                      <input
+                        type="text"
+                        name="list_name"
+                        value={list.list_name}
+                        placeholder="Enter list name"
+                        onChange={(event) => {
+                          onListChange(event, list.list_id);
+                        }}></input>
+                      <Collapsible
+                        trigger="+++++++"
+                        triggerWhenOpen="----------"
+                        open={list.isExpanded}
+                        handleTriggerClick={() => {
+                          onCollapseClick(index);
+                        }}>
+                        <button
+                          onClick={() => {
+                            deleteList(list.list_id);
                           }}>
-                          <button
-                            onClick={() => {
-                              deleteList(list.list_id);
-                            }}>
-                            Delete List
-                          </button>
-                          <Tasks
-                            listsState={listsState}
-                            setListsState={setListsState}
-                            list={list}></Tasks>
-                          <button
-                            onClick={() => {
-                              addTask(list.list_id);
-                            }}>
-                            Add Task
-                          </button>
-                          <br />
-                          <br />
-                        </Collapsible>
-                      </div>
-                    )}
-                  </Draggable>
-                ))}
-                {provided.placeholder}
-              </div>
+                          Delete List
+                        </button>
+                        <Tasks
+                          listsState={listsState}
+                          setListsState={setListsState}
+                          list={list}></Tasks>
+                        <button
+                          onClick={() => {
+                            addTask(list.list_id);
+                          }}>
+                          Add Task
+                        </button>
+                      </Collapsible>
+                    </div>
+                  )}
+                </Draggable>
+              ))}
+              {provided.placeholder}
             </div>
           )}
         </StrictModeDroppable>
