@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { DragDropContext, Draggable } from 'react-beautiful-dnd';
 import { StrictModeDroppable } from './StrictMode';
+import Collapsible from 'react-collapsible';
 import Tasks from './Tasks';
 
 const Todo = () => {
@@ -14,6 +15,7 @@ const Todo = () => {
       {
         list_name: '',
         list_id: uuidv4(),
+        isExpanded: true,
         tasks: [
           {
             checked: false,
@@ -54,6 +56,7 @@ const Todo = () => {
     const lists = [...listsState.lists];
     lists.push({
       list_name: '',
+      isExpanded: true,
       list_id: uuidv4(),
       tasks: [{ task_name: '', checked: false, task_id: uuidv4() }]
     });
@@ -120,7 +123,15 @@ const Todo = () => {
       setListsState({ lists });
     }
   };
-
+  const onCollapseClick = (index) => {
+    const lists = [...listsState.lists];
+    const collapseBool = lists[index].isExpanded;
+    lists[index] = {
+      ...listsState.lists[index],
+      isExpanded: !collapseBool
+    };
+    setListsState({ lists });
+  };
   // window.addEventListener('beforeunload', () => {
   //   // auto save when going to other site (does nt work within site routes)
   //   localStorage.setItem('todo_lists', JSON.stringify(listsState));
@@ -134,28 +145,30 @@ const Todo = () => {
         <StrictModeDroppable droppableId="dropListId" type="droppableList">
           {(provided) => (
             <div {...provided.droppableProps} ref={provided.innerRef}>
-              <div>
-                {listsState.lists.map((list, index) => (
-                  <Draggable
-                    key={list.list_id}
-                    draggableId={list.list_id}
-                    index={index}
-                    className="list-wrapper">
-                    {(provided) => (
-                      <div
-                        ref={provided.innerRef}
-                        {...provided.draggableProps}
-                        {...provided.dragHandleProps}>
-                        <input
-                          type="text"
-                          name="list_name"
-                          value={list.list_name}
-                          placeholder="Enter list name"
-                          onChange={(event) => {
-                            onListChange(event, list.list_id);
-                          }}></input>
-
-                        <br />
+              {listsState.lists.map((list, index) => (
+                <Draggable key={list.list_id} draggableId={list.list_id} index={index}>
+                  {(provided) => (
+                    <div
+                      ref={provided.innerRef}
+                      {...provided.draggableProps}
+                      {...provided.dragHandleProps}
+                      className="list-wrapper">
+                      <br />
+                      <input
+                        type="text"
+                        name="list_name"
+                        value={list.list_name}
+                        placeholder="Enter list name"
+                        onChange={(event) => {
+                          onListChange(event, list.list_id);
+                        }}></input>
+                      <Collapsible
+                        trigger="+++++++"
+                        triggerWhenOpen="----------"
+                        open={list.isExpanded}
+                        handleTriggerClick={() => {
+                          onCollapseClick(index);
+                        }}>
                         <button
                           onClick={() => {
                             deleteList(list.list_id);
@@ -172,14 +185,12 @@ const Todo = () => {
                           }}>
                           Add Task
                         </button>
-                        <br />
-                        <br />
-                      </div>
-                    )}
-                  </Draggable>
-                ))}
-                {provided.placeholder}
-              </div>
+                      </Collapsible>
+                    </div>
+                  )}
+                </Draggable>
+              ))}
+              {provided.placeholder}
             </div>
           )}
         </StrictModeDroppable>

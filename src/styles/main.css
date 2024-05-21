@@ -709,3 +709,11 @@ body {
 #save:disabled {
   background-color: grey;
 }
+
+.list-wrapper{
+  border-color: black;
+}
+
+.task-wrapper{
+  border-color: red;
+}
