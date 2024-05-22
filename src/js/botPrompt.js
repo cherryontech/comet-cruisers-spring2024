@@ -29,7 +29,7 @@ const messages = [
 ];
 
 const GenerateMessage = () => {
-  const [randomMessage, setRandomMessage] = useState('Talk to me! Click me for a surpirse');
+  const [randomMessage, setRandomMessage] = useState('Talk to me! Click me for a surpirse!');
 
   const handleClick = () => {
     const randomMsg = messages[Math.floor(Math.random() * messages.length)];
