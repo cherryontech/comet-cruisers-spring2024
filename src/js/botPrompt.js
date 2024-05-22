@@ -9,8 +9,22 @@ const messages = [
   'Believe in yourself!',
   'You can achieve anything!',
   'Stay positive and happy!',
-  'test',
-  'more quotes here',
+  'Give yourself the time and opportunity to heal!',
+  'Show yourself love and compassion!',
+  'Today, you choose to love yourself just as you are.',
+  'You are worthy of good things!',
+  'With every challenge, you will understand yourself better!',
+  'Every opportunity provides a chance to learn and grow!',
+  'What kind of sandals do frogs wear? Open-toad.',
+  'Why did the cookie go to the doctor? It was feeling crumby.',
+  'How many tickles does it take to make an octopus laugh? Ten-tickles.',
+  'What did the blanket say to the bed? I’ve got you covered.',
+  'How do birds learn to fly? They wing it.',
+  'What happens when ice cream gets angry? It has a meltdown.',
+  'What do you call spaghetti in disguise? An impasta.',
+  'Why didn’t the sun go to college? It already had a million degrees.',
+  'The world is a better place because you are in it.',
+  'Embrace your imperfections. They make you unique!',
   'yanka was here!'
 ];
 
@@ -23,11 +37,11 @@ const GenerateMessage = () => {
   };
 
   return (
-    <div>
+    <div className="container">
       <div className="interactive-container">
         <button onClick={handleClick} style={{ border: 'none', background: 'none', padding: '0' }}>
           <img
-            src="public/starfish_img.png"
+            src="/starfish_img.png"
             alt="Starfish"
             className="button"
             style={{ cursor: 'pointer' }}

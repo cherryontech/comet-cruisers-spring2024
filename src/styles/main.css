@@ -722,34 +722,13 @@ body {
   margin: 5px;
 }
 
+.button {
+  cursor: pointer;
+}
+
 .container {
   text-align: center;
   margin-top: 50px;
 }
 
-.interactive-container {
-  margin-top: 20px;
-  padding: 10px;
-  width: 200px;
-  position: absolute;
-  left: 200px;
-  bottom: 265px;
-  border-radius: 8px;
-}
 
-.button {
-  cursor: pointer;
-}
-
-.textbox {
-  margin-top: 20px;
-  text-align: center;
-  padding: 10px;
-  border: 1px solid #ccc;
-  background-color: #f9f9f9;
-  width: 200px;
-  position: absolute;
-  left: 290px;
-  bottom: 265px;
-  border-radius: 8px;
-}
