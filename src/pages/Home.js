@@ -9,33 +9,42 @@ import DisplayJournal from '../js/displayEntries.js';
 const Home = () => {
   return (
     <main>
-      <h1 className="text-3xl font-bold underline">Title</h1>
-      <header>This is the temporary home page</header>
-      <Todo />
-      <br />
-      <Popup trigger={<button>New Entry</button>} modal nested>
-        {(close) => (
-          <div className="modal">
-            <div className="content">Choose</div>
-            <div>
-              <button onClick={() => close()}>
-                <IoMdClose />
-              </button>
-            </div>
-            <button>
-              <Link to="/free-journal">Free Write</Link>
-            </button>
-            <br />
-            <button>
-              <Link to="/prompt-journal">Random Prompt</Link>
-            </button>
+      <div className="dashboard-grid">
+        <div className="welcome">
+          <h1 className="text-3xl font-bold underline">Welcome</h1>
+          <header>This is the temporary home page</header>
+        </div>
+        <Todo />
+        <div className="display-journal">
+          <div className="card">
+            <DisplayJournal />
           </div>
-        )}
-      </Popup>
-      <br />
-      <br />
-      <div>
-        <DisplayJournal />
+          <div className="btn-container">
+            <Popup
+              contentStyle={{ backgroundColor: '#F6EFDE', borderColor: '#E36527' }}
+              trigger={<button className="btn btn-primary">New Entry</button>}
+              modal
+              nested>
+              {(close) => (
+                <div className="modal">
+                  <div className="content">Choose</div>
+                  <div>
+                    <button onClick={() => close()}>
+                      <IoMdClose />
+                    </button>
+                  </div>
+                  <button>
+                    <Link to="/free-journal">Free Write</Link>
+                  </button>
+                  <br />
+                  <button>
+                    <Link to="/prompt-journal">Random Prompt</Link>
+                  </button>
+                </div>
+              )}
+            </Popup>
+          </div>
+        </div>
       </div>
       <footer>This is a temp footer</footer>
     </main>
