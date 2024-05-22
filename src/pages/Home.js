@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Popup from 'reactjs-popup';
 import Todo from '../js/Todo';
@@ -7,6 +7,20 @@ import 'reactjs-popup/dist/index.css';
 import DisplayJournal from '../js/displayEntries.js';
 
 const Home = () => {
+  const [randomMessage, setRandomMessage] = useState('Talk to me! Click me for a surprise.');
+  const messages = [
+    'You are a shining star!',
+    'Keep up the great work!',
+    'Believe in yourself!',
+    'You can achieve anything!',
+    'Stay positive and happy!'
+  ];
+
+  const handleClick = () => {
+    const randomMsg = messages[Math.floor(Math.random() * messages.length)];
+    setRandomMessage(randomMsg);
+  };
+
   return (
     <main>
       <h1 className="text-3xl font-bold underline">Title</h1>
@@ -37,7 +51,18 @@ const Home = () => {
       <div>
         <DisplayJournal />
       </div>
+      <div className="interactive-container">
+        <button onClick={handleClick} style={{ border: 'none', background: 'none', padding: '0' }}>
+          <img
+            src="public/starfish_img.png"
+            alt="Starfish"
+            className="button"
+            style={{ cursor: 'pointer' }}
+          />
+        </button>
+      </div>
       <footer>This is a temp footer</footer>
+      <div className="textbox">{randomMessage}</div>
     </main>
   );
 };
