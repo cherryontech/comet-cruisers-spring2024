@@ -68,7 +68,7 @@ const Tasks = ({ listsState, setListsState, list }) => {
                     onClick={() => {
                       deleteTask(list.list_id, task.task_id);
                     }}>
-                    <FaTrash />
+                    <FaTrash style={{ color: '#0E8992' }} />
                   </button>
                 </div>
               )}

@@ -98,7 +98,7 @@ body {
   }
 
   .list-wrapper{
-    @apply max-w-[382px] m-4 p-4 border-2 rounded-lg border-custom-burnt-orange bg-custom-cream
+    @apply max-w-[382px] m-3 p-4 border-2 rounded-lg border-custom-burnt-orange bg-custom-cream
   }
 
   .task-wrapper{

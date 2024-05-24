@@ -661,7 +661,7 @@ body{
   line-height: 2rem;
 }
 .list-wrapper{
-  margin: 1.5rem;
+  margin: 1rem;
   max-width: 382px;
   border-radius: 0.5rem;
   border-width: 2px;
@@ -705,6 +705,12 @@ body{
 .min-h-\[40px\]{
   min-height: 40px;
 }
+.min-w-\[200px\]{
+  min-width: 200px;
+}
+.min-w-\[255px\]{
+  min-width: 255px;
+}
 .max-w-\[200px\]{
   max-width: 200px;
 }
@@ -717,15 +723,15 @@ body{
 .border{
   border-width: 1px;
 }
-.bg-\[\#E36527\]{
+.bg-custom-burnt-orange{
   --tw-bg-opacity: 1;
   background-color: rgb(227 101 39 / var(--tw-bg-opacity));
 }
-.bg-\[\#F6EFDE\]{
+.bg-custom-cream{
   --tw-bg-opacity: 1;
   background-color: rgb(246 239 222 / var(--tw-bg-opacity));
 }
-.bg-\[\#FFD33A\]{
+.bg-custom-yellow{
   --tw-bg-opacity: 1;
   background-color: rgb(255 211 58 / var(--tw-bg-opacity));
 }
@@ -790,15 +796,17 @@ body {
   background-color: grey;
 }
 
-.placeholder\:text-\[\#0E8992\]::placeholder{
-  --tw-text-opacity: 1;
-  color: rgb(14 137 146 / var(--tw-text-opacity));
+.Collapsible__trigger{
+  color: #0E8992
 }
 
-.placeholder\:text-\[\#E36527\]::placeholder{
+.placeholder\:text-custom-burnt-orange::placeholder{
   --tw-text-opacity: 1;
   color: rgb(227 101 39 / var(--tw-text-opacity));
 }
 
-
+.placeholder\:text-custom-teal-base::placeholder{
+  --tw-text-opacity: 1;
+  color: rgb(14 137 146 / var(--tw-text-opacity));
+}
 

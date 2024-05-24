@@ -172,7 +172,7 @@ const Todo = () => {
                           onClick={() => {
                             deleteList(list.list_id);
                           }}>
-                          <FaTrash />
+                          <FaTrash style={{ color: '#0E8992' }} />
                         </button>
                         <Collapsible
                           className="color-red"
