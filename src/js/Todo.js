@@ -127,7 +127,7 @@ const Todo = () => {
   // });
 
   return (
-    <div className="card todo-list">
+    <div className="todo-list">
       <p> This is the todo list area</p>
       <DragDropContext onDragEnd={onDragEnd}>
         <button onClick={addList}>Add List</button>
