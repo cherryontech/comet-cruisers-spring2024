@@ -661,7 +661,7 @@ body{
   line-height: 2rem;
 }
 .list-wrapper{
-  margin: 1rem;
+  margin: 0.75rem;
   max-width: 382px;
   border-radius: 0.5rem;
   border-width: 2px;
