@@ -98,11 +98,11 @@ body {
   }
 
   .list-wrapper{
-    @apply max-w-[382px] m-6 p-4 border-2 rounded-lg border-[#E36527] bg-[#F6EFDE]
+    @apply max-w-[382px] m-4 p-4 border-2 rounded-lg border-custom-burnt-orange bg-custom-cream
   }
 
   .task-wrapper{
-    @apply max-w-[300px] m-2 p-2 border-[#FFD33A] rounded-lg bg-[#FFD33A]
+    @apply max-w-[300px] m-2 p-2 border-custom-yellow rounded-lg bg-custom-yellow
   }
 
 }

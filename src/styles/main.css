@@ -702,8 +702,8 @@ body{
 .flex{
   display: flex;
 }
-.max-h-24{
-  max-height: 6rem;
+.min-h-\[40px\]{
+  min-height: 40px;
 }
 .max-w-\[200px\]{
   max-width: 200px;
@@ -752,7 +752,7 @@ body{
 .italic{
   font-style: italic;
 }
-.text-\[\#fff\]{
+.text-white{
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
@@ -790,7 +790,15 @@ body {
   background-color: grey;
 }
 
-.Collapsible__trigger{
-  color: #0E8992
+.placeholder\:text-\[\#0E8992\]::placeholder{
+  --tw-text-opacity: 1;
+  color: rgb(14 137 146 / var(--tw-text-opacity));
 }
+
+.placeholder\:text-\[\#E36527\]::placeholder{
+  --tw-text-opacity: 1;
+  color: rgb(227 101 39 / var(--tw-text-opacity));
+}
+
+
 

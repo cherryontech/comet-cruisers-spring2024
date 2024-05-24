@@ -140,7 +140,7 @@ const Todo = () => {
 
   return (
     <div className="todolist-area max-w-[400px]">
-      <p className="todo-main-title bg-[#E36527] text-[#fff] text-center max-w-[200px] min-h-[40px] text-2xl p-2 m-5">
+      <p className="todo-main-title bg-custom-burnt-orange text-white text-center max-w-[200px] min-h-[40px] text-2xl p-2 m-5">
         To Do
       </p>
 
@@ -159,7 +159,7 @@ const Todo = () => {
                       <br />
                       <div className="list-title-wrapper flex-wrap">
                         <input
-                          className="list-name bg-[#F6EFDE]"
+                          className="list-name bg-custom-cream placeholder:text-custom-burnt-orange min-w-[255px]"
                           type="text"
                           name="list_name"
                           value={list.list_name}
@@ -206,7 +206,7 @@ const Todo = () => {
         <button className="btn btn-primary ml-8" onClick={addList}>
           Add List
         </button>
-        <button className="btn btn-primary ml-8" onClick={handleFormSubmit}>
+        <button className="btn btn-secondary ml-8" onClick={handleFormSubmit}>
           Save
         </button>
       </DragDropContext>
