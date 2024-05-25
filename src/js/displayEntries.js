@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { GrFormPrevious, GrFormNext } from 'react-icons/gr';
 import blue_book from '../assets/BlueBook.svg';
 import paper from '../assets/Paper.svg';
 
@@ -51,31 +52,34 @@ const DisplayJournal = () => {
   ) : (
     <>
       {displayEntry.map((entry) => (
-        <div key={entry.journal_id} style={containerStyles} className="space-x-3 p-4">
-          {displayJournalIcon(entry.type)}
-          <div className="grow">
-            <p className="text-xs">{entry.date}</p>
-            <h1 className="font-bold text-lg">{entry.title}</h1>
-            <div dangerouslySetInnerHTML={{ __html: entry.content }} />
+        <div key={entry.journal_id}>
+          <div style={containerStyles} className="space-x-3 p-4">
+            {displayJournalIcon(entry.type)}
+            <div className="grow max-w-prose overflow-x-scroll">
+              <p className="text-xs">{entry.date}</p>
+              <h1 className="font-bold text-lg">{entry.title}</h1>
+              <div dangerouslySetInnerHTML={{ __html: entry.content }} />
+            </div>
+            <div className="flex flex-col items-end">
+              <button>
+                <Link to={`${entry.type}/${entry.journal_id}`}>Edit</Link>
+              </button>
+              <button onClick={() => deleteEntry(entry.journal_id)}>Delete</button>
+            </div>
           </div>
-          <div className="flex flex-col items-end">
-            <button>
-              <Link to={`${entry.type}/${entry.journal_id}`}>Edit</Link>
-            </button>
-            <button onClick={() => deleteEntry(entry.journal_id)}>Delete</button>
-          </div>
+          <hr className="border-gray-600 w-3/4 m-auto" />
         </div>
       ))}
       <div className="flex flex-row space-x-3 p-4">
         <button
           onClick={() => setDisplayPage(displayPage - 3)}
           className={displayPage <= 0 ? 'hidden' : 'block'}>
-          Previous
+          <GrFormPrevious className="w-6 h-6" />
         </button>
         <button
           onClick={() => setDisplayPage(displayPage + 3)}
           className={displayPage + 3 >= journalEntry.length ? 'hidden' : 'block'}>
-          Next
+          <GrFormNext className="w-6 h-6" />
         </button>
       </div>
     </>
