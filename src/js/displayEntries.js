@@ -9,7 +9,7 @@ const DisplayJournal = () => {
   const initialState = JSON.parse(localStorage.getItem('journalEntry'));
   const [journalEntry, setJournalEntry] = useState(initialState);
   const [displayPage, setDisplayPage] = useState(0);
-  const displayEntry = journalEntry.slice(
+  const displayEntry = journalEntry?.slice(
     displayPage,
     journalEntry.length >= 3 ? displayPage + 3 : journalEntry.length
   );
@@ -48,7 +48,7 @@ const DisplayJournal = () => {
   };
 
   return journalEntry == null || journalEntry.length < 1 ? (
-    <div>No entries detected.</div>
+    <div className="text-center p-4">No entries detected.</div>
   ) : (
     <>
       {displayEntry.map((entry) => (

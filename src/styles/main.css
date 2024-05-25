@@ -700,6 +700,9 @@ body{
 .float-left{
   float: left;
 }
+.m-auto{
+  margin: auto;
+}
 .block{
   display: block;
 }
@@ -712,8 +715,17 @@ body{
 .h-1\/4{
   height: 25%;
 }
+.h-6{
+  height: 1.5rem;
+}
 .w-1\/4{
   width: 25%;
+}
+.w-3\/4{
+  width: 75%;
+}
+.w-6{
+  width: 1.5rem;
 }
 .max-w-prose{
   max-width: 65ch;
@@ -737,6 +749,10 @@ body{
 }
 .overflow-x-scroll{
   overflow-x: scroll;
+}
+.border-gray-600{
+  --tw-border-opacity: 1;
+  border-color: rgb(75 85 99 / var(--tw-border-opacity));
 }
 .p-4{
   padding: 1rem;
