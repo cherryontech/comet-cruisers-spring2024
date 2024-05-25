@@ -112,4 +112,18 @@ body {
   .title-input {
     @apply bg-custom-cream block text-2xl w-full p-1;
   }
+
+  .list-wrapper{
+    @apply max-w-[382px] m-3 p-4 border-[1px] rounded-lg border-custom-burnt-orange bg-custom-cream
+  }
+
+  .task-wrapper{
+    @apply max-w-[300px] m-2 p-2 border-custom-yellow rounded-lg bg-custom-yellow
+  }
+
 }
+
+.Collapsible__trigger{
+  color: #0E8992
+}
+
