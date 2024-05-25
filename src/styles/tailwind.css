@@ -82,7 +82,7 @@ body {
   }
 
   .todo-list {
-    @apply grid-cols-subgrid col-span-2 row-start-2 row-span-3 overflow-y-auto p-5;
+    @apply grid-cols-subgrid col-span-3 row-start-2 row-span-3 overflow-y-auto p-5;
   }
 
   .journal-container {
