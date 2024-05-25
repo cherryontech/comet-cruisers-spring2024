@@ -1,6 +1,7 @@
 import React from 'react';
 import { Draggable } from 'react-beautiful-dnd';
 import { StrictModeDroppable } from './StrictMode';
+import { FaTrash } from 'react-icons/fa';
 
 const Tasks = ({ listsState, setListsState, list }) => {
   const deleteTask = (list_id, task_id) => {
@@ -46,7 +47,7 @@ const Tasks = ({ listsState, setListsState, list }) => {
                   {...provided.dragHandleProps}
                   className="task-wrapper">
                   <input
-                    className="task-input"
+                    className="task-check"
                     type="checkbox"
                     name="checked"
                     checked={task.checked}
@@ -54,6 +55,7 @@ const Tasks = ({ listsState, setListsState, list }) => {
                       onTaskChange(event, list.list_id, task.task_id);
                     }}></input>
                   <input
+                    className="task-name bg-custom-yellow pl-2 placeholder:text-custom-teal-base min-w-[200px]"
                     type="text"
                     name="task_name"
                     value={task.task_name}
@@ -62,10 +64,11 @@ const Tasks = ({ listsState, setListsState, list }) => {
                       onTaskChange(event, list.list_id, task.task_id);
                     }}></input>
                   <button
+                    className="float-right mt-1 mr-2"
                     onClick={() => {
                       deleteTask(list.list_id, task.task_id);
                     }}>
-                    Delete Task
+                    <FaTrash style={{ color: '#0E8992' }} />
                   </button>
                 </div>
               )}
