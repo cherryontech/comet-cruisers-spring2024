@@ -10,9 +10,9 @@ const Home = () => {
   return (
     <main>
       <div className="dashboard-grid">
-        <div className="welcome">
-          <h1 className="text-3xl font-bold underline">Welcome</h1>
-          <header>This is the temporary home page</header>
+        <div className="col-span-3">
+          <h1 className="text-3xl font-bold">Welcome!</h1>
+          <header>Take a look at your scrapbook.</header>
         </div>
         <Todo />
         <div className="display-journal">

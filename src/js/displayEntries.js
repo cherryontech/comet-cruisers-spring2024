@@ -66,16 +66,18 @@ const DisplayJournal = () => {
           </div>
         </div>
       ))}
-      <button
-        onClick={() => setDisplayPage(displayPage - 3)}
-        className={displayPage <= 0 ? 'hidden' : 'block'}>
-        Previous
-      </button>
-      <button
-        onClick={() => setDisplayPage(displayPage + 3)}
-        className={displayPage + 3 >= journalEntry.length ? 'hidden' : 'block'}>
-        Next
-      </button>
+      <div className="flex flex-row space-x-3 p-4">
+        <button
+          onClick={() => setDisplayPage(displayPage - 3)}
+          className={displayPage <= 0 ? 'hidden' : 'block'}>
+          Previous
+        </button>
+        <button
+          onClick={() => setDisplayPage(displayPage + 3)}
+          className={displayPage + 3 >= journalEntry.length ? 'hidden' : 'block'}>
+          Next
+        </button>
+      </div>
     </>
   );
 };
