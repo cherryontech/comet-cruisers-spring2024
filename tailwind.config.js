@@ -166,7 +166,8 @@ module.exports = {
       },
       'custom-apricot': '#F9E6DC',
       'custom-cream': '#F6EFDE',
-      'custom-burnt-orange': '#E36527'
+      'custom-burnt-orange': '#E36527',
+      'custom-yellow': '#FFD33A'
     }),
     columns: {
       auto: 'auto',
