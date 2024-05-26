@@ -42,7 +42,7 @@ body {
 
 @layer components {
   .btn {
-    @apply text-lg rounded-full w-40 h-8;
+    @apply text-lg rounded-full w-40 h-8 hover:-translate-y-1 duration-75;
   }
 
   .btn-primary {
@@ -69,6 +69,22 @@ body {
     @apply text-custom-teal-dark w-7 h-7;
   }
 
+  .card, .popup-content {
+    @apply bg-custom-cream rounded-3xl border border-solid border-custom-burnt-orange;
+  }
+
+  .dashboard-grid {
+    @apply grid grid-cols-8 grid-flow-row auto-rows-max m-10;
+  }
+
+  .display-journal {
+    @apply grid-cols-subgrid col-start-5 col-span-4 row-start-2 row-span-4 space-y-2;
+  }
+
+  .todo-list {
+    @apply grid-cols-subgrid col-span-3 row-start-2 row-span-3 overflow-y-auto p-5;
+  }
+
   .journal-container {
     @apply bg-white bg-opacity-25 w-screen h-screen space-y-2.5;
   }
@@ -78,7 +94,7 @@ body {
   }
 
   .text-entry {
-    @apply bg-custom-cream rounded-3xl border border-solid border-custom-burnt-orange shadow-md p-10 space-y-2.5;
+    @apply shadow-md p-10 space-y-2.5;
   }
 
   .prompt {
@@ -96,12 +112,10 @@ body {
   .title-input {
     @apply bg-custom-cream block text-2xl w-full p-1;
   }
-}
 
-.list-wrapper{
-  border-color: black;
-  border-width: 3px;
-  margin: 5px;
+  .list-wrapper{
+    @apply max-w-[382px] m-3 p-4 border-[1px] rounded-lg border-custom-burnt-orange bg-custom-cream
+  }
 }
 
 .task-wrapper{
@@ -147,5 +161,3 @@ body {
     left: 10vw;
   }
 }
-
-
