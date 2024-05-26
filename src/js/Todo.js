@@ -139,11 +139,10 @@ const Todo = () => {
   // });
 
   return (
-    <div className="todolist-area max-w-[400px]">
+    <div className="todo-list todolist-area">
       <p className="todo-main-title bg-custom-burnt-orange text-white text-center max-w-[200px] min-h-[40px] text-2xl p-2 m-5">
         To Do
       </p>
-
       <DragDropContext onDragEnd={onDragEnd}>
         <StrictModeDroppable droppableId="dropListId" type="droppableList">
           {(provided) => (

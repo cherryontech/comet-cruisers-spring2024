@@ -67,7 +67,8 @@ const JournalTextEntry = () => {
 
   const saveEntry = () => {
     let entries = [...journalEntries];
-    let timestamp = Date(Date.now());
+    let curDate = Date(Date.now()).split(' ');
+    let timestamp = curDate[1] + ' ' + curDate[2];
 
     const journalEntry = {
       journal_id: id == undefined ? uuidv4() : findJournalEntry(id).journal_id,
@@ -103,7 +104,7 @@ const JournalTextEntry = () => {
   return (
     <>
       {displayPrompt()}
-      <div className="text-entry">
+      <div className="card text-entry">
         <input
           type="text"
           value={title}
@@ -126,7 +127,11 @@ const JournalContainer = () => {
   return (
     <div className="journal-container">
       <div className="journal-entry">
-        <Popup trigger={<button>Go back</button>} modal nested>
+        <Popup
+          contentStyle={{ backgroundColor: '#F6EFDE', borderColor: '#E36527' }}
+          trigger={<button>Go back</button>}
+          modal
+          nested>
           {(close) => (
             <div className="modal">
               <h1>Unsaved Changes</h1>
