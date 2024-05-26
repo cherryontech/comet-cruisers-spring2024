@@ -118,6 +118,7 @@ body {
   }
 }
 
+/* mascot css code */
 .task-wrapper{
   border-color: red;
   border-width: 3px;
@@ -135,10 +136,10 @@ body {
 
 .interactive-container {
   padding: 1vh;
-  width: 15vw;
+  width: 12vw;
   position: fixed;
-  left: 5vw;
-  bottom: 5vh;
+  right: 1vw;
+  bottom: 1vh;
   border-radius: 8px;
 }
 
@@ -146,11 +147,11 @@ body {
   text-align: center;
   padding: 1vh;
   border: 1px solid #ccc;
-  background-color: #FFD3B3;
+  background-color: rgb(255 211 58 / var(--tw-bg-opacity));
   width: 12vw;
   position: fixed;
-  left: 20vw; 
-  bottom: 20vh;
+  right: 13vw; 
+  bottom: 8vh;
   border-radius: 8px;
 }
 
@@ -161,3 +162,4 @@ body {
     left: 10vw;
   }
 }
+/* end mascot css */

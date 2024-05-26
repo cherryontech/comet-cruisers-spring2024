@@ -863,49 +863,6 @@ body {
   background-color: grey;
 }
 
-.task-wrapper{
-  border-color: red;
-  border-width: 3px;
-  margin: 5px;
-}
-
-.button {
-  cursor: pointer;
-}
-
-.container {
-  text-align: center;
-  margin-top: 50px;
-}
-
-.interactive-container {
-  padding: 1vh;
-  width: 15vw;
-  position: fixed;
-  left: 5vw;
-  bottom: 5vh;
-  border-radius: 8px;
-}
-
-.textbox {
-  text-align: center;
-  padding: 1vh;
-  border: 1px solid #ccc;
-  background-color: #FFD3B3;
-  width: 12vw;
-  position: fixed;
-  left: 20vw; 
-  bottom: 20vh;
-  border-radius: 8px;
-}
-
-/* using media queries for control */
-@media (max-width: 768px) {
-  .interactive-container, .textbox {
-    width: 30vw;
-    left: 10vw;
-  }
-}
 .placeholder\:text-custom-burnt-orange::placeholder{
   --tw-text-opacity: 1;
   color: rgb(227 101 39 / var(--tw-text-opacity));

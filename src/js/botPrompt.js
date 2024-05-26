@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import 'reactjs-popup/dist/index.css';
+import star from '../assets/star_mascot.svg';
 
 const messages = [
   'Why did the computer go to bed? It needed to crash.',
@@ -24,8 +25,7 @@ const messages = [
   'What do you call spaghetti in disguise? An impasta.',
   'Why didn’t the sun go to college? It already had a million degrees.',
   'The world is a better place because you are in it.',
-  'Embrace your imperfections. They make you unique!',
-  'yanka was here!'
+  'Embrace your imperfections. They make you unique!'
 ];
 
 const GenerateMessage = () => {
@@ -40,12 +40,7 @@ const GenerateMessage = () => {
     <div className="container">
       <div className="interactive-container">
         <button onClick={handleClick} style={{ border: 'none', background: 'none', padding: '0' }}>
-          <img
-            src="/starfish_img.png"
-            alt="Starfish"
-            className="button"
-            style={{ cursor: 'pointer' }}
-          />
+          <img src={star} alt="Starfish" className="button" style={{ cursor: 'pointer' }} />
         </button>
       </div>
       <div className="textbox">{randomMessage}</div>
