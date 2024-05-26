@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom';
 import { GrFormPrevious, GrFormNext } from 'react-icons/gr';
 import blue_book from '../assets/BlueBook.svg';
 import paper from '../assets/Paper.svg';
-//import glass from '../assets/magnifyingglass.svg';
+//import glass from '../assets/magnifyingglass.svg'; // darker
+import glass from '../assets/magnifyingglass.png'; //lighter but less weird looking
 
 //since we are using local storage, the most recent journal entry is shown
 const DisplayJournal = () => {
@@ -41,13 +42,21 @@ const DisplayJournal = () => {
   return (
     <>
       <div className="search-container">
-        <input
-          type="text"
-          placeholder="Search"
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-          className="p-2 border border-gray-300 rounded-lg w-full my-4"
-        />
+        <div style={{ position: 'relative', display: 'flex', alignItems: 'center' }}>
+          <img
+            src={glass}
+            alt="Magnifying Glass"
+            style={{ position: 'absolute', left: '10px', height: '18px', width: '20px' }}
+          />
+          <input
+            type="text"
+            placeholder="Search"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            className="p-2 border border-gray-300 rounded-lg w-full my-4"
+            style={{ paddingLeft: '40px' }} // Make space for the image
+          />
+        </div>
       </div>
       {displayEntries.length < 1 ? (
         <div className="text-center p-4">No entries found.</div>
