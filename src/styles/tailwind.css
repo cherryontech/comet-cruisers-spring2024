@@ -127,3 +127,21 @@ body {
   color: #0E8992
 }
 
+/* CSS for the search bar */
+.search-container {
+  padding: 16px 20px; /* Add padding for breathing space */
+  background-color: #F9E6DC; /* Use a plain background or match your design */
+  text-align: right;
+  width: 100%; /* Ensures the search bar spans the full width */
+}
+
+.search-container1 {
+  padding: 16px 20px; /* Add padding for breathing space */
+  background-color: #fff; /* Use a plain background or match your design */
+  text-align: center;
+  width: 100%; /* Ensures the search bar spans the full width */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* Optional: Adds a subtle shadow for depth */
+}
+
+
+

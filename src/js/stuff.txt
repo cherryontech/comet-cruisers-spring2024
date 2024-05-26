@@ -1,0 +1,36 @@
+display entries.js
+  const displayEntry = journalEntry?.slice(
+    displayPage,
+    journalEntry.length >= 3 ? displayPage + 3 : journalEntry.length
+  );
+  const [searchTerm, setSearchTerm] = useState('');
+
+  // Adding some basic styles for the container and journal content
+  const containerStyles = {
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: '20px',
+    margin: 'auto'
+  };
+
+  // search functionality
+  const filteredEntries =
+    searchTerm.length == 0
+      ? journalEntry
+      : journalEntry.filter(
+          (entry) =>
+            entry.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+            entry.content.toLowerCase().includes(searchTerm.toLowerCase())
+        );
+
+  const displayJournalIcon = (type) => {
+    switch (type) {
+      case '/prompt-journal':
+        return <img src={paper} alt="Paper" className="w-1/4 h-1/4 float-left" />;
+      case '/free-journal':
+        return <img src={blue_book} alt="Blue Book" className="w-1/4 h-1/4 float-left" />;
+    }
+  };
+
