@@ -569,8 +569,8 @@ body{
   color: rgb(0 44 65 / var(--tw-text-opacity));
 }
 .card, .popup-content{
-  border-radius: 1.5rem;
-  border-width: 1px;
+  border-radius: 1.0 rem;
+  border-width: 1.5px;
   border-style: solid;
   --tw-border-opacity: 1;
   border-color: rgb(227 101 39 / var(--tw-border-opacity));

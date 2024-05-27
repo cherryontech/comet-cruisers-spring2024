@@ -16,9 +16,7 @@ const Home = () => {
         </div>
         <Todo />
         <div className="display-journal">
-          <div className="card">
-            <DisplayJournal />
-          </div>
+          <DisplayJournal />
           <div className="btn-container">
             <Popup
               contentStyle={{ backgroundColor: '#F6EFDE', borderColor: '#E36527' }}
