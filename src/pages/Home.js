@@ -5,10 +5,16 @@ import Todo from '../js/Todo';
 import { IoMdClose } from 'react-icons/io';
 import 'reactjs-popup/dist/index.css';
 import DisplayJournal from '../js/displayEntries.js';
+import logo from '../assets/logo.png';
 
 const Home = () => {
   return (
     <main>
+      <div>
+        <header className="header">
+          <img src={logo} alt="Logo" />
+        </header>
+      </div>
       <div className="dashboard-grid">
         <div className="col-span-3">
           <h1 className="text-3xl font-bold">Welcome!</h1>

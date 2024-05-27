@@ -918,3 +918,19 @@ body {
   width: 20px;
 }
 /* end search button and banner */
+
+/* Home.js Dashboard Header */
+.header {
+  background-color: #e36527; 
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  font-size: 2rem;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw; 
+  height: 12vh;
+}
+/* End Dashboard Header */
