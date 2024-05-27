@@ -22,9 +22,11 @@ const DisplayJournal = () => {
   }, []);
 
   const deleteEntry = (id) => {
-    const updatedEntries = journalEntry.filter((entry) => entry.journal_id !== id);
-    localStorage.setItem('journalEntry', JSON.stringify(updatedEntries));
-    setJournalEntry(updatedEntries);
+    if (confirm('Are you sure you want to delete this record?')) {
+      const updatedEntries = journalEntry.filter((entry) => entry.journal_id !== id);
+      localStorage.setItem('journalEntry', JSON.stringify(updatedEntries));
+      setJournalEntry(updatedEntries);
+    }
   };
 
   const filteredEntries =
