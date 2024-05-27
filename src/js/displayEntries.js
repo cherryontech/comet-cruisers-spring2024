@@ -73,7 +73,7 @@ const DisplayJournal = () => {
                 <img
                   src={entry.type === '/prompt-journal' ? paper : blue_book}
                   alt="Journal Icon"
-                  className="w-1/4 h-1/4 float-left"
+                  className="w-1/6 h-1/6 float-left"
                 />
                 <div className="grow max-w-prose overflow-x-scroll">
                   <p className="text-xs">{entry.date}</p>
