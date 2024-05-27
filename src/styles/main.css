@@ -877,32 +877,14 @@ body {
   color: rgb(14 137 146 / var(--tw-text-opacity));
 }
 
-/* CSS for the search bar & Journal Banner */
-.header-container {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start; 
-  padding: 10px;
-}
-
-.journal-banner {
-  position: relative;
-  background-color: #e36527; 
-  color: white;
-  text-align: center;
-  padding: 8px 20px;
-  font-size: 1.5rem; 
-  border-radius: 5px; 
-  margin-right: 20px; 
-  font-family: sans-serif; 
-  display: inline-block;
-}
-
+/* CSS for the search bar */
 .search-container {
   position: relative; 
   display: flex;
-  align-items: center;
-  flex-grow: 1;
+  align-items: center; 
+  width: 100%;
+  max-width: 300px; 
+  padding-right: 20px;
 }
 
 .search-input {
@@ -920,7 +902,7 @@ body {
   top: 50%; 
   transform: translateY(-50%); 
   height: 20px; 
-  width: 20px;
+  width: 20px; 
 }
 
-/* end search button and banner */
+/* end search button */

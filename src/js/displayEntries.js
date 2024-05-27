@@ -41,18 +41,15 @@ const DisplayJournal = () => {
 
   return (
     <>
-      <div className="header-container">
-        <div className="journal-banner">Journal</div>
-        <div className="search-container">
-          <img src={glass} alt="Magnifying Glass" className="icon" />
-          <input
-            type="text"
-            placeholder="Search"
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-            className="search-input"
-          />
-        </div>
+      <div className="search-container">
+        <img src={glass} alt="Magnifying Glass" className="icon" />
+        <input
+          type="text"
+          placeholder="Search"
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          className="search-input"
+        />
       </div>
       <div className="card">
         {displayEntries.length < 1 ? (
