@@ -6,7 +6,6 @@ import { IoMdClose } from 'react-icons/io';
 import 'reactjs-popup/dist/index.css';
 import DisplayJournal from '../js/displayEntries.js';
 import logo from '../assets/logo.png';
-
 const Home = () => {
   return (
     <main>
@@ -54,5 +53,4 @@ const Home = () => {
     </main>
   );
 };
-
 export default Home;
