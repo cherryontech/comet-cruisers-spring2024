@@ -41,20 +41,16 @@ const DisplayJournal = () => {
 
   return (
     <>
-      <div className="search-container">
-        <div style={{ position: 'relative', display: 'flex', alignItems: 'center' }}>
-          <img
-            src={glass}
-            alt="Magnifying Glass"
-            style={{ position: 'absolute', left: '10px', height: '18px', width: '20px' }}
-          />
+      <div className="header-container">
+        <div className="journal-banner">Journal</div>
+        <div className="search-container">
+          <img src={glass} alt="Magnifying Glass" className="icon" />
           <input
             type="text"
             placeholder="Search"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="p-2 border border-gray-300 rounded-lg w-full my-4"
-            style={{ paddingLeft: '40px' }} // Make space for the image
+            className="search-input"
           />
         </div>
       </div>
