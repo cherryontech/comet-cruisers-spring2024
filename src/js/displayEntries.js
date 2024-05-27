@@ -58,56 +58,64 @@ const DisplayJournal = () => {
           />
         </div>
       </div>
-      {displayEntries.length < 1 ? (
-        <div className="text-center p-4">No entries found.</div>
-      ) : (
-        displayEntries.map((entry) => (
-          <div
-            key={entry.journal_id}
-            className="space-x-3 p-4"
-            style={{
-              display: 'flex',
-              flexDirection: 'row',
-              alignItems: 'center',
-              justifyContent: 'center',
-              margin: 'auto',
-              marginTop: '20px'
-            }}>
-            <img
-              src={entry.type === '/prompt-journal' ? paper : blue_book}
-              alt="Journal Icon"
-              className="w-1/4 h-1/4 float-left"
-            />
-            <div className="grow max-w-prose overflow-x-scroll">
-              <p className="text-xs">{entry.date}</p>
-              <h1 className="font-bold text-lg">{entry.title}</h1>
-              <div dangerouslySetInnerHTML={{ __html: entry.content }} />
-            </div>
-            <div className="flex flex-col items-end">
-              <button>
-                <Link to={`${entry.type}/${entry.journal_id}`}>Edit</Link>
-              </button>
-              <button onClick={() => deleteEntry(entry.journal_id)}>Delete</button>
-            </div>
+      <div className="card">
+        {displayEntries.length < 1 ? (
+          <div className="text-center p-4">No entries found.</div>
+        ) : (
+          displayEntries.map((entry, index) => (
+            <React.Fragment key={entry.journal_id}>
+              <div
+                className="space-x-3 p-4"
+                style={{
+                  display: 'flex',
+                  flexDirection: 'row',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  margin: 'auto',
+                  marginTop: '20px'
+                }}>
+                <img
+                  src={entry.type === '/prompt-journal' ? paper : blue_book}
+                  alt="Journal Icon"
+                  className="w-1/4 h-1/4 float-left"
+                />
+                <div className="grow max-w-prose overflow-x-scroll">
+                  <p className="text-xs">{entry.date}</p>
+                  <h1 className="font-bold text-lg">{entry.title}</h1>
+                  <div dangerouslySetInnerHTML={{ __html: entry.content }} />
+                </div>
+                <div className="flex flex-col items-end">
+                  <button>
+                    <Link to={`${entry.type}/${entry.journal_id}`}>Edit</Link>
+                  </button>
+                  <button onClick={() => deleteEntry(entry.journal_id)}>Delete</button>
+                </div>
+              </div>
+              {index !== displayEntries.length - 1 && (
+                <hr className="border-gray-600 w-3/4 m-auto" />
+              )}
+            </React.Fragment>
+          ))
+        )}
+        {filteredEntries.length > entriesPerPage && (
+          <div className="flex flex-row space-x-3 p-4">
+            <button
+              onClick={() => setDisplayPage(displayPage - entriesPerPage)}
+              className={displayPage <= 0 ? 'hidden' : 'block'}
+              disabled={displayPage <= 0}>
+              <GrFormPrevious className="w-6 h-6" />
+            </button>
+            <button
+              onClick={() => setDisplayPage(displayPage + entriesPerPage)}
+              className={
+                displayPage + entriesPerPage >= filteredEntries.length ? 'hidden' : 'block'
+              }
+              disabled={displayPage + entriesPerPage >= filteredEntries.length}>
+              <GrFormNext className="w-6 h-6" />
+            </button>
           </div>
-        ))
-      )}
-      {filteredEntries.length > entriesPerPage && (
-        <div className="flex flex-row space-x-3 p-4">
-          <button
-            onClick={() => setDisplayPage(displayPage - entriesPerPage)}
-            className={displayPage <= 0 ? 'hidden' : 'block'}
-            disabled={displayPage <= 0}>
-            <GrFormPrevious className="w-6 h-6" />
-          </button>
-          <button
-            onClick={() => setDisplayPage(displayPage + entriesPerPage)}
-            className={displayPage + entriesPerPage >= filteredEntries.length ? 'hidden' : 'block'}
-            disabled={displayPage + entriesPerPage >= filteredEntries.length}>
-            <GrFormNext className="w-6 h-6" />
-          </button>
-        </div>
-      )}
+        )}
+      </div>
     </>
   );
 };
