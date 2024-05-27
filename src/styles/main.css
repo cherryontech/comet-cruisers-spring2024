@@ -872,7 +872,6 @@ body {
   --tw-text-opacity: 1;
   color: rgb(14 137 146 / var(--tw-text-opacity));
 }
-
 /* CSS for the search bar & Journal Banner */
 .header-container {
   display: flex;
@@ -919,7 +918,3 @@ body {
   width: 20px;
 }
 /* end search button and banner */
-
-
-
-
