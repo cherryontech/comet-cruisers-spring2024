@@ -79,7 +79,7 @@ const DisplayJournal = () => {
                 />
                 <div className="grow max-w-prose overflow-x-scroll">
                   <p className="text-xs">{entry.date}</p>
-                  <h1 className="font-bold text-lg">{entry.title}</h1>
+                  <h1 className="font-normal text-3xl">{entry.title}</h1>
                   <div dangerouslySetInnerHTML={{ __html: entry.content }} />
                 </div>
                 <div className="flex flex-col items-end">
