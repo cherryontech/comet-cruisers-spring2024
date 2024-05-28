@@ -36,7 +36,7 @@ const DisplayJournal = () => {
           entry.title.toLowerCase().includes(searchTerm.toLowerCase())
         );
 
-  const displayEntries = filteredEntries.slice(
+  const displayEntries = filteredEntries?.slice(
     displayPage,
     filteredEntries.length >= entriesPerPage ? displayPage + entriesPerPage : filteredEntries.length
   );
