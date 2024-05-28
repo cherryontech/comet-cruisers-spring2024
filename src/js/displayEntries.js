@@ -57,7 +57,7 @@ const DisplayJournal = () => {
         </div>
       </div>
       <div className="card">
-        {displayEntries.length == null || displayEntries.length < 1 ? (
+        {journalEntry == null || journalEntry.length < 1 ? (
           <div className="text-center p-4">No entries found.</div>
         ) : (
           displayEntries.map((entry, index) => (
