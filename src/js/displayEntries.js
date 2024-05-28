@@ -95,7 +95,7 @@ const DisplayJournal = () => {
             </React.Fragment>
           ))
         )}
-        {filteredEntries.length > entriesPerPage && (
+        {filteredEntries?.length > entriesPerPage && (
           <div className="flex flex-row space-x-3 p-4">
             <button
               onClick={() => setDisplayPage(displayPage - entriesPerPage)}
@@ -106,9 +106,9 @@ const DisplayJournal = () => {
             <button
               onClick={() => setDisplayPage(displayPage + entriesPerPage)}
               className={
-                displayPage + entriesPerPage >= filteredEntries.length ? 'hidden' : 'block'
+                displayPage + entriesPerPage >= filteredEntries?.length ? 'hidden' : 'block'
               }
-              disabled={displayPage + entriesPerPage >= filteredEntries.length}>
+              disabled={displayPage + entriesPerPage >= filteredEntries?.length}>
               <GrFormNext className="w-6 h-6" />
             </button>
           </div>
