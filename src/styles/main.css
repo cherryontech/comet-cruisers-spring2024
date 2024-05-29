@@ -508,39 +508,6 @@ body{
   --tw-contain-paint:  ;
   --tw-contain-style:  ;
 }
-.container{
-  width: 100%;
-}
-@media (min-width: 640px){
-
-  .container{
-    max-width: 640px;
-  }
-}
-@media (min-width: 768px){
-
-  .container{
-    max-width: 768px;
-  }
-}
-@media (min-width: 1024px){
-
-  .container{
-    max-width: 1024px;
-  }
-}
-@media (min-width: 1280px){
-
-  .container{
-    max-width: 1280px;
-  }
-}
-@media (min-width: 1536px){
-
-  .container{
-    max-width: 1536px;
-  }
-}
 .btn{
   height: 2rem;
   width: 10rem;
@@ -630,7 +597,7 @@ body{
   margin-bottom: calc(0.5rem * var(--tw-space-y-reverse));
 }
 .todo-list{
-  grid-column: span 2 / span 2;
+  grid-column: span 3 / span 3;
   grid-row: span 3 / span 3;
   grid-row-start: 2;
   grid-template-columns: subgrid;
@@ -694,24 +661,11 @@ body{
   font-size: 1.5rem;
   line-height: 2rem;
 }
-
-.col-span-3{
-  grid-column: span 3 / span 3;
-}
-.float-left{
-  float: left;
-}
-.m-auto{
-  margin: auto;
-}
-.block{
-  display: block;
-}
 .list-wrapper{
   margin: 0.75rem;
   max-width: 382px;
   border-radius: 0.5rem;
-  border-width: 2px;
+  border-width: 1px;
   --tw-border-opacity: 1;
   border-color: rgb(227 101 39 / var(--tw-border-opacity));
   --tw-bg-opacity: 1;
@@ -731,11 +685,20 @@ body{
 .collapse{
   visibility: collapse;
 }
+.col-span-3{
+  grid-column: span 3 / span 3;
+}
 .float-right{
   float: right;
 }
+.float-left{
+  float: left;
+}
 .m-5{
   margin: 1.25rem;
+}
+.m-auto{
+  margin: auto;
 }
 .ml-8{
   margin-left: 2rem;
@@ -746,27 +709,41 @@ body{
 .mt-1{
   margin-top: 0.25rem;
 }
+.block{
+  display: block;
+}
 .flex{
   display: flex;
 }
-
 .hidden{
   display: none;
 }
-.h-1\/4{
-  height: 25%;
+.h-1\/6{
+  height: 16.666667%;
 }
 .h-6{
   height: 1.5rem;
 }
-.w-1\/4{
-  width: 25%;
+.min-h-\[40px\]{
+  min-height: 40px;
+}
+.w-1\/6{
+  width: 16.666667%;
 }
 .w-3\/4{
   width: 75%;
 }
 .w-6{
   width: 1.5rem;
+}
+.min-w-\[200px\]{
+  min-width: 200px;
+}
+.min-w-\[255px\]{
+  min-width: 255px;
+}
+.max-w-\[200px\]{
+  max-width: 200px;
 }
 .max-w-prose{
   max-width: 65ch;
@@ -779,6 +756,9 @@ body{
 }
 .flex-col{
   flex-direction: column;
+}
+.flex-wrap{
+  flex-wrap: wrap;
 }
 .items-end{
   align-items: flex-end;
@@ -795,30 +775,6 @@ body{
   --tw-border-opacity: 1;
   border-color: rgb(75 85 99 / var(--tw-border-opacity));
 }
-.p-4{
-  padding: 1rem;
-}
-.min-h-\[40px\]{
-  min-height: 40px;
-}
-.min-w-\[200px\]{
-  min-width: 200px;
-}
-.min-w-\[255px\]{
-  min-width: 255px;
-}
-.max-w-\[200px\]{
-  max-width: 200px;
-}
-.max-w-\[400px\]{
-  max-width: 400px;
-}
-.flex-wrap{
-  flex-wrap: wrap;
-}
-.border{
-  border-width: 1px;
-}
 .bg-custom-burnt-orange{
   --tw-bg-opacity: 1;
   background-color: rgb(227 101 39 / var(--tw-bg-opacity));
@@ -833,6 +789,9 @@ body{
 }
 .p-2{
   padding: 0.5rem;
+}
+.p-4{
+  padding: 1rem;
 }
 .pl-2{
   padding-left: 0.5rem;
@@ -862,13 +821,12 @@ body{
 .italic{
   font-style: italic;
 }
-
 .text-white{
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
-.underline{
-  text-decoration-line: underline;
+.filter{
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 
 html {
@@ -914,4 +872,65 @@ body {
   --tw-text-opacity: 1;
   color: rgb(14 137 146 / var(--tw-text-opacity));
 }
+/* CSS for the search bar & Journal Banner */
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; 
+  padding: 10px;
+}
 
+.journal-banner {
+  position: relative;
+  background-color: #e36527; 
+  color: white;
+  text-align: center;
+  padding: 8px 20px;
+  font-size: 1.5rem; 
+  border-radius: 5px; 
+  margin-right: 20px; 
+  font-family: sans-serif; 
+  display: inline-block;
+}
+
+.search-container {
+  position: relative; 
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.search-input {
+  width: 100%; 
+  padding: 8px 20px 8px 40px; 
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  outline: none;
+  background-color: #fafafa;
+}
+
+.icon {
+  position: absolute;
+  left: 10px; 
+  top: 50%; 
+  transform: translateY(-50%); 
+  height: 20px; 
+  width: 20px;
+}
+/* end search button and banner */
+
+/* Home.js Dashboard Header */
+.header {
+  background-color: #e36527; 
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  font-size: 2rem;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw; 
+  height: 12vh;
+}
+/* End Dashboard Header */
