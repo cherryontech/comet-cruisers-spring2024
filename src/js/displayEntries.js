@@ -37,13 +37,13 @@ const DisplayJournal = () => {
         );
 
   const displayEntries = filteredEntries?.slice(
-    displayPage,
+    searchTerm.length > 0 && displayPage > 0 ? setDisplayPage(0) : displayPage,
     filteredEntries.length >= entriesPerPage ? displayPage + entriesPerPage : filteredEntries.length
   );
 
   return (
     <>
-      <div className="header-container">
+      <div className="header-container flex flex-row">
         <div className="journal-banner">Journal</div>
         <div className="search-container">
           <img src={glass} alt="Magnifying Glass" className="icon" />
@@ -62,16 +62,7 @@ const DisplayJournal = () => {
         ) : (
           displayEntries.map((entry, index) => (
             <React.Fragment key={entry.journal_id}>
-              <div
-                className="space-x-3 p-4"
-                style={{
-                  display: 'flex',
-                  flexDirection: 'row',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  margin: 'auto',
-                  marginTop: '20px'
-                }}>
+              <div className="flex flex-row items-center justify-center space-x-3 p-4 m-auto mt-5">
                 <img
                   src={entry.type === '/prompt-journal' ? paper : blue_book}
                   alt="Journal Icon"
