@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { GrFormPrevious, GrFormNext } from 'react-icons/gr';
+import { FaMagnifyingGlass } from 'react-icons/fa6';
 import blue_book from '../assets/BlueBook.svg';
 import paper from '../assets/Paper.svg';
 //import glass from '../assets/magnifyingglass.svg'; // darker
-import glass from '../assets/magnifyingglass.png'; //lighter but less weird looking
+//import glass from '../assets/magnifyingglass.png'; //lighter but less weird looking
 
 //since we are using local storage, the most recent journal entry is shown
 const DisplayJournal = () => {
@@ -44,15 +45,17 @@ const DisplayJournal = () => {
   return (
     <>
       <div className="header-container flex flex-row">
-        <div className="journal-banner">Journal</div>
-        <div className="search-container">
-          <img src={glass} alt="Magnifying Glass" className="icon" />
+        <div className="journal-banner bg-custom-burnt-orange text-white text-center max-w-[200px] min-h-[40px] text-2xl p-2 m-5">
+          Journal
+        </div>
+        <div className="search-container flex flex-row items-center justify-end grow">
+          <FaMagnifyingGlass className="text-gray-400 m-2 absolute" />
           <input
             type="text"
             placeholder="Search"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="search-input"
+            className="search-input rounded-3xl w-4/5 p-2"
           />
         </div>
       </div>
