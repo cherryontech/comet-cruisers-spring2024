@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { GrFormPrevious, GrFormNext } from 'react-icons/gr';
+import { FaMagnifyingGlass } from 'react-icons/fa6';
 import blue_book from '../assets/BlueBook.svg';
 import paper from '../assets/Paper.svg';
 //import glass from '../assets/magnifyingglass.svg'; // darker
-import glass from '../assets/magnifyingglass.png'; //lighter but less weird looking
+//import glass from '../assets/magnifyingglass.png'; //lighter but less weird looking
 
 //since we are using local storage, the most recent journal entry is shown
 const DisplayJournal = () => {
@@ -37,22 +38,24 @@ const DisplayJournal = () => {
         );
 
   const displayEntries = filteredEntries?.slice(
-    displayPage,
+    searchTerm.length > 0 && displayPage > 0 ? setDisplayPage(0) : displayPage,
     filteredEntries.length >= entriesPerPage ? displayPage + entriesPerPage : filteredEntries.length
   );
 
   return (
     <>
-      <div className="header-container">
-        <div className="journal-banner">Journal</div>
-        <div className="search-container">
-          <img src={glass} alt="Magnifying Glass" className="icon" />
+      <div className="header-container flex flex-row">
+        <div className="journal-banner bg-custom-burnt-orange text-white text-center max-w-[200px] min-h-[40px] text-2xl p-2 m-5">
+          Journal
+        </div>
+        <div className="search-container flex flex-row items-center justify-end grow">
+          <FaMagnifyingGlass className="text-gray-400 m-2 absolute" />
           <input
             type="text"
             placeholder="Search"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="search-input"
+            className="search-input rounded-3xl w-4/5 p-2"
           />
         </div>
       </div>
@@ -62,16 +65,7 @@ const DisplayJournal = () => {
         ) : (
           displayEntries.map((entry, index) => (
             <React.Fragment key={entry.journal_id}>
-              <div
-                className="space-x-3 p-4"
-                style={{
-                  display: 'flex',
-                  flexDirection: 'row',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  margin: 'auto',
-                  marginTop: '20px'
-                }}>
+              <div className="flex flex-row items-center justify-center space-x-3 p-4 m-auto mt-5">
                 <img
                   src={entry.type === '/prompt-journal' ? paper : blue_book}
                   alt="Journal Icon"

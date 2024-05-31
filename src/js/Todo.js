@@ -154,7 +154,7 @@ const Todo = () => {
                       ref={provided.innerRef}
                       {...provided.draggableProps}
                       {...provided.dragHandleProps}
-                      className="list-wrapper ">
+                      className="list-wrapper">
                       <br />
                       <div className="list-title-wrapper flex-wrap">
                         <input

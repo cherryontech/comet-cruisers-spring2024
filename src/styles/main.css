@@ -664,7 +664,7 @@ body{
 .list-wrapper{
   margin: 0.75rem;
   max-width: 382px;
-  border-radius: 0.5rem;
+  border-radius: 1.5rem;
   border-width: 1px;
   --tw-border-opacity: 1;
   border-color: rgb(227 101 39 / var(--tw-border-opacity));
@@ -685,6 +685,9 @@ body{
 .collapse{
   visibility: collapse;
 }
+.absolute{
+  position: absolute;
+}
 .col-span-3{
   grid-column: span 3 / span 3;
 }
@@ -693,6 +696,9 @@ body{
 }
 .float-left{
   float: left;
+}
+.m-1{
+  margin: 0.25rem;
 }
 .m-5{
   margin: 1.25rem;
@@ -708,6 +714,9 @@ body{
 }
 .mt-1{
   margin-top: 0.25rem;
+}
+.mt-5{
+  margin-top: 1.25rem;
 }
 .block{
   display: block;
@@ -732,6 +741,9 @@ body{
 }
 .w-3\/4{
   width: 75%;
+}
+.w-48{
+  width: 12rem;
 }
 .w-6{
   width: 1.5rem;
@@ -763,6 +775,15 @@ body{
 .items-end{
   align-items: flex-end;
 }
+.items-center{
+  align-items: center;
+}
+.justify-end{
+  justify-content: flex-end;
+}
+.justify-center{
+  justify-content: center;
+}
 .space-x-3 > :not([hidden]) ~ :not([hidden]){
   --tw-space-x-reverse: 0;
   margin-right: calc(0.75rem * var(--tw-space-x-reverse));
@@ -770,6 +791,9 @@ body{
 }
 .overflow-x-scroll{
   overflow-x: scroll;
+}
+.rounded-3xl{
+  border-radius: 1.5rem;
 }
 .border-gray-600{
   --tw-border-opacity: 1;
@@ -786,6 +810,9 @@ body{
 .bg-custom-yellow{
   --tw-bg-opacity: 1;
   background-color: rgb(255 211 58 / var(--tw-bg-opacity));
+}
+.p-1{
+  padding: 0.25rem;
 }
 .p-2{
   padding: 0.5rem;
@@ -807,10 +834,6 @@ body{
   font-size: 1.875rem;
   line-height: 2.25rem;
 }
-.text-lg{
-  font-size: 1.125rem;
-  line-height: 1.75rem;
-}
 .text-xs{
   font-size: 0.75rem;
   line-height: 1rem;
@@ -818,8 +841,15 @@ body{
 .font-bold{
   font-weight: 700;
 }
+.font-normal{
+  font-weight: 400;
+}
 .italic{
   font-style: italic;
+}
+.text-gray-400{
+  --tw-text-opacity: 1;
+  color: rgb(156 163 175 / var(--tw-text-opacity));
 }
 .text-white{
   --tw-text-opacity: 1;
@@ -872,65 +902,3 @@ body {
   --tw-text-opacity: 1;
   color: rgb(14 137 146 / var(--tw-text-opacity));
 }
-/* CSS for the search bar & Journal Banner */
-.header-container {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start; 
-  padding: 10px;
-}
-
-.journal-banner {
-  position: relative;
-  background-color: #e36527; 
-  color: white;
-  text-align: center;
-  padding: 8px 20px;
-  font-size: 1.5rem; 
-  border-radius: 5px; 
-  margin-right: 20px; 
-  font-family: sans-serif; 
-  display: inline-block;
-}
-
-.search-container {
-  position: relative; 
-  display: flex;
-  align-items: center;
-  flex-grow: 1;
-}
-
-.search-input {
-  width: 100%; 
-  padding: 8px 20px 8px 40px; 
-  border-radius: 20px;
-  border: 1px solid #ccc;
-  outline: none;
-  background-color: #fafafa;
-}
-
-.icon {
-  position: absolute;
-  left: 10px; 
-  top: 50%; 
-  transform: translateY(-50%); 
-  height: 20px; 
-  width: 20px;
-}
-/* end search button and banner */
-
-/* Home.js Dashboard Header */
-.header {
-  background-color: #e36527; 
-  color: white;
-  text-align: center;
-  padding: 10px 0;
-  font-size: 2rem;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100vw; 
-  height: 12vh;
-}
-/* End Dashboard Header */
