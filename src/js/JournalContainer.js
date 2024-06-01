@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import Popup from 'reactjs-popup';
 import { v4 as uuidv4 } from 'uuid';
+import { IoMdArrowBack } from 'react-icons/io';
 import GeneratePrompt from './Prompt.js';
 import SaveButton from '../js/saveButton.js';
 import ClearButton from '../js/clearButton.js';
@@ -82,10 +83,10 @@ const JournalTextEntry = () => {
     const spliceIndex = () => {
       const index = entries.findIndex((x) => x.journal_id === id);
       entries.splice(index, 1);
-      entries.push(journalEntry);
+      entries.unshift(journalEntry);
     };
 
-    id == undefined ? entries.push(journalEntry) : spliceIndex();
+    id == undefined ? entries.unshift(journalEntry) : spliceIndex();
 
     localStorage.setItem('journalEntry', JSON.stringify(entries));
   };
@@ -129,7 +130,11 @@ const JournalContainer = () => {
       <div className="journal-entry">
         <Popup
           contentStyle={{ backgroundColor: '#F6EFDE', borderColor: '#E36527' }}
-          trigger={<button>Go back</button>}
+          trigger={
+            <button>
+              <IoMdArrowBack className="absolute top-3 start-3 w-10 h-10 hover" />
+            </button>
+          }
           modal
           nested>
           {(close) => (
