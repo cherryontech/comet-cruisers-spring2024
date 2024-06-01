@@ -6,7 +6,13 @@ import { IoMdClose } from 'react-icons/io';
 import 'reactjs-popup/dist/index.css';
 import DisplayJournal from '../js/displayEntries.js';
 import logo from '../assets/logo.png';
+import GenerateMessage from '../js/botPrompt.js';
+
 const Home = () => {
+  const displayMascot = () => {
+    return <GenerateMessage />;
+  };
+
   return (
     <main>
       <div>
@@ -50,6 +56,7 @@ const Home = () => {
         </div>
       </div>
       <footer>This is a temp footer</footer>
+      {displayMascot()}
     </main>
   );
 };
