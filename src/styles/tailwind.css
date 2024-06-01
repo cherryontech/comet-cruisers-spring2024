@@ -126,3 +126,48 @@ body {
 .Collapsible__trigger{
   color: #0E8992
 }
+/* mascot css code */
+.task-wrapper{
+  border-color: red;
+  border-width: 3px;
+  margin: 5px;
+}
+
+.button {
+  cursor: pointer;
+}
+
+.container {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.interactive-container {
+  padding: 1vh;
+  width: 12vw;
+  position: fixed;
+  right: 1vw;
+  bottom: 1vh;
+  border-radius: 8px;
+}
+
+.textbox {
+  text-align: center;
+  padding: 1vh;
+  border: 1px solid #ccc;
+  background-color: rgb(255 211 58 / var(--tw-bg-opacity));
+  width: 12vw;
+  position: fixed;
+  right: 13vw; 
+  bottom: 8vh;
+  border-radius: 8px;
+}
+
+/* using media queries for control */
+@media (max-width: 768px) {
+  .interactive-container, .textbox {
+    width: 30vw;
+    left: 10vw;
+  }
+}
+/* end mascot css */
