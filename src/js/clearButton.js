@@ -6,7 +6,7 @@ const ClearButton = ({ clearButton }) => {
   };
 
   return (
-    <button type="button" name="clear" className="btn btn-secondary" onClick={handleClear}>
+    <button type="button" name="clear" className="btn btn-secondary hover" onClick={handleClear}>
       Clear
     </button>
   );

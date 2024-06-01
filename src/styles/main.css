@@ -688,6 +688,12 @@ body{
 .absolute{
   position: absolute;
 }
+.left-0{
+  left: 0px;
+}
+.top-0{
+  top: 0px;
+}
 .col-span-3{
   grid-column: span 3 / span 3;
 }
@@ -697,8 +703,8 @@ body{
 .float-left{
   float: left;
 }
-.m-1{
-  margin: 0.25rem;
+.m-2{
+  margin: 0.5rem;
 }
 .m-5{
   margin: 1.25rem;
@@ -742,8 +748,8 @@ body{
 .w-3\/4{
   width: 75%;
 }
-.w-48{
-  width: 12rem;
+.w-4\/5{
+  width: 80%;
 }
 .w-6{
   width: 1.5rem;
@@ -810,9 +816,6 @@ body{
 .bg-custom-yellow{
   --tw-bg-opacity: 1;
   background-color: rgb(255 211 58 / var(--tw-bg-opacity));
-}
-.p-1{
-  padding: 0.25rem;
 }
 .p-2{
   padding: 0.5rem;

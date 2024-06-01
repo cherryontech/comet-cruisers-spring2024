@@ -25,7 +25,7 @@ const Home = () => {
           <div className="btn-container">
             <Popup
               contentStyle={{ backgroundColor: '#F6EFDE', borderColor: '#E36527' }}
-              trigger={<button className="btn btn-primary">New Entry</button>}
+              trigger={<button className="btn btn-primary hover">New Entry</button>}
               modal
               nested>
               {(close) => (

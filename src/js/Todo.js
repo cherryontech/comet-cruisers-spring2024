@@ -202,10 +202,10 @@ const Todo = () => {
           )}
         </StrictModeDroppable>
 
-        <button className="btn btn-primary ml-8" onClick={addList}>
+        <button className="btn btn-primary hover ml-8" onClick={addList}>
           Add List
         </button>
-        <button className="btn btn-secondary ml-8" onClick={handleFormSubmit}>
+        <button className="btn btn-secondary hover ml-8" onClick={handleFormSubmit}>
           Save
         </button>
       </DragDropContext>
