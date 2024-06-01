@@ -131,12 +131,6 @@ body {
   color: #0E8992
 }
 /* mascot css code */
-.task-wrapper{
-  border-color: red;
-  border-width: 3px;
-  margin: 5px;
-}
-
 .button {
   cursor: pointer;
 }
