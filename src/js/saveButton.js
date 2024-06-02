@@ -15,7 +15,7 @@ const SaveButton = ({ saveEntry, disabled }) => {
       type="button"
       name="save"
       id="save"
-      className="btn btn-primary"
+      className="btn btn-primary hover"
       onClick={handleSave}
       disabled={disabled}>
       Save

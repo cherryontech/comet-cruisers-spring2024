@@ -41,8 +41,12 @@ body {
 }
 
 @layer components {
+  .hover {
+    @apply hover:-translate-y-1 duration-75;
+  }
+
   .btn {
-    @apply text-lg rounded-full w-40 h-8 hover:-translate-y-1 duration-75;
+    @apply text-lg rounded-full w-40 h-8;
   }
 
   .btn-primary {
@@ -127,12 +131,6 @@ body {
   color: #0E8992
 }
 /* mascot css code */
-.task-wrapper{
-  border-color: red;
-  border-width: 3px;
-  margin: 5px;
-}
-
 .button {
   cursor: pointer;
 }
