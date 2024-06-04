@@ -148,7 +148,12 @@ const GenerateMessage = () => {
     <div className="container">
       <div className="interactive-container">
         <button onClick={handleClick} style={{ border: 'none', background: 'none', padding: '0' }}>
-          <img src={star} alt="Starfish" className="button" style={{ cursor: 'pointer' }} />
+          <img
+            src={star}
+            alt="Starfish"
+            className="tutorial-star button"
+            style={{ cursor: 'pointer' }}
+          />
         </button>
       </div>
       <div className="textbox">{randomMessage}</div>
