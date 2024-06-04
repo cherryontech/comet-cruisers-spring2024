@@ -144,7 +144,7 @@ body {
   padding: 1vh;
   width: 12vw;
   position: fixed;
-  right: 1vw;
+  left: 1vw;
   bottom: 1vh;
   border-radius: 8px;
 }
@@ -156,7 +156,7 @@ body {
   background-color: rgb(255 211 58 / var(--tw-bg-opacity));
   width: 12vw;
   position: fixed;
-  right: 13vw; 
+  left: 13vw; 
   bottom: 8vh;
   border-radius: 8px;
 }

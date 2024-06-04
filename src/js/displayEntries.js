@@ -52,14 +52,14 @@ const DisplayJournal = () => {
           <FaMagnifyingGlass className="text-gray-400 m-2 absolute" />
           <input
             type="text"
-            placeholder="Search"
+            placeholder="Search Title"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             className="search-input rounded-3xl w-4/5 p-2"
           />
         </div>
       </div>
-      <div className="card">
+      <div className="tutorial-journal card">
         {journalEntry == null || journalEntry.length < 1 ? (
           <div className="text-center p-4">No entries found.</div>
         ) : (
@@ -77,10 +77,12 @@ const DisplayJournal = () => {
                   <div dangerouslySetInnerHTML={{ __html: entry.content }} />
                 </div>
                 <div className="flex flex-col items-end">
-                  <button>
+                  <button className="tutorial-edit">
                     <Link to={`${entry.type}/${entry.journal_id}`}>Edit</Link>
                   </button>
-                  <button onClick={() => deleteEntry(entry.journal_id)}>Delete</button>
+                  <button className="tutorial-delete" onClick={() => deleteEntry(entry.journal_id)}>
+                    Delete
+                  </button>
                 </div>
               </div>
               {index !== displayEntries.length - 1 && (

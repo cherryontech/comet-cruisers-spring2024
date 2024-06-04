@@ -174,7 +174,7 @@ const Todo = () => {
                           <FaTrash style={{ color: '#0E8992' }} />
                         </button>
                         <Collapsible
-                          className="color-red"
+                          className="tutorial-expand"
                           trigger="expand"
                           triggerWhenOpen="collapse"
                           open={list.isExpanded}
@@ -186,6 +186,7 @@ const Todo = () => {
                             setListsState={setListsState}
                             list={list}></Tasks>
                           <button
+                            className="tutorial-add-task"
                             onClick={() => {
                               addTask(list.list_id);
                             }}>

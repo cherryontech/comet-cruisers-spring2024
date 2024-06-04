@@ -508,17 +508,52 @@ body{
   --tw-contain-paint:  ;
   --tw-contain-style:  ;
 }
+.container{
+  width: 100%;
+}
+@media (min-width: 640px){
+
+  .container{
+    max-width: 640px;
+  }
+}
+@media (min-width: 768px){
+
+  .container{
+    max-width: 768px;
+  }
+}
+@media (min-width: 1024px){
+
+  .container{
+    max-width: 1024px;
+  }
+}
+@media (min-width: 1280px){
+
+  .container{
+    max-width: 1280px;
+  }
+}
+@media (min-width: 1536px){
+
+  .container{
+    max-width: 1536px;
+  }
+}
+.hover{
+  transition-duration: 75ms;
+}
+.hover:hover{
+  --tw-translate-y: -0.25rem;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
 .btn{
   height: 2rem;
   width: 10rem;
   border-radius: 9999px;
   font-size: 1.125rem;
   line-height: 1.75rem;
-  transition-duration: 75ms;
-}
-.btn:hover{
-  --tw-translate-y: -0.25rem;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 .btn-primary{
   --tw-bg-opacity: 1;
@@ -688,11 +723,11 @@ body{
 .absolute{
   position: absolute;
 }
-.left-0{
-  left: 0px;
+.start-3{
+  inset-inline-start: 0.75rem;
 }
-.top-0{
-  top: 0px;
+.top-3{
+  top: 0.75rem;
 }
 .col-span-3{
   grid-column: span 3 / span 3;
@@ -736,6 +771,9 @@ body{
 .h-1\/6{
   height: 16.666667%;
 }
+.h-10{
+  height: 2.5rem;
+}
 .h-6{
   height: 1.5rem;
 }
@@ -744,6 +782,9 @@ body{
 }
 .w-1\/6{
   width: 16.666667%;
+}
+.w-10{
+  width: 2.5rem;
 }
 .w-3\/4{
   width: 75%;
@@ -800,6 +841,9 @@ body{
 }
 .rounded-3xl{
   border-radius: 1.5rem;
+}
+.border{
+  border-width: 1px;
 }
 .border-gray-600{
   --tw-border-opacity: 1;
@@ -895,12 +939,49 @@ body {
 .Collapsible__trigger{
   color: #0E8992
 }
+/* mascot css code */
+.button {
+  cursor: pointer;
+}
 
+.container {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.interactive-container {
+  padding: 1vh;
+  width: 12vw;
+  position: fixed;
+  left: 1vw;
+  bottom: 1vh;
+  border-radius: 8px;
+}
+
+.textbox {
+  text-align: center;
+  padding: 1vh;
+  border: 1px solid #ccc;
+  background-color: rgb(255 211 58 / var(--tw-bg-opacity));
+  width: 12vw;
+  position: fixed;
+  left: 13vw; 
+  bottom: 8vh;
+  border-radius: 8px;
+}
+
+/* using media queries for control */
+@media (max-width: 768px) {
+  .interactive-container, .textbox {
+    width: 30vw;
+    left: 10vw;
+  }
+}
+/* end mascot css */
 .placeholder\:text-custom-burnt-orange::placeholder{
   --tw-text-opacity: 1;
   color: rgb(227 101 39 / var(--tw-text-opacity));
 }
-
 .placeholder\:text-custom-teal-base::placeholder{
   --tw-text-opacity: 1;
   color: rgb(14 137 146 / var(--tw-text-opacity));
