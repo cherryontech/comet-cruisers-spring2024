@@ -96,7 +96,7 @@ const DisplayJournal = () => {
             </React.Fragment>
           ))
         )}
-        {displayEntries?.length > entriesPerPage && (
+        {filteredEntries?.length > entriesPerPage && (
           <div className="flex flex-row space-x-3 p-4">
             <button
               onClick={() => setDisplayPage(displayPage - entriesPerPage)}
