@@ -46,7 +46,7 @@ const GeneratePrompt = () => {
     <div>
       <div className="prompt-container">
         <p className="prompt">{prompts[curPrompt]}</p>
-        <button type="button" onClick={handleClick}>
+        <button type="button" title="randomize prompt" onClick={handleClick}>
           <FaShuffle className="shuffle-icon hover" />
         </button>
       </div>

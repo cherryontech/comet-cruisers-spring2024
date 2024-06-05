@@ -33,12 +33,17 @@ const DisplayJournal = () => {
   const filteredEntries =
     searchTerm.length == 0
       ? journalEntry
-      : journalEntry.filter((entry) =>
+      : journalEntry?.filter((entry) =>
           entry.title.toLowerCase().includes(searchTerm.toLowerCase())
         );
 
+  // set displayPage to 0 change only when the search term is updated
+  useEffect(() => {
+    searchTerm.length > 0 && displayPage > 0 ? setDisplayPage(0) : displayPage;
+  }, [searchTerm]);
+
   const displayEntries = filteredEntries?.slice(
-    searchTerm.length > 0 && displayPage > 0 ? setDisplayPage(0) : displayPage,
+    displayPage,
     filteredEntries.length >= entriesPerPage ? displayPage + entriesPerPage : filteredEntries.length
   );
 
@@ -60,7 +65,7 @@ const DisplayJournal = () => {
         </div>
       </div>
       <div className="tutorial-journal card">
-        {journalEntry == null || journalEntry.length < 1 ? (
+        {displayEntries == null || displayEntries.length < 1 ? (
           <div className="text-center p-4">No entries found.</div>
         ) : (
           displayEntries.map((entry, index) => (
@@ -99,6 +104,7 @@ const DisplayJournal = () => {
               disabled={displayPage <= 0}>
               <GrFormPrevious className="w-6 h-6" />
             </button>
+            <div id="page-number"> {displayPage / entriesPerPage + 1}</div>
             <button
               onClick={() => setDisplayPage(displayPage + entriesPerPage)}
               className={
