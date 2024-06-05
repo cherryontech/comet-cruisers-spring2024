@@ -37,8 +37,13 @@ const DisplayJournal = () => {
           entry.title.toLowerCase().includes(searchTerm.toLowerCase())
         );
 
+  // set displayPage to 0 change only when the search term is updated
+  useEffect(() => {
+    searchTerm.length > 0 && displayPage > 0 ? setDisplayPage(0) : displayPage;
+  }, [searchTerm]);
+
   const displayEntries = filteredEntries?.slice(
-    searchTerm.length > 0 && displayPage > 0 ? setDisplayPage(0) : displayPage,
+    displayPage,
     filteredEntries.length >= entriesPerPage ? displayPage + entriesPerPage : filteredEntries.length
   );
 
