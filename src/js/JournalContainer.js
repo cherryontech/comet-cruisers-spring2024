@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams, useLocation } from 'react-router-dom';
 import Popup from 'reactjs-popup';
 import { v4 as uuidv4 } from 'uuid';
 import { IoMdArrowBack } from 'react-icons/io';
@@ -17,7 +17,14 @@ const GenerateSubHeader = () => {
     'Let us write something today!'
   ];
 
-  const curSubhead = Math.floor(Math.random() * subHeaders.length);
+  const [curSubhead, setCurSubHead] = useState(Math.floor(Math.random() * subHeaders.length));
+
+  const location = useLocation();
+  // only changes the sub header when page changes
+  useEffect(() => {
+    const randomNumber = Math.floor(Math.random() * subHeaders.length);
+    setCurSubHead(randomNumber);
+  }, [location]);
 
   return (
     <div>
