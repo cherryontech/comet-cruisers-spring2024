@@ -33,7 +33,7 @@ const DisplayJournal = () => {
   const filteredEntries =
     searchTerm.length == 0
       ? journalEntry
-      : journalEntry.filter((entry) =>
+      : journalEntry?.filter((entry) =>
           entry.title.toLowerCase().includes(searchTerm.toLowerCase())
         );
 

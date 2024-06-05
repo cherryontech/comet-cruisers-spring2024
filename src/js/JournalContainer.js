@@ -38,6 +38,14 @@ const JournalTextEntry = () => {
   let journalType = window.location.pathname;
   let storedJournalEntries = JSON.parse(localStorage.getItem('journalEntry'));
   let journalEntries = storedJournalEntries;
+  let default_entries = [];
+
+  if (!storedJournalEntries) {
+    // if there is no stored info save default into local storage
+    localStorage.setItem('journalEntry', JSON.stringify(default_entries));
+    // set default to current journal entries
+    journalEntries = default_entries;
+  }
 
   const { id } = useParams(); // extract the id parameter from URL
 
