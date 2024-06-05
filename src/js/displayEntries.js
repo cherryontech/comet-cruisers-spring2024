@@ -65,7 +65,7 @@ const DisplayJournal = () => {
         </div>
       </div>
       <div className="tutorial-journal card">
-        {journalEntry == null || journalEntry.length < 1 ? (
+        {displayEntries == null || displayEntries.length < 1 ? (
           <div className="text-center p-4">No entries found.</div>
         ) : (
           displayEntries.map((entry, index) => (
@@ -96,7 +96,7 @@ const DisplayJournal = () => {
             </React.Fragment>
           ))
         )}
-        {filteredEntries?.length > entriesPerPage && (
+        {displayEntries?.length > entriesPerPage && (
           <div className="flex flex-row space-x-3 p-4">
             <button
               onClick={() => setDisplayPage(displayPage - entriesPerPage)}
