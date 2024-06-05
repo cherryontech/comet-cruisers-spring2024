@@ -30,7 +30,7 @@ const SwitchJournalType = () => {
   };
 
   return (
-    <button className="switch-btn">
+    <button className="switch-btn" title="switch journal">
       <Link to={switchTo}> {displayIcon()} </Link>
     </button>
   );
