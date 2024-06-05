@@ -104,7 +104,7 @@ const DisplayJournal = () => {
               disabled={displayPage <= 0}>
               <GrFormPrevious className="w-6 h-6" />
             </button>
-            <div id="page-number"> {displayPage / 3 + 1}</div>
+            <div id="page-number"> {displayPage / entriesPerPage + 1}</div>
             <button
               onClick={() => setDisplayPage(displayPage + entriesPerPage)}
               className={
