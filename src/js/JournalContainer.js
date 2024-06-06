@@ -37,15 +37,7 @@ const GenerateSubHeader = () => {
 const JournalTextEntry = ({ setHasChanges }) => {
   let journalType = window.location.pathname;
   let storedJournalEntries = JSON.parse(localStorage.getItem('journalEntry'));
-  let journalEntries = storedJournalEntries;
-  let default_entries = [];
-
-  if (!storedJournalEntries) {
-    // if there is no stored info save default into local storage
-    localStorage.setItem('journalEntry', JSON.stringify(default_entries));
-    // set default to current journal entries
-    journalEntries = default_entries;
-  }
+  let journalEntries = storedJournalEntries ? storedJournalEntries : [];
 
   const { id } = useParams(); // extract the id parameter from URL
 
@@ -57,11 +49,11 @@ const JournalTextEntry = ({ setHasChanges }) => {
   const [value, setValue] = useState(id == undefined ? '' : findJournalEntry(id).content); //content of journal entry
   const [title, setTitle] = useState(id == undefined ? '' : findJournalEntry(id).title); //title of journal entry
 
+  // compares content and title from the saved entries and marks if there are changes
+  // if there are no changes the pop up does not appear
+  const initValue = id ? findJournalEntry(id).content : '';
+  const initTitle = id ? findJournalEntry(id).title : '';
   useEffect(() => {
-    // compares content and title from the saved entries and marks if there are changes
-    // if there are no changes the pop up does not appear
-    const initValue = id ? findJournalEntry(id).content : '';
-    const initTitle = id ? findJournalEntry(id).title : '';
     if (value != initValue || title != initTitle) setHasChanges(true);
     else setHasChanges(false);
   }, [value, title]);
