@@ -138,7 +138,7 @@ const JournalContainer = () => {
         <Popup
           contentStyle={{ backgroundColor: '#F6EFDE', borderColor: '#E36527' }}
           trigger={
-            <button>
+            <button title="go back">
               <IoMdArrowBack className="absolute top-3 start-3 w-10 h-10 hover" />
             </button>
           }
@@ -153,9 +153,9 @@ const JournalContainer = () => {
                 <button className="btn btn-secondary" onClick={() => close()}>
                   Cancel
                 </button>
-                <button className="btn btn-tertiary">
-                  <Link to="/">Discard</Link>
-                </button>
+                <Link to="/">
+                  <button className="btn btn-tertiary">Discard</button>
+                </Link>
               </div>
             </div>
           )}
