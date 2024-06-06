@@ -79,12 +79,6 @@ const Todo = () => {
     setListsState({ lists });
   };
 
-  const handleFormSubmit = (e) => {
-    e.preventDefault();
-    // saves to local storage
-    localStorage.setItem('todo_lists', JSON.stringify(listsState));
-  };
-
   const reorder = (list, startIndex, endIndex) => {
     // this is for the drag and drop
     const result = Array.from(list);
@@ -200,9 +194,6 @@ const Todo = () => {
 
         <button className="btn btn-primary hover ml-8" onClick={addList}>
           Add List
-        </button>
-        <button className="btn btn-secondary hover ml-8" onClick={handleFormSubmit}>
-          Save
         </button>
       </form>
     </div>
