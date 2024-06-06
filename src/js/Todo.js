@@ -7,9 +7,6 @@ import Tasks from './Tasks';
 import { FaTrash } from 'react-icons/fa';
 
 const Todo = () => {
-  // get saved list from storage & convert to json
-  const storedLists = JSON.parse(localStorage.getItem('todo_lists'));
-  let lists = storedLists;
   // default json for empty storage
   const default_lists = {
     lists: [
@@ -28,15 +25,15 @@ const Todo = () => {
     ]
   };
 
-  if (!storedLists) {
-    // if there is no store info save default into local storage
-    localStorage.setItem('todo_lists', JSON.stringify(default_lists));
-    // set default to current lists
-    lists = default_lists;
-  }
+  // init lists state, if empty use default lists
+  const [listsState, setListsState] = useState(
+    () => JSON.parse(localStorage.getItem('todo_lists')) || default_lists
+  );
 
-  // init lists state
-  const [listsState, setListsState] = useState(lists);
+  // auto saves the todo list for every changed made, aka state persists
+  useEffect(() => {
+    localStorage.setItem('todo_lists', JSON.stringify(listsState));
+  }, [listsState]);
 
   const onListChange = (e, list_id) => {
     // get info on event target
@@ -133,10 +130,6 @@ const Todo = () => {
     };
     setListsState({ lists });
   };
-
-  useEffect(() => {
-    if (storedLists != listsState) localStorage.setItem('todo_lists', JSON.stringify(listsState));
-  }, [listsState]);
 
   return (
     <div className="todo-list todolist-area">
