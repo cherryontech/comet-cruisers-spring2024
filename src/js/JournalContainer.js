@@ -57,11 +57,11 @@ const JournalTextEntry = ({ setHasChanges }) => {
   const [value, setValue] = useState(id == undefined ? '' : findJournalEntry(id).content); //content of journal entry
   const [title, setTitle] = useState(id == undefined ? '' : findJournalEntry(id).title); //title of journal entry
 
-  // compares content and title from the saved entries and marks if there are changes
-  // if there are no changes the pop up does not appear
-  const initValue = findJournalEntry(id)?.content;
-  const initTitle = findJournalEntry(id)?.title;
   useEffect(() => {
+    // compares content and title from the saved entries and marks if there are changes
+    // if there are no changes the pop up does not appear
+    const initValue = id ? findJournalEntry(id).content : '';
+    const initTitle = id ? findJournalEntry(id).title : '';
     if (value != initValue || title != initTitle) setHasChanges(true);
     else setHasChanges(false);
   }, [value, title]);
