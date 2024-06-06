@@ -34,7 +34,7 @@ const GenerateSubHeader = () => {
   );
 };
 
-const JournalTextEntry = () => {
+const JournalTextEntry = ({ setHasChanges }) => {
   let journalType = window.location.pathname;
   let storedJournalEntries = JSON.parse(localStorage.getItem('journalEntry'));
   let journalEntries = storedJournalEntries;
@@ -56,6 +56,15 @@ const JournalTextEntry = () => {
 
   const [value, setValue] = useState(id == undefined ? '' : findJournalEntry(id).content); //content of journal entry
   const [title, setTitle] = useState(id == undefined ? '' : findJournalEntry(id).title); //title of journal entry
+
+  // compares content and title from the saved entries and marks if there are changes
+  // if there are no changes the pop up does not appear
+  const initValue = findJournalEntry(id)?.content;
+  const initTitle = findJournalEntry(id)?.title;
+  useEffect(() => {
+    if (value != initValue || title != initTitle) setHasChanges(true);
+    else setHasChanges(false);
+  }, [value, title]);
 
   useEffect(() => {
     // This registers the fonts only once when the component mounts
@@ -132,35 +141,45 @@ const JournalTextEntry = () => {
 };
 
 const JournalContainer = () => {
+  const [hasChangesState, setHasChanges] = useState(false);
   return (
     <div className="journal-container">
       <div className="journal-entry">
-        <Popup
-          contentStyle={{ backgroundColor: '#F6EFDE', borderColor: '#E36527' }}
-          trigger={
+        {hasChangesState ? (
+          <Popup
+            contentStyle={{ backgroundColor: '#F6EFDE', borderColor: '#E36527' }}
+            trigger={
+              <button title="go back">
+                <IoMdArrowBack className="absolute top-3 start-3 w-10 h-10 hover" />
+              </button>
+            }
+            modal
+            nested>
+            {(close) => (
+              <div className="modal">
+                <h1>Unsaved Changes</h1>
+                <p>Looks like you didn&apos;t save.</p>
+                <br />
+                <div className="btn-container">
+                  <button className="btn btn-secondary" onClick={() => close()}>
+                    Cancel
+                  </button>
+                  <Link to="/">
+                    <button className="btn btn-tertiary">Discard</button>
+                  </Link>
+                </div>
+              </div>
+            )}
+          </Popup>
+        ) : (
+          <Link to="/">
             <button title="go back">
               <IoMdArrowBack className="absolute top-3 start-3 w-10 h-10 hover" />
             </button>
-          }
-          modal
-          nested>
-          {(close) => (
-            <div className="modal">
-              <h1>Unsaved Changes</h1>
-              <p>Looks like you didn&apos;t save.</p>
-              <br />
-              <div className="btn-container">
-                <button className="btn btn-secondary" onClick={() => close()}>
-                  Cancel
-                </button>
-                <Link to="/">
-                  <button className="btn btn-tertiary">Discard</button>
-                </Link>
-              </div>
-            </div>
-          )}
-        </Popup>
-        <JournalTextEntry />
+          </Link>
+        )}
+
+        <JournalTextEntry hasChanges={hasChangesState} setHasChanges={setHasChanges} />
       </div>
     </div>
   );
