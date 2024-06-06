@@ -1,5 +1,5 @@
-import React from 'react';
-import Joyride from 'react-joyride';
+import React, { useState } from 'react';
+import Joyride, { STATUS } from 'react-joyride';
 
 const TUTORIAL_STEPS = [
   {
@@ -25,7 +25,7 @@ const TUTORIAL_STEPS = [
   {
     target: '.tutorial-new-entry',
     placement: 'left',
-    content: 'Click on the “New Entry” button and select either "Free Write" or "Random Prompt".'
+    content: 'You can click on the “New Entry” button and select either "Free Write" or "Random Prompt".'
   },
   {
     target: '.search-input',
