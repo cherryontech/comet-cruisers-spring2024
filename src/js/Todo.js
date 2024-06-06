@@ -149,6 +149,7 @@ const Todo = () => {
                             type="text"
                             name="list_name"
                             value={list.list_name}
+                            title={list.list_name}
                             placeholder="Enter list name"
                             onChange={(event) => {
                               onListChange(event, list.list_id);
