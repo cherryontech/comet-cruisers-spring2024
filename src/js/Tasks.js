@@ -50,6 +50,8 @@ const Tasks = ({ listsState, setListsState, list }) => {
                     className="task-check"
                     type="checkbox"
                     name="checked"
+                    title={task.task_name}
+                    tabIndex={0}
                     checked={task.checked}
                     onChange={(event) => {
                       onTaskChange(event, list.list_id, task.task_id);
@@ -65,6 +67,7 @@ const Tasks = ({ listsState, setListsState, list }) => {
                     }}></input>
                   <button
                     className="float-right mt-1 mr-2"
+                    title="delete task"
                     onClick={() => {
                       deleteTask(list.list_id, task.task_id);
                     }}>

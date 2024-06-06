@@ -155,7 +155,6 @@ const Todo = () => {
                       {...provided.draggableProps}
                       {...provided.dragHandleProps}
                       className="list-wrapper">
-                      <br />
                       <div className="list-title-wrapper flex-wrap">
                         <input
                           className="list-name bg-custom-cream placeholder:text-custom-burnt-orange min-w-[255px]"
@@ -168,6 +167,7 @@ const Todo = () => {
                           }}></input>
                         <button
                           className="float-right mt-1 mr-2"
+                          title="delete list"
                           onClick={() => {
                             deleteList(list.list_id);
                           }}>
