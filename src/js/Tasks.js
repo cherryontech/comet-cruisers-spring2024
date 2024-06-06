@@ -45,12 +45,12 @@ const Tasks = ({ listsState, setListsState, list }) => {
                   ref={provided.innerRef}
                   {...provided.draggableProps}
                   {...provided.dragHandleProps}
-                  className="task-wrapper">
+                  title={task.task_name}
+                  className="task-wrapper mr-0 hover:border-custom-burnt-orange border-[1px]">
                   <input
                     className="task-check"
                     type="checkbox"
                     name="checked"
-                    title={task.task_name}
                     tabIndex={0}
                     checked={task.checked}
                     onChange={(event) => {
