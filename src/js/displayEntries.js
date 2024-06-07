@@ -39,7 +39,7 @@ const DisplayJournal = () => {
 
   // set displayPage to 0 change only when the search term is updated
   useEffect(() => {
-    searchTerm.length > 0 && displayPage > 0 ? setDisplayPage(0) : displayPage;
+    setDisplayPage(0);
   }, [searchTerm]);
 
   const displayEntries = filteredEntries?.slice(

@@ -51,7 +51,7 @@ const TUTORIAL_STEPS = [
     placement: 'right',
     title: 'To Do List',
     content:
-      'Here you will find your to-do list. You can add your tasks and organize them into different lists by dragging and dropping.'
+      'Here you will find your to-do list. You can add many lists and organize them by dragging and dropping.'
   },
   {
     target: '.list-wrapper',
@@ -64,7 +64,8 @@ const TUTORIAL_STEPS = [
     target: '.task-wrapper',
     placement: 'right',
     title: 'Add Tasks',
-    content: 'Take your cursor to the "Enter Task Name" and start writing!'
+    content:
+      'Take your cursor to the "Enter Task Name" and start writing! You can also organize the individual tasks within their own list by dragging and dropping.'
   },
   {
     target: '.tutorial-expand',

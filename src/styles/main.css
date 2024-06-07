@@ -775,6 +775,9 @@ body{
 .ml-8{
   margin-left: 2rem;
 }
+.mr-0{
+  margin-right: 0px;
+}
 .mr-2{
   margin-right: 0.5rem;
 }
@@ -880,6 +883,9 @@ body{
   border-radius: 1.5rem;
 }
 .border{
+  border-width: 1px;
+}
+.border-\[1px\]{
   border-width: 1px;
 }
 .border-gray-600{
@@ -1008,6 +1014,11 @@ body {
 .placeholder\:text-custom-teal-base::placeholder{
   --tw-text-opacity: 1;
   color: rgb(14 137 146 / var(--tw-text-opacity));
+}
+
+.hover\:border-custom-burnt-orange:hover{
+  --tw-border-opacity: 1;
+  border-color: rgb(227 101 39 / var(--tw-border-opacity));
 }
 .hover\:animate-none:hover{
   animation: none;
