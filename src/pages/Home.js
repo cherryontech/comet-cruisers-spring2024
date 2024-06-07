@@ -5,7 +5,7 @@ import Todo from '../js/Todo';
 import { IoMdClose } from 'react-icons/io';
 import 'reactjs-popup/dist/index.css';
 import DisplayJournal from '../js/displayEntries.js';
-import logo from '../assets/logo.png';
+import logo from '../assets/Logo-Sun.png';
 import GenerateMessage from '../js/botPrompt.js';
 import Tutorial from '../js/Tutorial';
 
@@ -18,7 +18,7 @@ const Home = () => {
     <main>
       <div>
         <header className="header">
-          <img src={logo} alt="Logo" />
+          <img src={logo} alt="Logo" className="m-auto w-48" />
         </header>
       </div>
       <Tutorial />

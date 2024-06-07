@@ -623,7 +623,6 @@ body{
   grid-column: span 4 / span 4;
   grid-column-start: 5;
   grid-row: span 4 / span 4;
-  grid-row-start: 2;
   grid-template-columns: subgrid;
 }
 .display-journal > :not([hidden]) ~ :not([hidden]){
@@ -637,7 +636,7 @@ body{
   grid-row-start: 2;
   grid-template-columns: subgrid;
   overflow-y: auto;
-  padding: 1.25rem;
+  padding: 0.5rem;
 }
 .journal-container{
   height: 100vh;
@@ -737,9 +736,10 @@ body{
   border-radius: 0.5rem;
   --tw-bg-opacity: 1;
   background-color: rgb(255 211 58 / var(--tw-bg-opacity));
+  padding: 0.625rem;
   text-align: center;
-  --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
-  --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);
+  --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 .collapse{
@@ -807,6 +807,9 @@ body{
 }
 .min-h-\[40px\]{
   min-height: 40px;
+}
+.w-1\/3{
+  width: 33.333333%;
 }
 .w-1\/6{
   width: 16.666667%;
@@ -978,34 +981,17 @@ body {
   cursor: pointer;
 }
 
-/*
-.container {
-  text-align: center;
-  margin-top: 50px;
-}*/
+@keyframes wiggle {
+  0% { transform: rotate(0deg); }
+ 80% { transform: rotate(0deg); }
+ 85% { transform: rotate(5deg); }
+ 95% { transform: rotate(-5deg); }
+100% { transform: rotate(0deg); }
+}
 
-/*
 .interactive-container {
-  padding: 1vh;
-  width: 12vw;
-  position: fixed;
-  left: 1vw;
-  bottom: 1vh;
-  border-radius: 8px;
-}*/
-
-/*
-.textbox {
-  text-align: center;
-  padding: 1vh;
-  border: 1px solid #ccc;
-  background-color: rgb(255 211 58 / var(--tw-bg-opacity));
-  width: 12vw;
-  position: fixed;
-  left: 13vw; 
-  bottom: 8vh;
-  border-radius: 8px;
-}*/
+  animation: wiggle 2.5s infinite;
+}
 
 /* using media queries for control */
 @media (max-width: 768px) {
@@ -1023,18 +1009,6 @@ body {
   --tw-text-opacity: 1;
   color: rgb(14 137 146 / var(--tw-text-opacity));
 }
-@keyframes bounce{
-
-  0%, 100%{
-    transform: translateY(-25%);
-    animation-timing-function: cubic-bezier(0.8,0,1,1);
-  }
-
-  50%{
-    transform: none;
-    animation-timing-function: cubic-bezier(0,0,0.2,1);
-  }
-}
-.hover\:animate-bounce:hover{
-  animation: bounce 1s infinite;
+.hover\:animate-none:hover{
+  animation: none;
 }

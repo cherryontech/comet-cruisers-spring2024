@@ -82,11 +82,11 @@ body {
   }
 
   .display-journal {
-    @apply grid-cols-subgrid col-start-5 col-span-4 row-start-2 row-span-4 space-y-2;
+    @apply grid-cols-subgrid col-start-5 col-span-4 row-span-4 space-y-2;
   }
 
   .todo-list {
-    @apply grid-cols-subgrid col-span-3 row-start-2 row-span-3 overflow-y-auto p-5;
+    @apply grid-cols-subgrid col-span-3 row-start-2 row-span-3 overflow-y-auto p-2;
   }
 
   .journal-container {
