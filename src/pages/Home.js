@@ -39,20 +39,21 @@ const Home = () => {
               modal
               nested>
               {(close) => (
-                <div className="modal">
-                  <div className="content">Choose</div>
-                  <div>
-                    <button onClick={() => close()}>
-                      <IoMdClose />
+                <div className="modal p-4">
+                  <div className="content flex flex-row">
+                    Choose
+                    <button className="grow" onClick={() => close()}>
+                      <IoMdClose className="float-right" />
                     </button>
                   </div>
-                  <button>
-                    <Link to="/free-journal">Free Write</Link>
-                  </button>
-                  <br />
-                  <button>
-                    <Link to="/prompt-journal">Random Prompt</Link>
-                  </button>
+                  <div className="flex flex-row gap-3 mt-4">
+                    <button className="flex-1">
+                      <Link to="/free-journal">Free Write</Link>
+                    </button>
+                    <button className="flex-1">
+                      <Link to="/prompt-journal">Random Prompt</Link>
+                    </button>
+                  </div>
                 </div>
               )}
             </Popup>
