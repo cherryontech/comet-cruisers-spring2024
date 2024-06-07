@@ -1,5 +1,5 @@
-import React from 'react';
-import Joyride from 'react-joyride';
+import React, { useState, useEffect } from 'react';
+import Joyride, { STATUS } from 'react-joyride';
 
 const TUTORIAL_STEPS = [
   {
@@ -97,9 +97,28 @@ const TUTORIAL_STEPS = [
 ];
 
 const Tutorial = () => {
+  const initialState = JSON.parse(localStorage.getItem('tutorialPassed'));
+  const [run, setRun] = useState(initialState);
+
+  useEffect(() => {
+    const curState = localStorage.getItem('tutorialPassed');
+    if (curState === null || curState === undefined) {
+      setRun(true);
+    }
+  }, []);
+
+  const handleCallback = (data) => {
+    const status = data.status;
+    if ([STATUS.FINISHED, STATUS.SKIPPED].includes(status)) {
+      localStorage.setItem('tutorialPassed', false);
+    }
+  };
+
   return (
     <>
       <Joyride
+        callback={handleCallback}
+        run={run}
         steps={TUTORIAL_STEPS}
         continuous={true}
         showSkipButton={true}
