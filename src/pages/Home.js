@@ -5,7 +5,7 @@ import Todo from '../js/Todo';
 import { IoMdClose } from 'react-icons/io';
 import 'reactjs-popup/dist/index.css';
 import DisplayJournal from '../js/displayEntries.js';
-import logo from '../assets/logo.png';
+import logo from '../assets/Logo-Sun.png';
 import GenerateMessage from '../js/botPrompt.js';
 import Tutorial from '../js/Tutorial';
 
@@ -18,7 +18,7 @@ const Home = () => {
     <main>
       <div>
         <header className="header">
-          <img src={logo} alt="Logo" />
+          <img src={logo} alt="Logo" className="m-auto w-48" />
         </header>
       </div>
       <Tutorial />
@@ -39,20 +39,21 @@ const Home = () => {
               modal
               nested>
               {(close) => (
-                <div className="modal">
-                  <div className="content">Choose</div>
-                  <div>
-                    <button onClick={() => close()}>
-                      <IoMdClose />
+                <div className="modal p-4">
+                  <div className="content flex flex-row">
+                    Choose
+                    <button className="grow" onClick={() => close()}>
+                      <IoMdClose className="float-right" />
                     </button>
                   </div>
-                  <button>
-                    <Link to="/free-journal">Free Write</Link>
-                  </button>
-                  <br />
-                  <button>
-                    <Link to="/prompt-journal">Random Prompt</Link>
-                  </button>
+                  <div className="flex flex-row gap-3 mt-4">
+                    <button className="flex-1">
+                      <Link to="/free-journal">Free Write</Link>
+                    </button>
+                    <button className="flex-1">
+                      <Link to="/prompt-journal">Random Prompt</Link>
+                    </button>
+                  </div>
                 </div>
               )}
             </Popup>

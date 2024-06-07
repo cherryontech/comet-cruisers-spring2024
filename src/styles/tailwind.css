@@ -82,11 +82,11 @@ body {
   }
 
   .display-journal {
-    @apply grid-cols-subgrid col-start-5 col-span-4 row-start-2 row-span-4 space-y-2;
+    @apply grid-cols-subgrid col-start-5 col-span-4 row-span-4 space-y-2;
   }
 
   .todo-list {
-    @apply grid-cols-subgrid col-span-3 row-start-2 row-span-3 overflow-y-auto p-5;
+    @apply grid-cols-subgrid col-span-3 row-start-2 row-span-3 overflow-y-auto p-2;
   }
 
   .journal-container {
@@ -117,12 +117,24 @@ body {
     @apply bg-custom-cream block text-2xl w-full p-1;
   }
 
-  .list-wrapper{
+  .list-wrapper {
     @apply max-w-[382px] m-3 p-4 border-[1px] rounded-3xl border-custom-burnt-orange bg-custom-cream;
   }
 
   .task-wrapper{
     @apply min-w-[320px] m-2 p-2 border-custom-yellow rounded-lg bg-custom-yellow;
+  }
+
+  .container {
+    @apply text-center mt-12;
+  }
+
+  .interactive-container {
+    @apply p-2.5 fixed left-[1vw] bottom-[1vh] w-[12vw] rounded-lg;
+  }
+
+  .textbox {
+    @apply p-2.5 text-center shadow-md fixed bg-custom-yellow left-[13vw] bottom-[8vh] w-[12vw] rounded-lg;
   }
 
 }
@@ -135,30 +147,16 @@ body {
   cursor: pointer;
 }
 
-.container {
-  text-align: center;
-  margin-top: 50px;
+@keyframes wiggle {
+  0% { transform: rotate(0deg); }
+ 80% { transform: rotate(0deg); }
+ 85% { transform: rotate(5deg); }
+ 95% { transform: rotate(-5deg); }
+100% { transform: rotate(0deg); }
 }
 
 .interactive-container {
-  padding: 1vh;
-  width: 12vw;
-  position: fixed;
-  left: 1vw;
-  bottom: 1vh;
-  border-radius: 8px;
-}
-
-.textbox {
-  text-align: center;
-  padding: 1vh;
-  border: 1px solid #ccc;
-  background-color: rgb(255 211 58 / var(--tw-bg-opacity));
-  width: 12vw;
-  position: fixed;
-  left: 13vw; 
-  bottom: 8vh;
-  border-radius: 8px;
+  animation: wiggle 2.5s infinite;
 }
 
 /* using media queries for control */

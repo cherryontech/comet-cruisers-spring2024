@@ -146,7 +146,7 @@ const GenerateMessage = () => {
 
   return (
     <div className="container">
-      <div className="interactive-container">
+      <div className="interactive-container hover:animate-none">
         <button onClick={handleClick} style={{ border: 'none', background: 'none', padding: '0' }}>
           <img
             src={star}

@@ -82,10 +82,12 @@ const DisplayJournal = () => {
                   <div dangerouslySetInnerHTML={{ __html: entry.content }} />
                 </div>
                 <div className="flex flex-col items-end">
-                  <button className="tutorial-edit">
+                  <button className="tutorial-edit hover">
                     <Link to={`${entry.type}/${entry.journal_id}`}>Edit</Link>
                   </button>
-                  <button className="tutorial-delete" onClick={() => deleteEntry(entry.journal_id)}>
+                  <button
+                    className="tutorial-delete hover"
+                    onClick={() => deleteEntry(entry.journal_id)}>
                     Delete
                   </button>
                 </div>
