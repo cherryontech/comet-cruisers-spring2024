@@ -57,7 +57,7 @@ const Tasks = ({ listsState, setListsState, list }) => {
                       onTaskChange(event, list.list_id, task.task_id);
                     }}></input>
                   <input
-                    className="task-name bg-custom-yellow pl-2 placeholder:text-custom-teal-base min-w-[200px]"
+                    className="task-name bg-custom-yellow pl-2 placeholder:text-custom-teal-base min-w-[215px]"
                     type="text"
                     name="task_name"
                     value={task.task_name}
