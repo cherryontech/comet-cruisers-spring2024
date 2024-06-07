@@ -1,5 +1,5 @@
-import React from 'react';
-import Joyride from 'react-joyride';
+import React, { useState, useEffect } from 'react';
+import Joyride, { STATUS } from 'react-joyride';
 
 const TUTORIAL_STEPS = [
   {
@@ -14,31 +14,32 @@ const TUTORIAL_STEPS = [
     placement: 'center',
     title: 'Dashboard',
     content:
-      'This is your space. A place to unburden your brain. Your feelings, your thoughts or your tasks. One space for all. Let’s zoom in and explore more.'
+      'This is where your brain unburdens. Your feelings, your thoughts or your tasks. One space for all. Let’s zoom in and explore more.'
   },
   {
     target: '.tutorial-journal',
     placement: 'left',
     title: 'Journal',
     content:
-      'Here is Journaling section of the SeaScribe. Here you have two options\n1. Free Write - Choose any title you want to write about and let your thoughts flow freely\n2. Prompt - Select a prompt from our collection and let it guide your reflections.'
+      'Here is Journaling section of the SeaScribe. Here you have two options, you can either freely write down your thoughts or use a prompt and let it guide your reflections.'
   },
   {
     target: '.tutorial-new-entry',
     placement: 'left',
-    content: 'Click on the “New Entry” button and select either "Free Write" Or "Random Prompt".'
+    content:
+      'You can click on the “New Entry” button and select either "Free Write" or "Random Prompt".'
   },
   {
     target: '.search-input',
     placement: 'top',
     title: 'Search',
-    content: 'Want to revisit a old memory, just add in the title of the entry and viola!'
+    content: 'Want to revisit a old memory? Just add in the title of the entry and viola!'
   },
   {
     target: '.tutorial-edit',
     placement: 'left',
     content:
-      'Update your entries anytime to reflect on your growth. Just do to "Edit" button on the entry you want to edit.'
+      'Update your entries anytime to reflect on your growth. Just go to "Edit" button on the entry you want to edit.'
   },
   {
     target: '.tutorial-delete',
@@ -50,7 +51,7 @@ const TUTORIAL_STEPS = [
     placement: 'right',
     title: 'To Do List',
     content:
-      'Here you will find your to-do list. You can add tasks and organize them into different lists by dragging and dropping.'
+      'Here you will find your to-do list. You can add your tasks and organize them into different lists by dragging and dropping.'
   },
   {
     target: '.list-wrapper',
@@ -91,15 +92,33 @@ const TUTORIAL_STEPS = [
     target: 'body',
     placement: 'center',
     content:
-      'Seascribe is your space. We hope you enjoy your time here and find peace and productivity along the way. Welcome aboard, and happy writing!'
+      'Seascribe is your safe haven. We hope you enjoy your time here and find peace and productivity along the way. Welcome aboard, and happy writing!'
   }
 ];
 
 const Tutorial = () => {
+  const initialState = JSON.parse(localStorage.getItem('tutorialPassed'));
+  const [run, setRun] = useState(initialState);
+
+  useEffect(() => {
+    const curState = localStorage.getItem('tutorialPassed');
+    if (curState === null || curState === undefined) {
+      setRun(true);
+    }
+  }, []);
+
+  const handleCallback = (data) => {
+    const status = data.status;
+    if ([STATUS.FINISHED, STATUS.SKIPPED].includes(status)) {
+      localStorage.setItem('tutorialPassed', false);
+    }
+  };
+
   return (
     <>
       <Joyride
-        run={true}
+        callback={handleCallback}
+        run={run}
         steps={TUTORIAL_STEPS}
         continuous={true}
         showSkipButton={true}
