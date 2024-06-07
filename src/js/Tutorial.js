@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import Joyride, { STATUS } from 'react-joyride';
+import React from 'react';
+import Joyride from 'react-joyride';
 
 const TUTORIAL_STEPS = [
   {
@@ -20,12 +20,14 @@ const TUTORIAL_STEPS = [
     target: '.tutorial-journal',
     placement: 'left',
     title: 'Journal',
-    content: 'Here is Journaling section of the SeaScribe. Here you have two options, you can either freely write down your thoughts or use a prompt and let it guide your reflections.'
+    content:
+      'Here is Journaling section of the SeaScribe. Here you have two options, you can either freely write down your thoughts or use a prompt and let it guide your reflections.'
   },
   {
     target: '.tutorial-new-entry',
     placement: 'left',
-    content: 'You can click on the “New Entry” button and select either "Free Write" or "Random Prompt".'
+    content:
+      'You can click on the “New Entry” button and select either "Free Write" or "Random Prompt".'
   },
   {
     target: '.search-input',
@@ -98,7 +100,6 @@ const Tutorial = () => {
   return (
     <>
       <Joyride
-        run={true}
         steps={TUTORIAL_STEPS}
         continuous={true}
         showSkipButton={true}
