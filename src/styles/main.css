@@ -708,7 +708,7 @@ body{
 }
 .task-wrapper{
   margin: 0.5rem;
-  max-width: 300px;
+  min-width: 320px;
   border-radius: 0.5rem;
   --tw-border-opacity: 1;
   border-color: rgb(255 211 58 / var(--tw-border-opacity));
@@ -829,8 +829,8 @@ body{
 .w-6{
   width: 1.5rem;
 }
-.min-w-\[200px\]{
-  min-width: 200px;
+.min-w-\[215px\]{
+  min-width: 215px;
 }
 .min-w-\[255px\]{
   min-width: 255px;
@@ -838,8 +838,8 @@ body{
 .max-w-\[200px\]{
   max-width: 200px;
 }
-.max-w-prose{
-  max-width: 65ch;
+.max-w-min{
+  max-width: min-content;
 }
 .flex-1{
   flex: 1 1 0%;
@@ -876,8 +876,13 @@ body{
   margin-right: calc(0.75rem * var(--tw-space-x-reverse));
   margin-left: calc(0.75rem * calc(1 - var(--tw-space-x-reverse)));
 }
-.overflow-x-scroll{
-  overflow-x: scroll;
+.truncate{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.text-ellipsis{
+  text-overflow: ellipsis;
 }
 .rounded-3xl{
   border-radius: 1.5rem;
@@ -1015,11 +1020,10 @@ body {
   --tw-text-opacity: 1;
   color: rgb(14 137 146 / var(--tw-text-opacity));
 }
-
+.hover\:animate-none:hover{
+  animation: none;
+}
 .hover\:border-custom-burnt-orange:hover{
   --tw-border-opacity: 1;
   border-color: rgb(227 101 39 / var(--tw-border-opacity));
-}
-.hover\:animate-none:hover{
-  animation: none;
 }

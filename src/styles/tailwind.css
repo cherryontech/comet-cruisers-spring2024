@@ -142,6 +142,11 @@ body {
 .Collapsible__trigger{
   color: #0E8992
 }
+
+.content-text * {
+  overflow-wrap: break-word;
+}
+
 /* mascot css code */
 .button {
   cursor: pointer;

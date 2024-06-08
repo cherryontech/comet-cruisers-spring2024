@@ -70,16 +70,19 @@ const DisplayJournal = () => {
         ) : (
           displayEntries.map((entry, index) => (
             <React.Fragment key={entry.journal_id}>
-              <div className="flex flex-row items-center justify-center space-x-3 p-4 m-auto mt-5">
+              <div className="flex flex-row items-center justify-center space-x-3 w-full p-4 m-auto mt-5">
                 <img
                   src={entry.type === '/prompt-journal' ? paper : blue_book}
                   alt="Journal Icon"
                   className="w-1/6 h-1/6 float-left"
                 />
-                <div className="grow max-w-prose overflow-x-scroll">
+                <div className="grow min-w-0 text-ellipsis">
                   <p className="text-xs">{entry.date}</p>
-                  <h1 className="font-normal text-3xl">{entry.title}</h1>
-                  <div dangerouslySetInnerHTML={{ __html: entry.content }} />
+                  <h1 className="font-normal text-3xl truncate">{entry.title}</h1>
+                  <div
+                    className="content-text"
+                    dangerouslySetInnerHTML={{ __html: entry.content }}
+                  />
                 </div>
                 <div className="flex flex-col items-end">
                   <button className="tutorial-edit hover">
