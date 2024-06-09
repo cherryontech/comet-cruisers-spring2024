@@ -130,73 +130,72 @@ const Todo = () => {
       <p className="todo-main-title bg-custom-burnt-orange text-white text-center max-w-[200px] min-h-[40px] text-2xl p-2 m-5">
         To Do
       </p>
-      <form id="todo-list-form">
-        <DragDropContext onDragEnd={onDragEnd}>
-          <StrictModeDroppable droppableId="dropListId" type="droppableList">
-            {(provided) => (
-              <div {...provided.droppableProps} ref={provided.innerRef}>
-                {listsState.lists.map((list, index) => (
-                  <Draggable key={list.list_id} draggableId={list.list_id} index={index}>
-                    {(provided) => (
-                      <div
-                        ref={provided.innerRef}
-                        {...provided.draggableProps}
-                        {...provided.dragHandleProps}
-                        className="list-wrapper">
-                        <div className="list-title-wrapper flex-wrap">
-                          <input
-                            className="list-name bg-custom-cream placeholder:text-custom-burnt-orange min-w-[255px]"
-                            type="text"
-                            name="list_name"
-                            value={list.list_name}
-                            title={list.list_name}
-                            placeholder="Enter list name"
-                            onChange={(event) => {
-                              onListChange(event, list.list_id);
-                            }}></input>
-                          <button
-                            className="float-right mt-1 mr-2"
-                            title="delete list"
-                            onClick={() => {
-                              deleteList(list.list_id);
-                            }}>
-                            <FaTrash style={{ color: '#0E8992' }} />
-                          </button>
-                          <Collapsible
-                            className="tutorial-expand"
-                            trigger="expand"
-                            triggerWhenOpen="collapse"
-                            open={list.isExpanded}
-                            handleTriggerClick={() => {
-                              onCollapseClick(index);
-                            }}>
-                            <Tasks
-                              listsState={listsState}
-                              setListsState={setListsState}
-                              list={list}></Tasks>
-                            <button
-                              className="tutorial-add-task"
-                              onClick={() => {
-                                addTask(list.list_id);
-                              }}>
-                              + enter tasks, notes, ideas
-                            </button>
-                          </Collapsible>
-                        </div>
-                      </div>
-                    )}
-                  </Draggable>
-                ))}
-                {provided.placeholder}
-              </div>
-            )}
-          </StrictModeDroppable>
-        </DragDropContext>
 
-        <button className="btn btn-primary hover ml-8" onClick={addList}>
-          Add List
-        </button>
-      </form>
+      <DragDropContext onDragEnd={onDragEnd}>
+        <StrictModeDroppable droppableId="dropListId" type="droppableList">
+          {(provided) => (
+            <div {...provided.droppableProps} ref={provided.innerRef}>
+              {listsState.lists.map((list, index) => (
+                <Draggable key={list.list_id} draggableId={list.list_id} index={index}>
+                  {(provided) => (
+                    <div
+                      ref={provided.innerRef}
+                      {...provided.draggableProps}
+                      {...provided.dragHandleProps}
+                      className="list-wrapper">
+                      <div className="list-title-wrapper flex-wrap">
+                        <input
+                          className="list-name bg-custom-cream placeholder:text-custom-burnt-orange min-w-[255px]"
+                          type="text"
+                          name="list_name"
+                          value={list.list_name}
+                          title={list.list_name}
+                          placeholder="Enter list name"
+                          onChange={(event) => {
+                            onListChange(event, list.list_id);
+                          }}></input>
+                        <button
+                          className="float-right mt-1 mr-2"
+                          title="delete list"
+                          onClick={() => {
+                            deleteList(list.list_id);
+                          }}>
+                          <FaTrash style={{ color: '#0E8992' }} />
+                        </button>
+                        <Collapsible
+                          className="tutorial-expand"
+                          trigger="expand"
+                          triggerWhenOpen="collapse"
+                          open={list.isExpanded}
+                          handleTriggerClick={() => {
+                            onCollapseClick(index);
+                          }}>
+                          <Tasks
+                            listsState={listsState}
+                            setListsState={setListsState}
+                            list={list}></Tasks>
+                          <button
+                            className="tutorial-add-task"
+                            onClick={() => {
+                              addTask(list.list_id);
+                            }}>
+                            + enter tasks, notes, ideas
+                          </button>
+                        </Collapsible>
+                      </div>
+                    </div>
+                  )}
+                </Draggable>
+              ))}
+              {provided.placeholder}
+            </div>
+          )}
+        </StrictModeDroppable>
+      </DragDropContext>
+
+      <button className="btn btn-primary hover ml-8" onClick={addList}>
+        Add List
+      </button>
     </div>
   );
 };
