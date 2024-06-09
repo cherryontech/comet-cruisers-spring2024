@@ -147,7 +147,7 @@ const GenerateMessage = () => {
   return (
     <div className="container">
       <div className="interactive-container hover:animate-none">
-        <button onClick={handleClick} style={{ border: 'none', background: 'none', padding: '0' }}>
+        <button onClick={handleClick} className="mascot">
           <img
             src={star}
             alt="Starfish"

@@ -48,8 +48,8 @@ const DisplayJournal = () => {
   );
 
   return (
-    <>
-      <div className="header-container flex flex-row">
+    <div className="display-entries p-2">
+      <div className="header-container lg:flex lg:flex-row">
         <div className="journal-banner bg-custom-burnt-orange text-white text-center max-w-[200px] min-h-[40px] text-2xl p-2 m-5">
           Journal
         </div>
@@ -121,7 +121,7 @@ const DisplayJournal = () => {
           </div>
         )}
       </div>
-    </>
+    </div>
   );
 };
 

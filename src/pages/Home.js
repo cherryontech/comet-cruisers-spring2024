@@ -10,10 +10,6 @@ import GenerateMessage from '../js/botPrompt.js';
 import Tutorial from '../js/Tutorial';
 
 const Home = () => {
-  const displayMascot = () => {
-    return <GenerateMessage />;
-  };
-
   return (
     <main>
       <div>
@@ -22,7 +18,7 @@ const Home = () => {
         </header>
       </div>
       <Tutorial />
-      <div className="dashboard-grid">
+      <div className="lg:dashboard-grid">
         <div className="col-span-3">
           <h1 className="text-3xl font-bold">Welcome!</h1>
           <header>Take a look at your scrapbook.</header>
@@ -60,7 +56,7 @@ const Home = () => {
           </div>
         </div>
       </div>
-      {displayMascot()}
+      <GenerateMessage id="mascot-container" />
       <footer>Comet Cruisers Spring 2024</footer>
     </main>
   );

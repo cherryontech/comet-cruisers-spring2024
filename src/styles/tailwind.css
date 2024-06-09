@@ -94,7 +94,7 @@ body {
   }
 
   .journal-entry {
-    @apply w-4/5 p-16 mx-auto;
+    @apply w-4/5 md:p-[10px] lg:p-[30px] md:mx-auto;
   }
 
   .text-entry {
@@ -122,7 +122,7 @@ body {
   }
 
   .task-wrapper{
-    @apply min-w-[320px] m-2 p-2 border-custom-yellow rounded-lg bg-custom-yellow;
+    @apply md:max-w-[320px] m-2 p-2 border-custom-yellow rounded-lg bg-custom-yellow;
   }
 
   .container {

@@ -655,7 +655,6 @@ body{
   margin-left: auto;
   margin-right: auto;
   width: 80%;
-  padding: 4rem;
 }
 .text-entry > :not([hidden]) ~ :not([hidden]){
   --tw-space-y-reverse: 0;
@@ -829,6 +828,12 @@ body{
 .w-6{
   width: 1.5rem;
 }
+.w-full{
+  width: 100%;
+}
+.min-w-0{
+  min-width: 0px;
+}
 .min-w-\[215px\]{
   min-width: 215px;
 }
@@ -837,9 +842,6 @@ body{
 }
 .max-w-\[200px\]{
   max-width: 200px;
-}
-.max-w-min{
-  max-width: min-content;
 }
 .flex-1{
   flex: 1 1 0%;
@@ -886,9 +888,6 @@ body{
 }
 .rounded-3xl{
   border-radius: 1.5rem;
-}
-.border{
-  border-width: 1px;
 }
 .border-\[1px\]{
   border-width: 1px;
@@ -987,6 +986,11 @@ body {
 .Collapsible__trigger{
   color: #0E8992
 }
+
+.content-text * {
+  overflow-wrap: break-word;
+}
+
 /* mascot css code */
 .button {
   cursor: pointer;
