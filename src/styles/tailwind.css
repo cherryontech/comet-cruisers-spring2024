@@ -1,5 +1,174 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+
 @import "tailwindcss/base";
-
 @import "tailwindcss/components";
-
 @import "tailwindcss/utilities";
+
+html {
+  min-height: 100%;
+}
+
+body {
+  font-family: 'Josefin Sans', sans-serif;
+  background-image: url('../assets/Waves.svg');
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  background-position: bottom;
+  background-attachment: fixed;
+}
+
+.quill {
+  background-color: white;
+}
+
+.ql-container.ql-snow {
+  height: 25vh;
+  max-height: 25vh;
+}
+
+.ql-editor {
+  overflow: auto;
+}
+
+#save:disabled {
+  background-color: grey;
+}
+
+@layer base {
+  body {
+    @apply text-custom-teal-dark bg-custom-apricot;
+  }
+}
+
+@layer components {
+  .hover {
+    @apply hover:-translate-y-1 duration-75;
+  }
+
+  .btn {
+    @apply text-lg rounded-full w-40 h-8;
+  }
+
+  .btn-primary {
+    @apply bg-custom-teal-base text-white;
+  }
+
+  .btn-secondary {
+    @apply bg-white text-custom-teal-light border border-solid border-custom-teal-light;
+  }
+
+  .btn-tertiary {
+    @apply bg-white text-custom-burnt-orange border border-solid border-custom-burnt-orange;
+  }
+
+  .btn-container {
+    @apply flex justify-end space-x-2.5;
+  }
+
+  .shuffle-icon {
+    @apply text-custom-teal-base bg-transparent h-7 w-7;
+  }
+
+  .switch-btn {
+    @apply text-custom-teal-dark w-7 h-7;
+  }
+
+  .card, .popup-content {
+    @apply bg-custom-cream rounded-3xl border border-solid border-custom-burnt-orange;
+  }
+
+  .dashboard-grid {
+    @apply grid grid-cols-8 grid-flow-row auto-rows-max m-10;
+  }
+
+  .display-journal {
+    @apply grid-cols-subgrid col-start-5 col-span-4 row-span-4 space-y-2;
+  }
+
+  .todo-list {
+    @apply grid-cols-subgrid col-span-3 row-start-2 row-span-3 overflow-y-auto p-2;
+  }
+
+  .journal-container {
+    @apply bg-white bg-opacity-25 w-screen h-screen space-y-2.5;
+  }
+
+  .journal-entry {
+    @apply w-4/5 p-16 mx-auto;
+  }
+
+  .text-entry {
+    @apply shadow-md p-10 space-y-2.5;
+  }
+
+  .prompt {
+    @apply text-3xl font-semibold;
+  }
+
+  .prompt-container {
+    @apply flex flex-row space-x-2;
+  }
+
+  .subheading {
+    @apply text-xl;
+  }
+
+  .title-input {
+    @apply bg-custom-cream block text-2xl w-full p-1;
+  }
+
+  .list-wrapper {
+    @apply max-w-[382px] m-3 p-4 border-[1px] rounded-3xl border-custom-burnt-orange bg-custom-cream;
+  }
+
+  .task-wrapper{
+    @apply min-w-[320px] m-2 p-2 border-custom-yellow rounded-lg bg-custom-yellow;
+  }
+
+  .container {
+    @apply text-center mt-12;
+  }
+
+  .interactive-container {
+    @apply p-2.5 fixed left-[1vw] bottom-[1vh] w-[12vw] rounded-lg;
+  }
+
+  .textbox {
+    @apply p-2.5 text-center shadow-md fixed bg-custom-yellow left-[13vw] bottom-[8vh] w-[12vw] rounded-lg;
+  }
+
+}
+
+.Collapsible__trigger{
+  color: #0E8992
+}
+
+.content-text * {
+  overflow-wrap: break-word;
+}
+
+/* mascot css code */
+.button {
+  cursor: pointer;
+}
+
+@keyframes wiggle {
+  0% { transform: rotate(0deg); }
+ 80% { transform: rotate(0deg); }
+ 85% { transform: rotate(5deg); }
+ 95% { transform: rotate(-5deg); }
+100% { transform: rotate(0deg); }
+}
+
+.interactive-container {
+  animation: wiggle 2.5s infinite;
+}
+
+/* using media queries for control */
+@media (max-width: 768px) {
+  .interactive-container, .textbox {
+    width: 30vw;
+    left: 10vw;
+  }
+}
+/* end mascot css */
