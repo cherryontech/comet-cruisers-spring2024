@@ -44,7 +44,9 @@ const Home = () => {
                 <div className="modal p-4">
                   <div className="content flex flex-row">
                     <div className="flex-col">
-                      <h1 className="text-xl">How would you like to journal today?</h1>
+                      <h1 className="text-xl font-semibold">
+                        How would you like to journal today?
+                      </h1>
                       <p>Pick your journaling activity for today.</p>
                     </div>
                     <button className="grow" onClick={() => close()}>
@@ -53,16 +55,16 @@ const Home = () => {
                   </div>
                   <div className="flex flex-row center gap-3 mt-4">
                     <button className="flex popup-btn hover justify-center">
-                      <div className="flex flex-col gap-y-3">
+                      <Link to="/free-journal" className="flex flex-col gap-y-3">
                         <img src={pencil} alt="Free Write Icon" className="w-32 h-32" />
-                        <Link to="/free-journal">Free Write</Link>
-                      </div>
+                        Free Write
+                      </Link>
                     </button>
                     <button className="flex popup-btn hover justify-center">
-                      <div className="flex flex-col gap-y-3">
+                      <Link to="/prompt-journal" className="flex flex-col gap-y-3">
                         <img src={light_bulb} alt="Prompt Icon" className="w-32 h-32" />
-                        <Link to="/prompt-journal">Random Prompt</Link>
-                      </div>
+                        Random Prompt
+                      </Link>
                     </button>
                   </div>
                 </div>
@@ -72,7 +74,9 @@ const Home = () => {
         </div>
       </div>
       {displayMascot()}
-      <footer>Comet Cruisers Spring 2024</footer>
+      <footer className="flex fixed inset-x-0 bottom-0 justify-center">
+        Comet Cruisers @ Cherry On Tech Spring 2024
+      </footer>
     </main>
   );
 };

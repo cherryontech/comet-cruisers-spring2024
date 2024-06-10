@@ -864,6 +864,9 @@ body{
 .max-w-\[200px\]{
   max-width: 200px;
 }
+.flex-1{
+  flex: 1 1 0%;
+}
 .grow{
   flex-grow: 1;
 }
@@ -951,6 +954,10 @@ body{
 .text-3xl{
   font-size: 1.875rem;
   line-height: 2.25rem;
+}
+.text-xl{
+  font-size: 1.25rem;
+  line-height: 1.75rem;
 }
 .text-xs{
   font-size: 0.75rem;
