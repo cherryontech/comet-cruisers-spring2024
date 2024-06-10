@@ -612,6 +612,20 @@ body{
   --tw-bg-opacity: 1;
   background-color: rgb(246 239 222 / var(--tw-bg-opacity));
 }
+.popup-btn{
+  flex: 1 1 0%;
+  border-radius: 1.5rem;
+  border-width: 1px;
+  border-style: solid;
+  --tw-border-opacity: 1;
+  border-color: rgb(227 101 39 / var(--tw-border-opacity));
+  --tw-bg-opacity: 1;
+  background-color: rgb(249 230 220 / var(--tw-bg-opacity));
+  padding: 1.25rem;
+  --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
 .dashboard-grid{
   margin: 2.5rem;
   display: grid;
@@ -805,6 +819,9 @@ body{
 .h-10{
   height: 2.5rem;
 }
+.h-32{
+  height: 8rem;
+}
 .h-6{
   height: 1.5rem;
 }
@@ -820,6 +837,9 @@ body{
 .w-3\/4{
   width: 75%;
 }
+.w-32{
+  width: 8rem;
+}
 .w-4\/5{
   width: 80%;
 }
@@ -829,6 +849,12 @@ body{
 .w-6{
   width: 1.5rem;
 }
+.w-full{
+  width: 100%;
+}
+.min-w-0{
+  min-width: 0px;
+}
 .min-w-\[215px\]{
   min-width: 215px;
 }
@@ -837,12 +863,6 @@ body{
 }
 .max-w-\[200px\]{
   max-width: 200px;
-}
-.max-w-min{
-  max-width: min-content;
-}
-.flex-1{
-  flex: 1 1 0%;
 }
 .grow{
   flex-grow: 1;
@@ -870,6 +890,9 @@ body{
 }
 .gap-3{
   gap: 0.75rem;
+}
+.gap-y-3{
+  row-gap: 0.75rem;
 }
 .space-x-3 > :not([hidden]) ~ :not([hidden]){
   --tw-space-x-reverse: 0;
@@ -987,6 +1010,11 @@ body {
 .Collapsible__trigger{
   color: #0E8992
 }
+
+.content-text * {
+  overflow-wrap: break-word;
+}
+
 /* mascot css code */
 .button {
   cursor: pointer;

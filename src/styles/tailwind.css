@@ -77,6 +77,10 @@ body {
     @apply bg-custom-cream rounded-3xl border border-solid border-custom-burnt-orange;
   }
 
+  .popup-btn {
+    @apply flex-1 shadow-md bg-custom-apricot rounded-3xl border border-solid border-custom-burnt-orange p-5;
+  }
+
   .dashboard-grid {
     @apply grid grid-cols-8 grid-flow-row auto-rows-max m-10;
   }
