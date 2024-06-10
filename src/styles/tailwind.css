@@ -17,6 +17,13 @@ body {
   background-attachment: fixed;
 }
 
+.journal-banner, .todo-main-title {
+  background-image: url('../assets/OrangeTape.svg');
+  background-size: cover;
+  background-overflow: visible;
+  background-repeat: no-repeat;
+}
+
 .quill {
   background-color: white;
 }
