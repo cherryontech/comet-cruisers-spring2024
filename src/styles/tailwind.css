@@ -85,7 +85,7 @@ body {
   }
 
   .popup-btn {
-    @apply flex-1 shadow-md bg-custom-apricot rounded-3xl border border-solid border-custom-burnt-orange p-5;
+    @apply flex flex-col shadow-md bg-custom-apricot rounded-3xl border border-solid border-custom-burnt-orange items-center p-5 gap-y-3;
   }
 
   .dashboard-grid {

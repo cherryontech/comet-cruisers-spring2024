@@ -54,18 +54,18 @@ const Home = () => {
                     </button>
                   </div>
                   <div className="flex flex-row center gap-3 mt-4">
-                    <button className="flex popup-btn hover justify-center">
-                      <Link to="/free-journal" className="flex flex-col gap-y-3">
+                    <Link to="/free-journal" className="flex flex-1">
+                      <button className="popup-btn hover">
                         <img src={pencil} alt="Free Write Icon" className="w-32 h-32" />
                         Free Write
-                      </Link>
-                    </button>
-                    <button className="flex popup-btn hover justify-center">
-                      <Link to="/prompt-journal" className="flex flex-col gap-y-3">
+                      </button>
+                    </Link>
+                    <Link to="/prompt-journal" className="flex flex-1">
+                      <button className="popup-btn hover">
                         <img src={light_bulb} alt="Prompt Icon" className="w-32 h-32" />
                         Random Prompt
-                      </Link>
-                    </button>
+                      </button>
+                    </Link>
                   </div>
                 </div>
               )}
