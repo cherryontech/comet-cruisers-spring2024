@@ -145,12 +145,13 @@ const Todo = () => {
                       className="list-wrapper">
                       <div className="list-title-wrapper flex-wrap">
                         <input
-                          className="list-name bg-custom-cream placeholder:text-custom-burnt-orange min-w-[255px]"
+                          className="task-name bg-custom-cream placeholder:text-custom-burnt-orange pl-2 min-w-[150px]"
                           type="text"
                           name="list_name"
                           value={list.list_name}
                           title={list.list_name}
                           placeholder="Enter list name"
+                          maxLength={18} //setting a character limit so only the characters that fit as displayed is allowed
                           onChange={(event) => {
                             onListChange(event, list.list_id);
                           }}></input>

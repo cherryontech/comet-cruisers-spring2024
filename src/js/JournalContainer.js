@@ -38,7 +38,6 @@ const JournalTextEntry = ({ setHasChanges }) => {
   let journalType = window.location.pathname;
   let storedJournalEntries = JSON.parse(localStorage.getItem('journalEntry'));
   let journalEntries = storedJournalEntries ? storedJournalEntries : [];
-
   const { id } = useParams(); // extract the id parameter from URL
 
   const findJournalEntry = (journal_id) => {

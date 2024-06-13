@@ -597,8 +597,9 @@ body{
   --tw-text-opacity: 1;
   color: rgb(14 137 146 / var(--tw-text-opacity));
 }
-.switch-btn{
+.switch-btn:hover{
   height: 2.3rem;
+  tranform:scale(1.2);
   width: 2.5rem;
   --tw-text-opacity: 1;
   color: rgb(0 44 65 / var(--tw-text-opacity));

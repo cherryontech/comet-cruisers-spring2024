@@ -62,6 +62,7 @@ const Tasks = ({ listsState, setListsState, list }) => {
                     name="task_name"
                     value={task.task_name}
                     placeholder="Enter task name"
+                    maxLength={24}
                     onChange={(event) => {
                       onTaskChange(event, list.list_id, task.task_id);
                     }}></input>
