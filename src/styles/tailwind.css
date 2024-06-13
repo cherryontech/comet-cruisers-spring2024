@@ -77,7 +77,7 @@ body {
   }
 
   .switch-btn {
-    @apply text-custom-teal-dark w-7 h-7;
+    @apply text-custom-teal-dark;
   }
 
   .card, .popup-content {

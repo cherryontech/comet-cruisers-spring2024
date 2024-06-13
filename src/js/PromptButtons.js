@@ -23,9 +23,9 @@ const SwitchJournalType = () => {
   const displayIcon = () => {
     switch (journalType) {
       case '/prompt-journal':
-        return <TbWriting />;
+        return <TbWriting className="text-3xl" />;
       case '/free-journal':
-        return <GoLightBulb />;
+        return <GoLightBulb className="text-3xl" />;
     }
   };
 
