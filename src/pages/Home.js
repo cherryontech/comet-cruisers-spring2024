@@ -50,17 +50,13 @@ const Home = () => {
               nested>
               {(close) => (
                 <div className="modal p-4">
-                  <div className="content flex flex-row">
-                    <div className="flex-col">
-                      <h1 className="text-xl font-semibold">
-                        How would you like to journal today?
-                      </h1>
-                      <p>Pick your journaling activity for today.</p>
-                    </div>
+                  <div className="content flex flex-row justify-between items-start">
+                    <h1 className="text-xl font-semibold">How would you like to journal today?</h1>
                     <button className="grow" onClick={() => close()}>
                       <IoMdClose className="float-right" />
                     </button>
                   </div>
+                  <p>Pick your journaling activity for today.</p>
                   <div className="flex flex-row center gap-3 mt-4">
                     <Link to="/free-journal" className="flex flex-1">
                       <button className="popup-btn hover">
