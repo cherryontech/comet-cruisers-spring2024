@@ -16,12 +16,20 @@ const Home = () => {
     <main>
       <div>
         <header className="header">
+          <nav className="fixed bg-[#FFD3B3] rounded-lg lg:hidden">
+            <a href="#todo" className="m-3 hover:text-custom-teal-base hover:underline">
+              To Do
+            </a>
+            <a href="#journal" className="m-3 hover:text-custom-teal-base hover:underline">
+              Journal
+            </a>
+          </nav>
           <img src={logo} alt="Logo" className="m-auto w-48" />
         </header>
       </div>
       <Tutorial />
       <div className="lg:dashboard-grid">
-        <div className="col-span-3">
+        <div className="col-span-3 my-3 mx-5">
           <h1 className="text-3xl font-bold">Welcome!</h1>
           <header>Take a look at your scrapbook.</header>
         </div>
@@ -32,7 +40,7 @@ const Home = () => {
             <Popup
               contentStyle={{ backgroundColor: '#F6EFDE', borderColor: '#E36527' }}
               trigger={
-                <button className="tutorial-new-entry btn btn-primary hover">New Entry</button>
+                <button className="tutorial-new-entry btn btn-primary hover mr-5">New Entry</button>
               }
               modal
               nested>
@@ -70,7 +78,7 @@ const Home = () => {
         </div>
       </div>
       <GenerateMessage id="mascot-container" />
-      <footer className="lg:flex lg:fixed inset-x-0 bottom-0 justify-center">
+      <footer className="lg:flex inset-x-0 bottom-0 justify-center">
         Comet Cruisers @ Cherry On Tech Spring 2024
       </footer>
     </main>

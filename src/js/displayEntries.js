@@ -50,10 +50,12 @@ const DisplayJournal = () => {
   return (
     <div className="display-entries">
       <div className="header-container lg:flex lg:flex-row">
-        <div className="journal-banner flex-1 text-white text-center max-w-[200px] min-h-[40px] text-2xl p-2 m-5">
+        <div
+          id="journal"
+          className="journal-banner flex-1 text-white text-center max-w-[200px] min-h-[40px] text-2xl p-2 m-5">
           Journal
         </div>
-        <div className="search-container flex flex-row items-center justify-end grow">
+        <div className="search-container flex flex-row items-center justify-end grow mr-5">
           <FaMagnifyingGlass className="text-gray-400 m-2 absolute" />
           <input
             type="text"
@@ -64,7 +66,7 @@ const DisplayJournal = () => {
           />
         </div>
       </div>
-      <div className="tutorial-journal card">
+      <div className="tutorial-journal card m-5">
         {displayEntries == null || displayEntries.length < 1 ? (
           <div className="text-center p-4">No entries found.</div>
         ) : (

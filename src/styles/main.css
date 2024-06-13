@@ -803,17 +803,31 @@ body{
 .m-2{
   margin: 0.5rem;
 }
+.m-3{
+  margin: 0.75rem;
+}
 .m-5{
   margin: 1.25rem;
 }
 .m-auto{
   margin: auto;
 }
+.mx-5{
+  margin-left: 1.25rem;
+  margin-right: 1.25rem;
+}
+.my-3{
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
+}
 .ml-8{
   margin-left: 2rem;
 }
 .mr-2{
   margin-right: 0.5rem;
+}
+.mr-5{
+  margin-right: 1.25rem;
 }
 .mt-1{
   margin-top: 0.25rem;
@@ -930,12 +944,19 @@ body{
 .rounded-3xl{
   border-radius: 1.5rem;
 }
+.rounded-lg{
+  border-radius: 0.5rem;
+}
 .border-\[1px\]{
   border-width: 1px;
 }
 .border-gray-600{
   --tw-border-opacity: 1;
   border-color: rgb(75 85 99 / var(--tw-border-opacity));
+}
+.bg-\[\#FFD3B3\]{
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 211 179 / var(--tw-bg-opacity));
 }
 .bg-custom-cream{
   --tw-bg-opacity: 1;
@@ -953,6 +974,9 @@ body{
 }
 .pl-2{
   padding-left: 0.5rem;
+}
+.pl-3{
+  padding-left: 0.75rem;
 }
 .pt-4{
   padding-top: 1rem;
@@ -1095,7 +1119,17 @@ body {
   --tw-border-opacity: 1;
   border-color: rgb(227 101 39 / var(--tw-border-opacity));
 }
+@media (min-width: 768px){
+
+  .md\:hidden{
+    display: none;
+  }
+}
 @media (min-width: 1024px){
+
+  .lg\:fixed{
+    position: fixed;
+  }
 
   .lg\:flex{
     display: flex;
