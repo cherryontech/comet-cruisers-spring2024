@@ -148,16 +148,15 @@ const JournalContainer = () => {
             modal
             nested>
             {(close) => (
-              <div className="modal">
-                <h1>Unsaved Changes</h1>
+              <div className="modal p-4">
+                <h1 className="text-2xl font-semibold">Unsaved Changes</h1>
                 <p>Looks like you didn&apos;t save.</p>
-                <br />
-                <div className="btn-container">
-                  <button className="btn btn-secondary" onClick={() => close()}>
+                <div className="flex flex-row justify-center gap-5 pt-4">
+                  <button className="btn btn-secondary hover flex-1" onClick={() => close()}>
                     Cancel
                   </button>
-                  <Link to="/">
-                    <button className="btn btn-tertiary">Discard</button>
+                  <Link to="/" className="flex flex-1">
+                    <button className="btn btn-tertiary hover flex-1">Discard</button>
                   </Link>
                 </div>
               </div>

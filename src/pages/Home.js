@@ -6,8 +6,10 @@ import { IoMdClose } from 'react-icons/io';
 import 'reactjs-popup/dist/index.css';
 import DisplayJournal from '../js/displayEntries.js';
 import logo from '../assets/Logo-Sun.png';
+import light_bulb from '../assets/LightBulb.svg';
+import pencil from '../assets/Pencil.svg';
 import GenerateMessage from '../js/botPrompt.js';
-import Tutorial from '../js/Tutorial';
+import Tutorial from '../js/Tutorial.js';
 
 const Home = () => {
   return (
@@ -37,18 +39,29 @@ const Home = () => {
               {(close) => (
                 <div className="modal p-4">
                   <div className="content flex flex-row">
-                    Choose
+                    <div className="flex-col">
+                      <h1 className="text-xl font-semibold">
+                        How would you like to journal today?
+                      </h1>
+                      <p>Pick your journaling activity for today.</p>
+                    </div>
                     <button className="grow" onClick={() => close()}>
                       <IoMdClose className="float-right" />
                     </button>
                   </div>
-                  <div className="flex flex-row gap-3 mt-4">
-                    <button className="flex-1">
-                      <Link to="/free-journal">Free Write</Link>
-                    </button>
-                    <button className="flex-1">
-                      <Link to="/prompt-journal">Random Prompt</Link>
-                    </button>
+                  <div className="flex flex-row center gap-3 mt-4">
+                    <Link to="/free-journal" className="flex flex-1">
+                      <button className="popup-btn hover">
+                        <img src={pencil} alt="Free Write Icon" className="w-32 h-32" />
+                        Free Write
+                      </button>
+                    </Link>
+                    <Link to="/prompt-journal" className="flex flex-1">
+                      <button className="popup-btn hover">
+                        <img src={light_bulb} alt="Prompt Icon" className="w-32 h-32" />
+                        Random Prompt
+                      </button>
+                    </Link>
                   </div>
                 </div>
               )}
@@ -57,7 +70,9 @@ const Home = () => {
         </div>
       </div>
       <GenerateMessage id="mascot-container" />
-      <footer>Comet Cruisers Spring 2024</footer>
+      <footer className="flex fixed inset-x-0 bottom-0 justify-center">
+        Comet Cruisers @ Cherry On Tech Spring 2024
+      </footer>
     </main>
   );
 };
