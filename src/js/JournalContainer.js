@@ -155,7 +155,7 @@ const JournalContainer = () => {
                   <button className="btn btn-secondary hover flex-1" onClick={() => close()}>
                     Cancel
                   </button>
-                  <Link to="/">
+                  <Link to="/" className="flex flex-1">
                     <button className="btn btn-tertiary hover flex-1">Discard</button>
                   </Link>
                 </div>
