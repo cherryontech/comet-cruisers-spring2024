@@ -48,7 +48,7 @@ const DisplayJournal = () => {
   );
 
   return (
-    <div className="display-entries p-2">
+    <div className="display-entries">
       <div className="header-container lg:flex lg:flex-row">
         <div className="journal-banner flex-1 text-white text-center max-w-[200px] min-h-[40px] text-2xl p-2 m-5">
           Journal
@@ -60,7 +60,7 @@ const DisplayJournal = () => {
             placeholder="Search Title"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="search-input rounded-3xl w-4/5 p-2"
+            className="search-input rounded-3xl w-4/5 p-2 pl-3"
           />
         </div>
       </div>

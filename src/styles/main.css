@@ -630,13 +630,6 @@ body{
   --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
-.dashboard-grid{
-  margin: 2.5rem;
-  display: grid;
-  grid-auto-flow: row;
-  grid-auto-rows: max-content;
-  grid-template-columns: repeat(8, minmax(0, 1fr));
-}
 .display-journal{
   grid-column: span 4 / span 4;
   grid-column-start: 5;
@@ -670,9 +663,21 @@ body{
   --tw-bg-opacity: 0.25;
 }
 .journal-entry{
-  margin-left: auto;
-  margin-right: auto;
   width: 80%;
+}
+@media (min-width: 768px){
+
+  .journal-entry{
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+  }
+}
+@media (min-width: 1024px){
+
+  .journal-entry{
+    padding: 30px;
+  }
 }
 .text-entry > :not([hidden]) ~ :not([hidden]){
   --tw-space-y-reverse: 0;
@@ -725,13 +730,18 @@ body{
 }
 .task-wrapper{
   margin: 0.5rem;
-  min-width: 320px;
   border-radius: 0.5rem;
   --tw-border-opacity: 1;
   border-color: rgb(255 211 58 / var(--tw-border-opacity));
   --tw-bg-opacity: 1;
   background-color: rgb(255 211 58 / var(--tw-bg-opacity));
   padding: 0.5rem;
+}
+@media (min-width: 768px){
+
+  .task-wrapper{
+    max-width: 320px;
+  }
 }
 .container{
   margin-top: 3rem;
@@ -802,9 +812,6 @@ body{
 .ml-8{
   margin-left: 2rem;
 }
-.mr-0{
-  margin-right: 0px;
-}
 .mr-2{
   margin-right: 0.5rem;
 }
@@ -867,9 +874,6 @@ body{
 }
 .min-w-0{
   min-width: 0px;
-}
-.min-w-\[215px\]{
-  min-width: 215px;
 }
 .min-w-\[255px\]{
   min-width: 255px;
@@ -1066,6 +1070,16 @@ body {
   }
 }
 /* end mascot css */
+@media (min-width: 1024px){
+
+  .lg\:dashboard-grid{
+    margin: 2.5rem;
+    display: grid;
+    grid-auto-flow: row;
+    grid-auto-rows: max-content;
+    grid-template-columns: repeat(8, minmax(0, 1fr));
+  }
+}
 .placeholder\:text-custom-burnt-orange::placeholder{
   --tw-text-opacity: 1;
   color: rgb(227 101 39 / var(--tw-text-opacity));
@@ -1080,4 +1094,14 @@ body {
 .hover\:border-custom-burnt-orange:hover{
   --tw-border-opacity: 1;
   border-color: rgb(227 101 39 / var(--tw-border-opacity));
+}
+@media (min-width: 1024px){
+
+  .lg\:flex{
+    display: flex;
+  }
+
+  .lg\:flex-row{
+    flex-direction: row;
+  }
 }

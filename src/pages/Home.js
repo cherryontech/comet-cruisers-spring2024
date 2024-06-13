@@ -70,7 +70,7 @@ const Home = () => {
         </div>
       </div>
       <GenerateMessage id="mascot-container" />
-      <footer className="flex fixed inset-x-0 bottom-0 justify-center">
+      <footer className="lg:flex lg:fixed inset-x-0 bottom-0 justify-center">
         Comet Cruisers @ Cherry On Tech Spring 2024
       </footer>
     </main>
