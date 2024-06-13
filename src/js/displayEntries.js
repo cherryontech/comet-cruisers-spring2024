@@ -50,7 +50,7 @@ const DisplayJournal = () => {
   return (
     <>
       <div className="header-container flex flex-row">
-        <div className="journal-banner bg-custom-burnt-orange text-white text-center max-w-[200px] min-h-[40px] text-2xl p-2 m-5">
+        <div className="journal-banner flex-1 text-white text-center max-w-[200px] min-h-[40px] text-2xl p-2 m-5">
           Journal
         </div>
         <div className="search-container flex flex-row items-center justify-end grow">

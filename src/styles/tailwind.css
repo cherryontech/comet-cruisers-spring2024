@@ -17,6 +17,13 @@ body {
   background-attachment: fixed;
 }
 
+.journal-banner, .todo-main-title {
+  background-image: url('../assets/OrangeTape.svg');
+  background-size: cover;
+  background-overflow: visible;
+  background-repeat: no-repeat;
+}
+
 .quill {
   background-color: white;
 }
@@ -75,6 +82,10 @@ body {
 
   .card, .popup-content {
     @apply bg-custom-cream rounded-3xl border border-solid border-custom-burnt-orange;
+  }
+
+  .popup-btn {
+    @apply flex flex-col flex-1 shadow-md bg-custom-apricot rounded-3xl border border-solid border-custom-burnt-orange items-center p-5 gap-y-3;
   }
 
   .dashboard-grid {
