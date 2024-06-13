@@ -24,9 +24,19 @@ const SwitchJournalType = () => {
   const displayIcon = () => {
     switch (journalType) {
       case '/prompt-journal':
-        return <TbWriting />;
+        return (
+          <div className="flex hover p-1">
+            Switch to Free Write
+            <TbWriting className="w-5 h-5" />
+          </div>
+        );
       case '/free-journal':
-        return <GoLightBulb />;
+        return (
+          <div className="flex hover p-1">
+            Switch to Prompt
+            <GoLightBulb className="w-5 h-5" />
+          </div>
+        );
     }
   };
 
@@ -34,7 +44,7 @@ const SwitchJournalType = () => {
     <Popup
       contentStyle={{ backgroundColor: '#F6EFDE', borderColor: '#E36527' }}
       trigger={
-        <button className="switch-btn" title="switch journal type">
+        <button className="flex text-custom-teal-dark" title="switch journal type">
           {displayIcon()}
         </button>
       }

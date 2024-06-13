@@ -73,15 +73,11 @@ body {
   }
 
   .btn-container {
-    @apply flex justify-end space-x-2.5;
+    @apply flex justify-between;
   }
 
   .shuffle-icon {
     @apply text-custom-teal-base bg-transparent h-7 w-7;
-  }
-
-  .switch-btn {
-    @apply text-custom-teal-dark w-7 h-7;
   }
 
   .card, .popup-content {
