@@ -139,7 +139,7 @@ const JournalContainer = () => {
       <div className="journal-entry">
         {hasChangesState ? (
           <Popup
-            contentStyle={{ backgroundColor: '#F6EFDE', borderColor: '#E36527' }}
+            contentStyle={{ backgroundColor: '#F6EFDE', borderColor: '#E36527', minWidth: '300px' }}
             trigger={
               <button title="go back">
                 <IoMdArrowBack className="absolute top-3 start-3 w-10 h-10 hover" />
@@ -152,11 +152,13 @@ const JournalContainer = () => {
                 <h1 className="text-2xl font-semibold">Unsaved Changes</h1>
                 <p>Looks like you didn&apos;t save.</p>
                 <div className="flex flex-row justify-center gap-5 pt-4">
-                  <button className="btn btn-secondary hover flex-1" onClick={() => close()}>
+                  <button
+                    className="btn btn-secondary hover lg:flex-1 flex-none"
+                    onClick={() => close()}>
                     Cancel
                   </button>
-                  <Link to="/" className="flex flex-1">
-                    <button className="btn btn-tertiary hover flex-1">Discard</button>
+                  <Link to="/" className="flex lg:flex-1">
+                    <button className="btn btn-tertiary hover flex-1 flex-none">Discard</button>
                   </Link>
                 </div>
               </div>
