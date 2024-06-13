@@ -13,6 +13,8 @@ const DisplayJournal = () => {
   const [journalEntry, setJournalEntry] = useState(initialState);
   const [displayPage, setDisplayPage] = useState(0);
   const [searchTerm, setSearchTerm] = useState('');
+  let curDate = Date(Date.now()).split(' ');
+  let timestamp = curDate[1] + ' ' + curDate[2];
   const entriesPerPage = 3;
 
   useEffect(() => {
@@ -66,7 +68,27 @@ const DisplayJournal = () => {
       </div>
       <div className="tutorial-journal card">
         {displayEntries == null || displayEntries.length < 1 ? (
-          <div className="text-center p-4">No entries found.</div>
+          <>
+            <div className="text-center p-4">No entries found.</div>
+            <hr className="border-gray-600 w-3/4 m-auto" />
+            <div className="flex flex-row items-center justify-center space-x-3 w-full p-4 m-auto mt-5">
+              <img src={blue_book} alt="Journal Icon" className="w-1/6 h-1/6 float-left" />
+              <div className="grow min-w-0 text-ellipsis">
+                <p className="text-xs">{timestamp}</p>
+                <h1 className="font-normal text-3xl truncate">Welcome!</h1>
+                <div className="content-text">
+                  <p className="content-text">
+                    Write your first journal. Not sure where to start? Click on new entry to free
+                    write or to use a prompt.
+                  </p>
+                </div>
+              </div>
+              <div className="flex flex-col items-end">
+                <p className="tutorial-edit hover">Edit</p>
+                <p className="tutorial-delete hover">Delete</p>
+              </div>
+            </div>
+          </>
         ) : (
           displayEntries.map((entry, index) => (
             <React.Fragment key={entry.journal_id}>

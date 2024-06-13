@@ -597,10 +597,7 @@ body{
   --tw-text-opacity: 1;
   color: rgb(14 137 146 / var(--tw-text-opacity));
 }
-.switch-btn:hover{
-  height: 2.3rem;
-  tranform:scale(1.2);
-  width: 2.5rem;
+.switch-btn{
   --tw-text-opacity: 1;
   color: rgb(0 44 65 / var(--tw-text-opacity));
 }
@@ -870,11 +867,11 @@ body{
 .min-w-0{
   min-width: 0px;
 }
+.min-w-\[150px\]{
+  min-width: 150px;
+}
 .min-w-\[215px\]{
   min-width: 215px;
-}
-.min-w-\[255px\]{
-  min-width: 255px;
 }
 .max-w-\[200px\]{
   max-width: 200px;
