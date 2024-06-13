@@ -555,6 +555,22 @@ body{
   font-size: 1.125rem;
   line-height: 1.75rem;
 }
+.btn-pop-up{
+  width: 8rem;
+  flex: none;
+}
+@media (min-width: 768px){
+
+  .btn-pop-up{
+    width: 10rem;
+  }
+}
+@media (min-width: 1024px){
+
+  .btn-pop-up{
+    flex: 1 1 0%;
+  }
+}
 .btn-primary{
   --tw-bg-opacity: 1;
   background-color: rgb(14 137 146 / var(--tw-bg-opacity));
@@ -685,15 +701,28 @@ body{
   margin-bottom: calc(0.625rem * var(--tw-space-y-reverse));
 }
 .text-entry{
-  padding: 2.5rem;
+  padding: 0.5rem;
   --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
+@media (min-width: 1024px){
+
+  .text-entry{
+    padding: 2.5rem;
+  }
+}
 .prompt{
-  font-size: 1.875rem;
-  line-height: 2.25rem;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
   font-weight: 600;
+}
+@media (min-width: 1024px){
+
+  .prompt{
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+  }
 }
 .prompt-container{
   display: flex;
@@ -705,8 +734,15 @@ body{
   margin-left: calc(0.5rem * calc(1 - var(--tw-space-x-reverse)));
 }
 .subheading{
-  font-size: 1.25rem;
+  font-size: 1.125rem;
   line-height: 1.75rem;
+}
+@media (min-width: 1024px){
+
+  .subheading{
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+  }
 }
 .title-input{
   display: block;
@@ -809,6 +845,9 @@ body{
 .m-5{
   margin: 1.25rem;
 }
+.m-8{
+  margin: 2rem;
+}
 .m-auto{
   margin: auto;
 }
@@ -857,6 +896,9 @@ body{
 .h-10{
   height: 2.5rem;
 }
+.h-32{
+  height: 8rem;
+}
 .h-6{
   height: 1.5rem;
 }
@@ -871,6 +913,9 @@ body{
 }
 .w-3\/4{
   width: 75%;
+}
+.w-32{
+  width: 8rem;
 }
 .w-4\/5{
   width: 80%;
@@ -1126,6 +1171,10 @@ body {
 }
 @media (min-width: 1024px){
 
+  .lg\:m-auto{
+    margin: auto;
+  }
+
   .lg\:flex{
     display: flex;
   }
@@ -1134,19 +1183,7 @@ body {
     display: none;
   }
 
-  .lg\:h-32{
-    height: 8rem;
-  }
-
-  .lg\:w-32{
-    width: 8rem;
-  }
-
   .lg\:flex-row{
     flex-direction: row;
-  }
-
-  .lg\:p-4{
-    padding: 1rem;
   }
 }

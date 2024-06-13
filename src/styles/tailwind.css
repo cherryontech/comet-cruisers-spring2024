@@ -53,7 +53,11 @@ body {
   }
 
   .btn {
-    @apply text-lg rounded-full lg:w-40 h-8 w-8;
+    @apply text-lg rounded-full w-40 h-8;
+  }
+
+  .btn-pop-up{
+    @apply  md:w-40 w-32 lg:flex-1 flex-none;
   }
 
   .btn-primary {
@@ -109,11 +113,11 @@ body {
   }
 
   .text-entry {
-    @apply shadow-md p-10 space-y-2.5;
+    @apply shadow-md p-2 lg:p-10 space-y-2.5;
   }
 
   .prompt {
-    @apply text-3xl font-semibold;
+    @apply lg:text-3xl text-xl font-semibold;
   }
 
   .prompt-container {
@@ -121,7 +125,7 @@ body {
   }
 
   .subheading {
-    @apply text-xl;
+    @apply lg:text-xl text-lg;
   }
 
   .title-input {
