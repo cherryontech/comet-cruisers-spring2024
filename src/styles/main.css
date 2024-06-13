@@ -613,7 +613,10 @@ body{
   background-color: rgb(246 239 222 / var(--tw-bg-opacity));
 }
 .popup-btn{
-  flex: 1 1 0%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 0.75rem;
   border-radius: 1.5rem;
   border-width: 1px;
   border-style: solid;
@@ -759,8 +762,18 @@ body{
 .collapse{
   visibility: collapse;
 }
+.fixed{
+  position: fixed;
+}
 .absolute{
   position: absolute;
+}
+.inset-x-0{
+  left: 0px;
+  right: 0px;
+}
+.bottom-0{
+  bottom: 0px;
 }
 .start-3{
   inset-inline-start: 0.75rem;
@@ -894,8 +907,8 @@ body{
 .gap-3{
   gap: 0.75rem;
 }
-.gap-y-3{
-  row-gap: 0.75rem;
+.gap-5{
+  gap: 1.25rem;
 }
 .space-x-3 > :not([hidden]) ~ :not([hidden]){
   --tw-space-x-reverse: 0;
@@ -923,10 +936,6 @@ body{
   --tw-border-opacity: 1;
   border-color: rgb(75 85 99 / var(--tw-border-opacity));
 }
-.bg-custom-burnt-orange{
-  --tw-bg-opacity: 1;
-  background-color: rgb(227 101 39 / var(--tw-bg-opacity));
-}
 .bg-custom-cream{
   --tw-bg-opacity: 1;
   background-color: rgb(246 239 222 / var(--tw-bg-opacity));
@@ -943,6 +952,9 @@ body{
 }
 .pl-2{
   padding-left: 0.5rem;
+}
+.pt-4{
+  padding-top: 1rem;
 }
 .text-center{
   text-align: center;
@@ -968,6 +980,9 @@ body{
 }
 .font-normal{
   font-weight: 400;
+}
+.font-semibold{
+  font-weight: 600;
 }
 .italic{
   font-style: italic;
@@ -995,6 +1010,13 @@ body {
   background-size: 100% auto;
   background-position: bottom;
   background-attachment: fixed;
+}
+
+.journal-banner, .todo-main-title {
+  background-image: url('../assets/OrangeTape.svg');
+  background-size: cover;
+  background-overflow: visible;
+  background-repeat: no-repeat;
 }
 
 .quill {
