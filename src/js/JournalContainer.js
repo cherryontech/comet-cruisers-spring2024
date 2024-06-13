@@ -124,8 +124,10 @@ const JournalTextEntry = ({ setHasChanges }) => {
         <ReactQuill theme="snow" value={value} onChange={setValue} />
         <div className="btn-container">
           <SwitchJournalType />
-          <ClearButton clearButton={clearButton} />
-          <SaveButton saveEntry={saveEntry} disabled={!value || !title} />
+          <div className="space-x-2.5">
+            <ClearButton clearButton={clearButton} />
+            <SaveButton saveEntry={saveEntry} disabled={!value || !title} />
+          </div>
         </div>
       </div>
     </>
