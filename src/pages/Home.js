@@ -38,7 +38,11 @@ const Home = () => {
           <DisplayJournal />
           <div className="btn-container">
             <Popup
-              contentStyle={{ backgroundColor: '#F6EFDE', borderColor: '#E36527' }}
+              contentStyle={{
+                backgroundColor: '#F6EFDE',
+                borderColor: '#E36527',
+                minWidth: '300px'
+              }}
               trigger={
                 <button className="tutorial-new-entry btn btn-primary hover mr-5">New Entry</button>
               }
@@ -78,7 +82,7 @@ const Home = () => {
         </div>
       </div>
       <GenerateMessage id="mascot-container" />
-      <footer className="lg:flex inset-x-0 bottom-0 justify-center">
+      <footer className="lg:flex inset-x-0 bottom-0 justify-center mx-2">
         Comet Cruisers @ Cherry On Tech Spring 2024
       </footer>
     </main>
