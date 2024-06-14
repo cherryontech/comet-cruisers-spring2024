@@ -126,7 +126,7 @@ const Todo = () => {
   };
 
   return (
-    <div className="todo-list todolist-area">
+    <div id="todo" className="todo-list todolist-area">
       <p className="todo-main-title text-white text-center max-w-[200px] min-h-[40px] text-2xl p-2 m-5">
         To Do
       </p>

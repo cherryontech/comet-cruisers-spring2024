@@ -56,6 +56,10 @@ body {
     @apply text-lg rounded-full w-40 h-8;
   }
 
+  .btn-pop-up{
+    @apply  md:w-40 w-32 lg:flex-1 flex-none;
+  }
+
   .btn-primary {
     @apply bg-custom-teal-base text-white;
   }
@@ -101,15 +105,15 @@ body {
   }
 
   .journal-entry {
-    @apply w-4/5 p-16 mx-auto;
+    @apply w-4/5 md:p-[10px] lg:p-[30px] md:mx-auto;
   }
 
   .text-entry {
-    @apply shadow-md p-10 space-y-2.5;
+    @apply shadow-md p-2 lg:p-10 space-y-2.5;
   }
 
   .prompt {
-    @apply text-3xl font-semibold;
+    @apply lg:text-3xl text-xl font-semibold;
   }
 
   .prompt-container {
@@ -117,7 +121,7 @@ body {
   }
 
   .subheading {
-    @apply text-xl;
+    @apply lg:text-xl text-lg;
   }
 
   .title-input {
@@ -129,7 +133,7 @@ body {
   }
 
   .task-wrapper{
-    @apply min-w-[320px] m-2 p-2 border-custom-yellow rounded-lg bg-custom-yellow;
+    @apply md:max-w-[320px] m-2 p-2 border-custom-yellow rounded-lg bg-custom-yellow;
   }
 
   .container {
