@@ -141,11 +141,11 @@ body {
   }
 
   .interactive-container {
-    @apply p-2.5 fixed left-[1vw] bottom-[1vh] w-[12vw] rounded-lg;
+    @apply p-2.5 fixed right-[1vw] top-[1vh] w-32 rounded-lg;
   }
 
   .textbox {
-    @apply p-2.5 text-center shadow-md fixed bg-custom-yellow left-[13vw] bottom-[8vh] w-[12vw] rounded-lg;
+    @apply p-2.5 text-center shadow-md fixed bg-custom-yellow right-[10vw] top-[3vh] w-[14vw] rounded-lg;
   }
 
 }
@@ -174,12 +174,3 @@ body {
 .interactive-container {
   animation: wiggle 2.5s infinite;
 }
-
-/* using media queries for control */
-@media (max-width: 768px) {
-  .interactive-container, .textbox {
-    width: 30vw;
-    left: 10vw;
-  }
-}
-/* end mascot css */
