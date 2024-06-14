@@ -32,7 +32,7 @@ const Home = () => {
         <Todo />
         <div className="display-journal">
           <DisplayJournal />
-          <div className="btn-container">
+          <div className="flex justify-end">
             <Popup
               contentStyle={{ backgroundColor: '#F6EFDE', borderColor: '#E36527' }}
               trigger={
