@@ -4,7 +4,7 @@ import Popup from 'reactjs-popup';
 import { GoLightBulb } from 'react-icons/go';
 import { TbWriting } from 'react-icons/tb';
 
-const SwitchJournalType = () => {
+const SwitchJournalType = ({ changes }) => {
   let journalType = window.location.pathname;
   let switchTo = '';
   //types are '/free-journal' and '/prompt-journal
@@ -41,30 +41,38 @@ const SwitchJournalType = () => {
   };
 
   return (
-    <Popup
-      contentStyle={{ backgroundColor: '#F6EFDE', borderColor: '#E36527' }}
-      trigger={
-        <button className="flex text-custom-teal-dark" title="switch journal type">
-          {displayIcon()}
-        </button>
-      }
-      modal
-      nested>
-      {(close) => (
-        <div className="modal p-4">
-          <h1 className="text-2xl font-semibold">Unsaved Changes</h1>
-          <p>Are you sure you want to change journal types?</p>
-          <div className="flex flex-row justify-center gap-5 pt-4">
-            <button className="btn btn-secondary hover flex-1" onClick={() => close()}>
-              Cancel
+    <>
+      {changes ? (
+        <Popup
+          contentStyle={{ backgroundColor: '#F6EFDE', borderColor: '#E36527' }}
+          trigger={
+            <button className="flex text-custom-teal-dark" title="switch journal type">
+              {displayIcon()}
             </button>
-            <Link to={switchTo} className="flex flex-1">
-              <button className="btn btn-tertiary hover flex-1">Switch!</button>
-            </Link>
-          </div>
-        </div>
+          }
+          modal
+          nested>
+          {(close) => (
+            <div className="modal p-4">
+              <h1 className="text-2xl font-semibold">Unsaved Changes</h1>
+              <p>Are you sure you want to change journal types?</p>
+              <div className="flex flex-row justify-center gap-5 pt-4">
+                <button className="btn btn-secondary hover flex-1" onClick={() => close()}>
+                  Cancel
+                </button>
+                <Link to={switchTo} className="flex flex-1">
+                  <button className="btn btn-tertiary hover flex-1">Switch!</button>
+                </Link>
+              </div>
+            </div>
+          )}
+        </Popup>
+      ) : (
+        <Link to={switchTo} className="flex flex-1">
+          {displayIcon()}
+        </Link>
       )}
-    </Popup>
+    </>
   );
 };
 

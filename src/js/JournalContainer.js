@@ -34,7 +34,7 @@ const GenerateSubHeader = () => {
   );
 };
 
-const JournalTextEntry = ({ setHasChanges }) => {
+const JournalTextEntry = ({ hasChanges, setHasChanges }) => {
   let journalType = window.location.pathname;
   let storedJournalEntries = JSON.parse(localStorage.getItem('journalEntry'));
   let journalEntries = storedJournalEntries ? storedJournalEntries : [];
@@ -123,7 +123,7 @@ const JournalTextEntry = ({ setHasChanges }) => {
         />
         <ReactQuill theme="snow" value={value} onChange={setValue} />
         <div className="btn-container">
-          <SwitchJournalType />
+          <SwitchJournalType changes={hasChanges} />
           <div className="space-x-2.5">
             <ClearButton clearButton={clearButton} />
             <SaveButton saveEntry={saveEntry} disabled={!value || !title} />
