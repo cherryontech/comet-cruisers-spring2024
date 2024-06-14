@@ -637,7 +637,7 @@ body{
 }
 .display-journal{
   grid-column: span 4 / span 4;
-  grid-column-start: 5;
+  grid-column-start: 4;
   grid-row: span 4 / span 4;
   grid-template-columns: subgrid;
 }
@@ -1143,7 +1143,7 @@ body {
     display: grid;
     grid-auto-flow: row;
     grid-auto-rows: max-content;
-    grid-template-columns: repeat(8, minmax(0, 1fr));
+    grid-template-columns: repeat(7, minmax(0, 1fr));
   }
 }
 

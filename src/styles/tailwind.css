@@ -89,11 +89,11 @@ body {
   }
 
   .dashboard-grid {
-    @apply grid grid-cols-8 grid-flow-row auto-rows-max m-10;
+    @apply grid grid-cols-7 grid-flow-row auto-rows-max m-10;
   }
 
   .display-journal {
-    @apply grid-cols-subgrid col-start-5 col-span-4 row-span-4 space-y-2;
+    @apply grid-cols-subgrid col-start-4 col-span-4 row-span-4 space-y-2;
   }
 
   .todo-list {
