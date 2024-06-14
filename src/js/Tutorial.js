@@ -99,7 +99,7 @@ const TUTORIAL_STEPS = [
   },
   {
     target: '.tutorial-star',
-    placement: 'top-left',
+    placement: 'bottom-left',
     content:
       'Your Star Bud always has some wisdom for you. Just click on him, and he might say something that makes your day a little brighter.'
   },
