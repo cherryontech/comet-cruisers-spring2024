@@ -44,7 +44,7 @@ const GeneratePrompt = () => {
 
   return (
     <div>
-      <div className="prompt-container">
+      <div className="prompt-container justify-between">
         <p className="prompt">{prompts[curPrompt]}</p>
         <button
           type="button"

@@ -89,11 +89,11 @@ body {
   }
 
   .dashboard-grid {
-    @apply grid grid-cols-8 grid-flow-row auto-rows-max m-10;
+    @apply grid grid-cols-7 grid-flow-row auto-rows-max m-10;
   }
 
   .display-journal {
-    @apply grid-cols-subgrid col-start-5 col-span-4 row-span-4 space-y-2;
+    @apply grid-cols-subgrid col-start-4 col-span-4 row-span-4 space-y-2;
   }
 
   .todo-list {
@@ -144,11 +144,11 @@ body {
   }
 
   .interactive-container {
-    @apply p-2.5 fixed left-[1vw] bottom-[1vh] w-[12vw] rounded-lg;
+    @apply p-2.5 fixed right-[1vw] top-[1vh] w-32 rounded-lg;
   }
 
   .textbox {
-    @apply p-2.5 text-center shadow-md fixed bg-custom-yellow left-[13vw] bottom-[8vh] w-[12vw] rounded-lg;
+    @apply p-2.5 text-center shadow-md fixed bg-custom-yellow right-[10vw] top-[3vh] w-[14vw] rounded-lg;
   }
 
 }
@@ -177,12 +177,3 @@ body {
 .interactive-container {
   animation: wiggle 2.5s infinite;
 }
-
-/* using media queries for control */
-@media (max-width: 768px) {
-  .interactive-container, .textbox {
-    width: 30vw;
-    left: 10vw;
-  }
-}
-/* end mascot css */

@@ -25,6 +25,7 @@ const Home = () => {
             </a>
           </nav>
           <img src={logo} alt="Logo" className="m-auto w-48" />
+          <GenerateMessage id="mascot-container" />
         </header>
       </div>
       <Tutorial />
@@ -77,10 +78,6 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <GenerateMessage id="mascot-container" />
-      <footer className="lg:flex inset-x-0 bottom-0 justify-center mx-2">
-        Comet Cruisers @ Cherry On Tech Spring 2024
-      </footer>
     </main>
   );
 };

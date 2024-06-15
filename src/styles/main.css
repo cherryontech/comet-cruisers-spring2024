@@ -637,7 +637,7 @@ body{
 }
 .display-journal{
   grid-column: span 4 / span 4;
-  grid-column-start: 5;
+  grid-column-start: 4;
   grid-row: span 4 / span 4;
   grid-template-columns: subgrid;
 }
@@ -774,17 +774,17 @@ body{
 }
 .interactive-container{
   position: fixed;
-  left: 1vw;
-  bottom: 1vh;
-  width: 12vw;
+  right: 1vw;
+  top: 1vh;
+  width: 8rem;
   border-radius: 0.5rem;
   padding: 0.625rem;
 }
 .textbox{
   position: fixed;
-  left: 13vw;
-  bottom: 8vh;
-  width: 12vw;
+  right: 10vw;
+  top: 3vh;
+  width: 14vw;
   border-radius: 0.5rem;
   --tw-bg-opacity: 1;
   background-color: rgb(255 211 58 / var(--tw-bg-opacity));
@@ -802,13 +802,6 @@ body{
 }
 .absolute{
   position: absolute;
-}
-.inset-x-0{
-  left: 0px;
-  right: 0px;
-}
-.bottom-0{
-  bottom: 0px;
 }
 .start-3{
   inset-inline-start: 0.75rem;
@@ -839,10 +832,6 @@ body{
 }
 .m-auto{
   margin: auto;
-}
-.mx-2{
-  margin-left: 0.5rem;
-  margin-right: 0.5rem;
 }
 .mx-5{
   margin-left: 1.25rem;
@@ -948,6 +937,9 @@ body{
 .flex-wrap{
   flex-wrap: wrap;
 }
+.items-start{
+  align-items: flex-start;
+}
 .items-end{
   align-items: flex-end;
 }
@@ -959,6 +951,9 @@ body{
 }
 .justify-center{
   justify-content: center;
+}
+.justify-between{
+  justify-content: space-between;
 }
 .gap-3{
   gap: 0.75rem;
@@ -1141,14 +1136,6 @@ body {
   animation: wiggle 2.5s infinite;
 }
 
-/* using media queries for control */
-@media (max-width: 768px) {
-  .interactive-container, .textbox {
-    width: 30vw;
-    left: 10vw;
-  }
-}
-/* end mascot css */
 @media (min-width: 1024px){
 
   .lg\:dashboard-grid{
@@ -1156,31 +1143,38 @@ body {
     display: grid;
     grid-auto-flow: row;
     grid-auto-rows: max-content;
-    grid-template-columns: repeat(8, minmax(0, 1fr));
+    grid-template-columns: repeat(7, minmax(0, 1fr));
   }
 }
+
 .placeholder\:text-custom-burnt-orange::placeholder{
   --tw-text-opacity: 1;
   color: rgb(227 101 39 / var(--tw-text-opacity));
 }
+
 .placeholder\:text-custom-teal-base::placeholder{
   --tw-text-opacity: 1;
   color: rgb(14 137 146 / var(--tw-text-opacity));
 }
+
 .hover\:animate-none:hover{
   animation: none;
 }
+
 .hover\:border-custom-burnt-orange:hover{
   --tw-border-opacity: 1;
   border-color: rgb(227 101 39 / var(--tw-border-opacity));
 }
+
 .hover\:text-custom-teal-base:hover{
   --tw-text-opacity: 1;
   color: rgb(14 137 146 / var(--tw-text-opacity));
 }
+
 .hover\:underline:hover{
   text-decoration-line: underline;
 }
+
 @media (min-width: 1024px){
 
   .lg\:m-auto{

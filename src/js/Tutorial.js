@@ -7,7 +7,13 @@ const TUTORIAL_STEPS = [
     placement: 'center',
     title: 'Your Step By Step Guide To SeaScribe',
     content:
-      'Hi there! We’re excited to see you here. This is your safe space to find peace amidst the chaos. Let’s get started on your journey to well-being. Whether you want to journal your thoughts or manage your tasks, Seascribe is here to support you every step of the way.'
+      'Hi there! We’re excited to see you here. This is your safe space to find peace amidst the chaos.'
+  },
+  {
+    target: 'body',
+    placement: 'center',
+    content:
+      'Let’s get started on your journey to well-being. Whether you want to journal your thoughts or manage your tasks, Seascribe is here to support you every step of the way.'
   },
   {
     target: 'body',
@@ -20,8 +26,16 @@ const TUTORIAL_STEPS = [
     target: '.tutorial-journal',
     placement: 'left',
     title: 'Journal',
-    content:
-      'Here is Journaling section of the SeaScribe. Here you have two options, you can either freely write down your thoughts or use a prompt and let it guide your reflections.'
+    content: (
+      <div>
+        <p>Here is Journaling section of the SeaScribe.</p>
+        <br />
+        <p>
+          Here you have two options, you can either freely write down your thoughts or use a prompt
+          and let it guide your reflections.
+        </p>
+      </div>
+    )
   },
   {
     target: '.tutorial-new-entry',
@@ -85,7 +99,7 @@ const TUTORIAL_STEPS = [
   },
   {
     target: '.tutorial-star',
-    placement: 'top-left',
+    placement: 'bottom-left',
     content:
       'Your Star Bud always has some wisdom for you. Just click on him, and he might say something that makes your day a little brighter.'
   },
@@ -136,6 +150,7 @@ const Tutorial = () => {
             background: '#0E8992'
           }
         }}
+        className="p-4"
       />
     </>
   );
