@@ -113,7 +113,7 @@ body {
   }
 
   .prompt {
-    @apply text-3xl font-semibold;
+    @apply lg:text-3xl text-xl font-semibold;
   }
 
   .prompt-container {
@@ -128,7 +128,7 @@ body {
   }
 
   .title-input {
-    @apply bg-custom-cream block text-2xl w-full p-1;
+    @apply bg-custom-cream block lg:text-2xl text-lg w-full p-1;
   }
 
   .list-wrapper {

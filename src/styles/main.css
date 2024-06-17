@@ -702,9 +702,16 @@ body{
   }
 }
 .prompt{
-  font-size: 1.875rem;
-  line-height: 2.25rem;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
   font-weight: 600;
+}
+@media (min-width: 1024px){
+
+  .prompt{
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+  }
 }
 .prompt-container{
   display: flex;
@@ -731,8 +738,15 @@ body{
   --tw-bg-opacity: 1;
   background-color: rgb(246 239 222 / var(--tw-bg-opacity));
   padding: 0.25rem;
-  font-size: 1.5rem;
-  line-height: 2rem;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+@media (min-width: 1024px){
+
+  .title-input{
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
 }
 .list-wrapper{
   margin: 0.75rem;
