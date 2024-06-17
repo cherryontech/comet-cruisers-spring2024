@@ -73,7 +73,7 @@ const SwitchJournalType = ({ changes }) => {
           )}
         </Popup>
       ) : (
-        <Link to={switchTo} className="flex flex-1">
+        <Link to={switchTo} className="flex flex-4">
           {displayIcon()}
         </Link>
       )}

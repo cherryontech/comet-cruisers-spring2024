@@ -117,14 +117,15 @@ const JournalTextEntry = ({ hasChanges, setHasChanges }) => {
         <input
           type="text"
           value={title}
+          title={title}
           onChange={handleTitleChange}
           placeholder="Enter Title of this Journal Entry..."
           className="title-input"
         />
         <ReactQuill theme="snow" value={value} onChange={setValue} />
-        <div className="btn-container">
+        <div className="btn-container md:flex-none flex">
           <SwitchJournalType changes={hasChanges} />
-          <div className="space-x-2.5">
+          <div className="sm:space-x-2.5 space-x-0 space-y-1.5 ml-[25px]">
             <ClearButton clearButton={clearButton} />
             <SaveButton saveEntry={saveEntry} disabled={!value || !title} />
           </div>

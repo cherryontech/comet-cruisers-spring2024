@@ -13,21 +13,20 @@ import Tutorial from '../js/Tutorial.js';
 
 const Home = () => {
   return (
-    <main className="lg:mb-2 mb-5">
-      <div>
-        <header className="header">
-          <nav className="fixed bg-custom-teal-base text-white rounded-lg lg:hidden">
-            <a href="#todo" className="m-3 hover:text-[#FFD3B3] hover:underline">
-              To Do
-            </a>
-            <a href="#journal" className="m-3 hover:text-[#FFD3B3] hover:underline">
-              Journal
-            </a>
-          </nav>
-          <img src={logo} alt="Logo" className="m-auto w-48" />
-          <GenerateMessage id="mascot-container" />
-        </header>
-      </div>
+    <main className="lg:mb-2 mb-5 ">
+      <header className="header">
+        <nav className="fixed bg-custom-teal-base text-white rounded-lg lg:hidden border-[1px] border-[#FFD3B3]">
+          <a href="#todo" className="m-3 hover:text-[#FFD3B3] hover:underline">
+            To Do
+          </a>
+          <a href="#journal" className="m-3 hover:text-[#FFD3B3] hover:underline">
+            Journal
+          </a>
+        </nav>
+        <img src={logo} alt="Logo" className="m-auto w-48" />
+        <GenerateMessage id="mascot-container" />
+      </header>
+
       <Tutorial />
       <div className="lg:dashboard-grid">
         <div className="col-span-3 my-3 mx-5">
