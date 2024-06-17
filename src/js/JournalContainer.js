@@ -155,12 +155,14 @@ const JournalContainer = () => {
                 <p>Looks like you didn&apos;t save.</p>
                 <div className="flex flex-row justify-center gap-5 pt-4">
                   <div className="btn-wrapper">
-                    <button className="btn btn-secondary btn-pop-up hover " onClick={() => close()}>
+                    <button
+                      className="btn btn-secondary btn-pop-up-warning hover "
+                      onClick={() => close()}>
                       Cancel
                     </button>
                   </div>
                   <Link to="/" className="link-wrapper ">
-                    <button className="btn btn-tertiary hover btn-pop-up">Discard</button>
+                    <button className="btn btn-tertiary hover btn-pop-up-warning">Discard</button>
                   </Link>
                 </div>
               </div>

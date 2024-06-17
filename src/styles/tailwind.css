@@ -56,7 +56,7 @@ body {
     @apply text-lg rounded-full w-40 h-8;
   }
 
-  .btn-pop-up{
+  .btn-pop-up-warning{
     @apply  md:w-40 w-32 lg:flex-1 flex-none;
   }
 

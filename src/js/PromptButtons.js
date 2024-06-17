@@ -44,7 +44,7 @@ const SwitchJournalType = ({ changes }) => {
     <>
       {changes ? (
         <Popup
-          contentStyle={{ backgroundColor: '#F6EFDE', borderColor: '#E36527' }}
+          contentStyle={{ backgroundColor: '#F6EFDE', borderColor: '#E36527', minWidth: '300px' }}
           trigger={
             <button className="flex text-custom-teal-dark" title="switch journal type">
               {displayIcon()}
@@ -57,11 +57,16 @@ const SwitchJournalType = ({ changes }) => {
               <h1 className="text-2xl font-semibold">Unsaved Changes</h1>
               <p>Are you sure you want to change journal types?</p>
               <div className="flex flex-row justify-center gap-5 pt-4">
-                <button className="btn btn-secondary hover flex-1" onClick={() => close()}>
-                  Cancel
-                </button>
-                <Link to={switchTo} className="flex flex-1">
-                  <button className="btn btn-tertiary hover flex-1">Switch!</button>
+                <div className="btn-wrapper">
+                  <button
+                    className="btn btn-secondary hover testing btn-pop-up-warning"
+                    onClick={() => close()}>
+                    Cancel
+                  </button>
+                </div>
+
+                <Link to={switchTo} className="link-wrapper">
+                  <button className="btn btn-tertiary hover btn-pop-up-warning">Switch!</button>
                 </Link>
               </div>
             </div>

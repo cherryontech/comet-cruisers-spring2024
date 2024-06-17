@@ -13,14 +13,14 @@ import Tutorial from '../js/Tutorial.js';
 
 const Home = () => {
   return (
-    <main>
+    <main className="lg:mb-2 mb-5">
       <div>
         <header className="header">
-          <nav className="fixed bg-[#FFD3B3] rounded-lg lg:hidden">
-            <a href="#todo" className="m-3 hover:text-custom-teal-base hover:underline">
+          <nav className="fixed bg-custom-teal-base text-white rounded-lg lg:hidden">
+            <a href="#todo" className="m-3 hover:text-[#FFD3B3] hover:underline">
               To Do
             </a>
-            <a href="#journal" className="m-3 hover:text-custom-teal-base hover:underline">
+            <a href="#journal" className="m-3 hover:text-[#FFD3B3] hover:underline">
               Journal
             </a>
           </nav>
