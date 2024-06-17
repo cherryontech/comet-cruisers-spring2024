@@ -144,11 +144,11 @@ body {
   }
 
   .interactive-container {
-    @apply p-2.5 fixed right-[1vw] top-[1vh] w-32 rounded-lg;
+    @apply p-2.5 lg:fixed right-[1vw] top-[1vh] w-32 rounded-lg;
   }
 
   .textbox {
-    @apply p-2.5 text-center shadow-md fixed bg-custom-yellow right-[10vw] top-[3vh] w-[14vw] rounded-lg;
+    @apply p-2.5 text-center shadow-md lg:fixed bg-custom-yellow lg:right-[10vw] lg:top-[3vh] lg:w-[14vw] rounded-lg;
   }
 
 }
