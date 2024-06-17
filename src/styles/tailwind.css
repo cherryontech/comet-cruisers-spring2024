@@ -157,6 +157,10 @@ body {
   color: #0E8992
 }
 
+.ql-container{
+  min-height: 40vh;
+}
+
 .content-text * {
   overflow-wrap: break-word;
 }
