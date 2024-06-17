@@ -57,7 +57,7 @@ body {
   }
 
   .btn-pop-up-warning{
-    @apply  lg:w-40 w-32 lg:flex-1 flex-none;
+    @apply  lg:w-[15rem] w-32 lg:flex-1 flex-none;
   }
 
   .btn-primary {
