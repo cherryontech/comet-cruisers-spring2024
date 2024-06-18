@@ -8,7 +8,7 @@ const prompts = [
   'Write a message to your future self about your hopes, dreams, and intentions.',
   'Who or what could support you the most right now?',
   'Make a list of things, people, and activities that make you happy.',
-  'What or who is causing the most stress / anxiety right now?',
+  'What or who is causing the most stress/anxiety right now?',
   'What are you feeling right now? Take some time to reflect on your current emotions.',
   'Write a letter to yourself expressing kindness and encouragement.',
   'What would you do if you had more energy each day?',
@@ -44,10 +44,14 @@ const GeneratePrompt = () => {
 
   return (
     <div>
-      <div className="prompt-container">
+      <div className="prompt-container justify-between">
         <p className="prompt">{prompts[curPrompt]}</p>
-        <button type="button" title="randomize prompt" onClick={handleClick}>
-          <FaShuffle className="shuffle-icon hover" />
+        <button
+          type="button"
+          title="randomize prompt"
+          onClick={handleClick}
+          className="shuffle-button">
+          <FaShuffle className="shuffle-icon" />
         </button>
       </div>
       <p className="subheading">Let&apos;s respond to today&apos;s prompt.</p>

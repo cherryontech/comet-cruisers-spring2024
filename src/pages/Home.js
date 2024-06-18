@@ -6,53 +6,70 @@ import { IoMdClose } from 'react-icons/io';
 import 'reactjs-popup/dist/index.css';
 import DisplayJournal from '../js/displayEntries.js';
 import logo from '../assets/Logo-Sun.png';
+import light_bulb from '../assets/LightBulb.svg';
+import pencil from '../assets/Pencil.svg';
 import GenerateMessage from '../js/botPrompt.js';
-import Tutorial from '../js/Tutorial';
+import Tutorial from '../js/Tutorial.js';
 
 const Home = () => {
-  const displayMascot = () => {
-    return <GenerateMessage />;
-  };
-
   return (
-    <main>
-      <div>
-        <header className="header">
-          <img src={logo} alt="Logo" className="m-auto w-48" />
-        </header>
-      </div>
+    <main className="lg:mb-2 mb-5 ">
+      <header className="header">
+        <nav className="fixed bg-custom-teal-base text-white rounded-lg lg:hidden border-[1px] border-[#FFD3B3]">
+          <a href="#todo" className="m-3 hover:text-[#FFD3B3] hover:underline">
+            To Do
+          </a>
+          <a href="#journal" className="m-3 hover:text-[#FFD3B3] hover:underline">
+            Journal
+          </a>
+        </nav>
+        <img src={logo} alt="Logo" className="m-auto w-48" />
+        <GenerateMessage id="mascot-container" />
+      </header>
+
       <Tutorial />
-      <div className="dashboard-grid">
-        <div className="col-span-3">
+      <div className="lg:dashboard-grid">
+        <div className="col-span-3 my-3 mx-5">
           <h1 className="text-3xl font-bold">Welcome!</h1>
           <header>Take a look at your scrapbook.</header>
         </div>
         <Todo />
         <div className="display-journal">
           <DisplayJournal />
-          <div className="btn-container">
+          <div className="flex justify-end">
             <Popup
-              contentStyle={{ backgroundColor: '#F6EFDE', borderColor: '#E36527' }}
+              contentStyle={{
+                backgroundColor: '#F6EFDE',
+                borderColor: '#E36527',
+                minWidth: '300px'
+              }}
               trigger={
-                <button className="tutorial-new-entry btn btn-primary hover">New Entry</button>
+                <button className="tutorial-new-entry btn btn-primary hover mr-5">New Entry</button>
               }
               modal
               nested>
               {(close) => (
                 <div className="modal p-4">
-                  <div className="content flex flex-row">
-                    Choose
+                  <div className="content flex flex-row justify-between items-start">
+                    <h1 className="text-xl font-semibold">How would you like to journal today?</h1>
                     <button className="grow" onClick={() => close()}>
                       <IoMdClose className="float-right" />
                     </button>
                   </div>
-                  <div className="flex flex-row gap-3 mt-4">
-                    <button className="flex-1">
-                      <Link to="/free-journal">Free Write</Link>
-                    </button>
-                    <button className="flex-1">
-                      <Link to="/prompt-journal">Random Prompt</Link>
-                    </button>
+                  <p>Pick your journaling activity for today.</p>
+                  <div className="flex flex-row center gap-3 mt-4">
+                    <Link to="/free-journal" className="flex flex-1">
+                      <button className="popup-btn hover">
+                        <img src={pencil} alt="Free Write Icon" className="w-32 h-32" />
+                        Free Write
+                      </button>
+                    </Link>
+                    <Link to="/prompt-journal" className="flex flex-1">
+                      <button className="popup-btn hover">
+                        <img src={light_bulb} alt="Prompt Icon" className="w-32 h-32" />
+                        Random Prompt
+                      </button>
+                    </Link>
                   </div>
                 </div>
               )}
@@ -60,8 +77,6 @@ const Home = () => {
           </div>
         </div>
       </div>
-      {displayMascot()}
-      <footer>Comet Cruisers Spring 2024</footer>
     </main>
   );
 };

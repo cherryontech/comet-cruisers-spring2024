@@ -145,9 +145,9 @@ const GenerateMessage = () => {
   };
 
   return (
-    <div className="container">
+    <div className="container flex">
       <div className="interactive-container hover:animate-none">
-        <button onClick={handleClick} style={{ border: 'none', background: 'none', padding: '0' }}>
+        <button onClick={handleClick} className="mascot ">
           <img
             src={star}
             alt="Starfish"
@@ -156,7 +156,9 @@ const GenerateMessage = () => {
           />
         </button>
       </div>
-      <div className="textbox">{randomMessage}</div>
+      <div className="textbox max-h-[25vh] max-w-[50vw] testing  sdfsajlfkjasstuff">
+        {randomMessage}
+      </div>
     </div>
   );
 };

@@ -46,7 +46,7 @@ const Tasks = ({ listsState, setListsState, list }) => {
                   {...provided.draggableProps}
                   {...provided.dragHandleProps}
                   title={task.task_name}
-                  className="task-wrapper mr-0 hover:border-custom-burnt-orange border-[1px]">
+                  className="task-wrapper hover:border-custom-burnt-orange border-[1px]">
                   <input
                     className="task-check"
                     type="checkbox"
@@ -57,7 +57,7 @@ const Tasks = ({ listsState, setListsState, list }) => {
                       onTaskChange(event, list.list_id, task.task_id);
                     }}></input>
                   <input
-                    className="task-name bg-custom-yellow pl-2 placeholder:text-custom-teal-base min-w-[215px]"
+                    className="task-name bg-custom-yellow pl-2 placeholder:text-custom-teal-base s:min-w-[210px]"
                     type="text"
                     name="task_name"
                     value={task.task_name}
@@ -66,7 +66,7 @@ const Tasks = ({ listsState, setListsState, list }) => {
                       onTaskChange(event, list.list_id, task.task_id);
                     }}></input>
                   <button
-                    className="float-right mt-1 mr-2"
+                    className="float-right mr-2"
                     title="delete task"
                     onClick={() => {
                       deleteTask(list.list_id, task.task_id);

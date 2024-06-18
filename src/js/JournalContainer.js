@@ -34,7 +34,7 @@ const GenerateSubHeader = () => {
   );
 };
 
-const JournalTextEntry = ({ setHasChanges }) => {
+const JournalTextEntry = ({ hasChanges, setHasChanges }) => {
   let journalType = window.location.pathname;
   let storedJournalEntries = JSON.parse(localStorage.getItem('journalEntry'));
   let journalEntries = storedJournalEntries ? storedJournalEntries : [];
@@ -117,15 +117,18 @@ const JournalTextEntry = ({ setHasChanges }) => {
         <input
           type="text"
           value={title}
+          title={title}
           onChange={handleTitleChange}
           placeholder="Enter Title of this Journal Entry..."
           className="title-input"
         />
         <ReactQuill theme="snow" value={value} onChange={setValue} />
-        <div className="btn-container">
-          <SwitchJournalType />
-          <ClearButton clearButton={clearButton} />
-          <SaveButton saveEntry={saveEntry} disabled={!value || !title} />
+        <div className="btn-container md:flex-none flex">
+          <SwitchJournalType changes={hasChanges} />
+          <div className="sm:space-x-2.5 space-x-0 space-y-1.5 ml-[25px]">
+            <ClearButton clearButton={clearButton} />
+            <SaveButton saveEntry={saveEntry} disabled={!value || !title} />
+          </div>
         </div>
       </div>
     </>
@@ -136,10 +139,10 @@ const JournalContainer = () => {
   const [hasChangesState, setHasChanges] = useState(false);
   return (
     <div className="journal-container">
-      <div className="journal-entry">
+      <div className="journal-entry lg:m-auto m-8">
         {hasChangesState ? (
           <Popup
-            contentStyle={{ backgroundColor: '#F6EFDE', borderColor: '#E36527' }}
+            contentStyle={{ backgroundColor: '#F6EFDE', borderColor: '#E36527', minWidth: '300px' }}
             trigger={
               <button title="go back">
                 <IoMdArrowBack className="absolute top-3 start-3 w-10 h-10 hover" />
@@ -148,16 +151,19 @@ const JournalContainer = () => {
             modal
             nested>
             {(close) => (
-              <div className="modal">
-                <h1>Unsaved Changes</h1>
+              <div className="modal p-4">
+                <h1 className="text-2xl font-semibold">Unsaved Changes</h1>
                 <p>Looks like you didn&apos;t save.</p>
-                <br />
-                <div className="btn-container">
-                  <button className="btn btn-secondary" onClick={() => close()}>
-                    Cancel
-                  </button>
-                  <Link to="/">
-                    <button className="btn btn-tertiary">Discard</button>
+                <div className="flex flex-row justify-center gap-5 pt-4">
+                  <div className="btn-wrapper">
+                    <button
+                      className="btn btn-secondary btn-pop-up-warning hover "
+                      onClick={() => close()}>
+                      Cancel
+                    </button>
+                  </div>
+                  <Link to="/" className="link-wrapper ">
+                    <button className="btn btn-tertiary hover btn-pop-up-warning">Discard</button>
                   </Link>
                 </div>
               </div>

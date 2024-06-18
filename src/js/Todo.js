@@ -126,15 +126,15 @@ const Todo = () => {
   };
 
   return (
-    <div className="todo-list todolist-area">
-      <p className="todo-main-title bg-custom-burnt-orange text-white text-center max-w-[200px] min-h-[40px] text-2xl p-2 m-5">
+    <div id="todo" className="todo-list todolist-area">
+      <p className="todo-main-title text-white text-center max-w-[200px] min-h-[40px] text-2xl p-2 m-5">
         To Do
       </p>
 
       <DragDropContext onDragEnd={onDragEnd}>
         <StrictModeDroppable droppableId="dropListId" type="droppableList">
           {(provided) => (
-            <div {...provided.droppableProps} ref={provided.innerRef}>
+            <div {...provided.droppableProps} ref={provided.innerRef} className="todo-list-wrapper">
               {listsState.lists.map((list, index) => (
                 <Draggable key={list.list_id} draggableId={list.list_id} index={index}>
                   {(provided) => (

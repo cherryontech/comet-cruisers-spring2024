@@ -17,6 +17,13 @@ body {
   background-attachment: fixed;
 }
 
+.journal-banner, .todo-main-title {
+  background-image: url('../assets/OrangeTape.svg');
+  background-size: cover;
+  background-overflow: visible;
+  background-repeat: no-repeat;
+}
+
 .quill {
   background-color: white;
 }
@@ -49,6 +56,10 @@ body {
     @apply text-lg rounded-full w-40 h-8;
   }
 
+  .btn-pop-up-warning{
+    @apply  lg:w-[15rem] w-32 lg:flex-1 flex-none;
+  }
+
   .btn-primary {
     @apply bg-custom-teal-base text-white;
   }
@@ -62,27 +73,27 @@ body {
   }
 
   .btn-container {
-    @apply flex justify-end space-x-2.5;
+    @apply flex justify-between;
   }
 
   .shuffle-icon {
     @apply text-custom-teal-base bg-transparent h-7 w-7;
   }
 
-  .switch-btn {
-    @apply text-custom-teal-dark w-7 h-7;
-  }
-
   .card, .popup-content {
     @apply bg-custom-cream rounded-3xl border border-solid border-custom-burnt-orange;
   }
 
+  .popup-btn {
+    @apply flex flex-col flex-1 shadow-md bg-custom-apricot rounded-3xl border border-solid border-custom-burnt-orange items-center p-5 gap-y-3;
+  }
+
   .dashboard-grid {
-    @apply grid grid-cols-8 grid-flow-row auto-rows-max m-10;
+    @apply grid grid-cols-7 grid-flow-row auto-rows-max m-10;
   }
 
   .display-journal {
-    @apply grid-cols-subgrid col-start-5 col-span-4 row-span-4 space-y-2;
+    @apply grid-cols-subgrid col-start-4 col-span-4 row-span-4 space-y-2;
   }
 
   .todo-list {
@@ -94,27 +105,30 @@ body {
   }
 
   .journal-entry {
-    @apply w-4/5 p-16 mx-auto;
+    @apply w-4/5 md:p-[10px] lg:p-[30px] md:mx-auto;
   }
 
   .text-entry {
-    @apply shadow-md p-10 space-y-2.5;
+    @apply shadow-md p-2 lg:p-10 space-y-2.5;
   }
 
   .prompt {
-    @apply text-3xl font-semibold;
+    @apply lg:text-3xl text-xl font-semibold;
   }
 
   .prompt-container {
-    @apply flex flex-row space-x-2;
+    @apply flex items-center justify-between;
+  }
+  .shuffle-button {
+    @apply ml-auto;
   }
 
   .subheading {
-    @apply text-xl;
+    @apply lg:text-xl text-lg;
   }
 
   .title-input {
-    @apply bg-custom-cream block text-2xl w-full p-1;
+    @apply bg-custom-cream block lg:text-2xl text-lg w-full p-1;
   }
 
   .list-wrapper {
@@ -122,7 +136,7 @@ body {
   }
 
   .task-wrapper{
-    @apply min-w-[320px] m-2 p-2 border-custom-yellow rounded-lg bg-custom-yellow;
+    @apply md:max-w-[320px] m-2 p-2 border-custom-yellow rounded-lg bg-custom-yellow;
   }
 
   .container {
@@ -130,17 +144,21 @@ body {
   }
 
   .interactive-container {
-    @apply p-2.5 fixed left-[1vw] bottom-[1vh] w-[12vw] rounded-lg;
+    @apply p-2.5 lg:fixed right-[1vw] top-[1vh] w-32 rounded-lg;
   }
 
   .textbox {
-    @apply p-2.5 text-center shadow-md fixed bg-custom-yellow left-[13vw] bottom-[8vh] w-[12vw] rounded-lg;
+    @apply p-2.5 text-center shadow-md lg:fixed bg-custom-yellow lg:right-[10vw] lg:top-[3vh] lg:w-[14vw] rounded-lg;
   }
 
 }
 
 .Collapsible__trigger{
   color: #0E8992
+}
+
+.ql-container{
+  min-height: 40vh;
 }
 
 .content-text * {
@@ -163,12 +181,3 @@ body {
 .interactive-container {
   animation: wiggle 2.5s infinite;
 }
-
-/* using media queries for control */
-@media (max-width: 768px) {
-  .interactive-container, .textbox {
-    width: 30vw;
-    left: 10vw;
-  }
-}
-/* end mascot css */
