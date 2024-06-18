@@ -56,8 +56,8 @@ body {
     @apply text-lg rounded-full w-40 h-8;
   }
 
-  .btn-pop-up{
-    @apply  md:w-40 w-32 lg:flex-1 flex-none;
+  .btn-pop-up-warning{
+    @apply  lg:w-[15rem] w-32 lg:flex-1 flex-none;
   }
 
   .btn-primary {
@@ -113,7 +113,7 @@ body {
   }
 
   .prompt {
-    @apply text-3xl font-semibold;
+    @apply lg:text-3xl text-xl font-semibold;
   }
 
   .prompt-container {
@@ -128,7 +128,7 @@ body {
   }
 
   .title-input {
-    @apply bg-custom-cream block text-2xl w-full p-1;
+    @apply bg-custom-cream block lg:text-2xl text-lg w-full p-1;
   }
 
   .list-wrapper {
@@ -144,17 +144,21 @@ body {
   }
 
   .interactive-container {
-    @apply p-2.5 fixed right-[1vw] top-[1vh] w-32 rounded-lg;
+    @apply p-2.5 lg:fixed right-[1vw] top-[1vh] w-32 rounded-lg;
   }
 
   .textbox {
-    @apply p-2.5 text-center shadow-md fixed bg-custom-yellow right-[10vw] top-[3vh] w-[14vw] rounded-lg;
+    @apply p-2.5 text-center shadow-md lg:fixed bg-custom-yellow lg:right-[10vw] lg:top-[3vh] lg:w-[14vw] rounded-lg;
   }
 
 }
 
 .Collapsible__trigger{
   color: #0E8992
+}
+
+.ql-container{
+  min-height: 40vh;
 }
 
 .content-text * {

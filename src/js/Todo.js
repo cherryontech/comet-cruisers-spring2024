@@ -134,7 +134,7 @@ const Todo = () => {
       <DragDropContext onDragEnd={onDragEnd}>
         <StrictModeDroppable droppableId="dropListId" type="droppableList">
           {(provided) => (
-            <div {...provided.droppableProps} ref={provided.innerRef}>
+            <div {...provided.droppableProps} ref={provided.innerRef} className="todo-list-wrapper">
               {listsState.lists.map((list, index) => (
                 <Draggable key={list.list_id} draggableId={list.list_id} index={index}>
                   {(provided) => (
