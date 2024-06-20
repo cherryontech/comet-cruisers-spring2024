@@ -156,7 +156,7 @@ const GenerateMessage = () => {
           />
         </button>
       </div>
-      <div className="textbox max-h-[25vh] max-w-[50vw] testing  sdfsajlfkjasstuff">
+      <div className="textbox max-h-[25vh] max-w-[55vw] ml-[10px] place-content-center ">
         {randomMessage}
       </div>
     </div>

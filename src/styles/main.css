@@ -858,6 +858,9 @@ body{
 .ml-8{
   margin-left: 2rem;
 }
+.ml-\[10px\]{
+  margin-left: 10px;
+}
 .ml-\[25px\]{
   margin-left: 25px;
 }
@@ -942,8 +945,8 @@ body{
 .max-w-\[200px\]{
   max-width: 200px;
 }
-.max-w-\[50vw\]{
-  max-width: 50vw;
+.max-w-\[55vw\]{
+  max-width: 55vw;
 }
 .flex-1{
   flex: 1 1 0%;
@@ -959,6 +962,9 @@ body{
 }
 .flex-wrap{
   flex-wrap: wrap;
+}
+.place-content-center{
+  place-content: center;
 }
 .items-start{
   align-items: flex-start;
